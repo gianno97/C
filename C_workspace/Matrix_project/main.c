@@ -4,8 +4,9 @@
 
 int main(void)
 {
-    int ordine_uno, ordine_due, determinante;
+    int ordine_uno, ordine_due;
     int contatore = 0;
+    int determinante = 0;
     
     /*Prima matrice quadrata*/
     /*Prendiamo la grandezza della matrice da tastiera*/
@@ -32,37 +33,10 @@ int main(void)
         determinante = matrice_uno[0][0] * matrice_uno[1][1] - matrice_uno[0][1] * matrice_uno[1][0];
     }
     else
-    {
-        for(int i = 0; i < ordine_uno; i++)
+    {        
+        for(int j = 0; j < ordine_uno; j++)
         {
-            for(int j = 0; j < ordine_uno; j++)
-            {
-                if(matrice_uno[i][j] == 0)
-                {
-                    contatore++;
-                } 
-            }
-            if(contatore == ordine_uno)
-            {
-                determinante = 0;
-                break;
-            }
-            else if(contatore == (ordine_uno - 1))
-            {
-                for(int a = j; a < ordine_uno; a++)
-                {
-                    if(matrice_uno[i][a] != 0)
-                    {
-                        matrice_uno[i][a] * 
-                    }
-                }
-                break;
-            }
-        }
-        
-        if(contatore == ordine_uno || contatore == (ordine_uno - 1))
-        {
-            
+            determinante += matrice_uno[0][j] * power(-1, j) * riduzione_matrice(matrice_uno);
         }
     }
     
@@ -75,30 +49,105 @@ int main(void)
         }
         printf("\n");
     }
-    
-    /*Seconda matrice quadrata*/
-    printf("Digita l'ordine della seconda matrice quadrata: ");
-    scanf("%d", &ordine_due);
-    
-    int matrice_due[ordine_due][ordine_due];
-    
-    for(int i = 0; i < ordine_due; i++)
-    {
-        for(int j = 0; j < ordine_due; j++)
-        {
-            matrice_due[i][j] = j * 2; 
-        }
-    }
-    
-    for(int i = 0; i < ordine_due; i++)
-    {
-        for(int j = 0; j < ordine_due; j++)
-        {
-            printf("%d ", matrice_due[i][j]);
-        }
-        printf("\n");
-    }
 }
+
+int power(int base, unsigned int exp)
+{
+    int result = 1;
+    for (int i = 0; i < exp; i++)
+        result *= base;
+    return result;
+}
+
+int calcolo_determinante(int ordine_uno, int matrice_uno, int matrice_ridotta)
+{
+    /*Calcoliamo il determinante della matrice*/
+    if(ordine_uno == 1)
+        determinante = ordine_uno;
+    else if(ordine_uno == 2)
+    {
+        determinante = matrice_uno[0][0] * matrice_uno[1][1] - matrice_uno[0][1] * matrice_uno[1][0];
+    }
+    else
+    {        
+        for(int j = 0; j < ordine_uno; j++)
+        {
+            determinante += matrice_uno[0][j] * power(-1, j) * calcolo_determinante(ordine_uno, matrice_uno, riduzione_matrice(matrice_uno));
+        }
+    }
+    
+    return determinante;
+}
+
+int **riduzione_matrice(int matrice_uno)
+{
+    /*Definizione di una matrice locale in cui copiare i valori della matrice principale*/
+    int matrice_copia[ordine_uno][ordine_uno];
+    int **matrice_ridotta;
+    int ordine_ridotto = ordine_uno - 1;
+    matrice_ridotta = malloc(sizeof(int*) * ordine_ridotto);
+    
+    for(int k = 0; k < ordine_ridotto; k++)
+    {
+        matrice_ridotta[k] = malloc(sizeof(int*) * ordine_ridotto);
+    }
+    
+    /*Copio i valori della matrice principale nella matrice copia escludendo tutti i valori*/
+    /*che fanno parte della prima riga o della prima colonna*/
+    /*
+    for(int i = 0; i < ordine_uno; i++)
+    {
+        for(int j = 0; j < ordine_uno; j++)
+        {
+            if(matrice_uno[i][j] == matrice_uno[0][j] || matrice_uno[i][j] == matrice_uno[i][0])
+                matrice_copia[i][j] = -1;
+            else
+                matrice_copia[i][j] = matrice_uno[i][j];
+        }
+    }*/
+    
+    /*Inserisco tutti i valori diversi da -1 in una matrice ridotta*/
+    for(int i = 1; i < ordine_ridotto; i++)
+    {
+        for(int j = 1; j < ordine_ridotto; j++)
+        {
+            matrice_ridotta[i - 1][j - 1] = matrice_uno[i][j];
+        }
+    }
+    
+    return matrice_ridotta;
+}
+
+/* NON È POSSIBILE FARE IL RETURN DI UN ARRAY IN C*/
+/*
+int riduzione_matrice(int matrice_uno)
+{
+    int matrice_ridotta[ordine_uno - 1][ordine_uno - 1];
+    
+    for(int i = 0; i < ordine_uno; i++)
+    {
+        for(int j = 0; j < ordine_uno; j++)
+        {
+            if(matrice_uno[i][j] == matrice_uno[0][j] || matrice_uno[i][j] == matrice_uno[i][0])
+            {
+                matrice_uno[i][j] = -1;
+            }
+        }
+    }
+    
+    for(int i = 0; i < ordine_uno; i++)
+    {
+        for(int j = 0; j < ordine_uno; j++)
+        {
+            if(matrice_uno[i][j] == -1)
+            {
+                matrice_ridotta[i][j] = matrice_uno[i][j];
+            }
+        }
+    }
+    
+    return matrice_ridotta;
+}*/
 
 
 /*#include <stdio.h> 
