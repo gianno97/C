@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int controllo_zeri(int **matrice_uno, int ordine_uno, char *riga_colonna);
-int calcolo_determinante(int ordine_uno, int **matrice_uno, int risultato, char riga_colonna);
-int **riduzione_matrice(int **matrice_uno, int ordine_uno, int riga, int colonna);
+int controllo_zeri(int **matrice_uno, int *ordine_uno, char *riga_colonna);
+int calcolo_determinante(int **matrice_uno, int *ordine_uno, int risultato, char riga_colonna);
+int **riduzione_matrice(int **matrice_uno, int *ordine_uno, int riga, int colonna);
 
 int main(void)
 {
@@ -48,8 +48,8 @@ int main(void)
     }
     else
     {
-        risultato = controllo_zeri(matrice_uno, ordine_uno, &riga_colonna);
-        determinante = calcolo_determinante(ordine_uno, matrice_uno, risultato, riga_colonna);
+        risultato = controllo_zeri(matrice_uno, &ordine_uno, &riga_colonna);
+        determinante = calcolo_determinante(matrice_uno, &ordine_uno, risultato, riga_colonna);
     }
     
     /*Stampiamo la matrice*/
@@ -77,7 +77,7 @@ int power(int base, unsigned int exp)
 }
 
 
-int controllo_zeri(int **matrice_uno, int ordine_uno, char *riga_colonna)
+int controllo_zeri(int **matrice_uno, int *ordine_uno, char *riga_colonna)
 {
     int conta_zeri = 0;
     int max_zeri_riga = 0;
@@ -138,7 +138,7 @@ int controllo_zeri(int **matrice_uno, int ordine_uno, char *riga_colonna)
 }
 
 
-int calcolo_determinante(int ordine_uno, int **matrice_uno, int risultato, char riga_colonna)
+int calcolo_determinante(int **matrice_uno, int *ordine_uno, int risultato, char riga_colonna)
 {
     int determinante = 0;
     
@@ -170,7 +170,7 @@ int calcolo_determinante(int ordine_uno, int **matrice_uno, int risultato, char 
 
 
 
-int **riduzione_matrice(int **matrice_uno, int ordine_uno, int riga, int colonna)
+int **riduzione_matrice(int **matrice_uno, int *ordine_uno, int riga, int colonna)
 {
     int matrice_copia[ordine_uno][ordine_uno];
     int **matrice_ridotta;
@@ -213,5 +213,6 @@ int **riduzione_matrice(int **matrice_uno, int ordine_uno, int riga, int colonna
             }
         }
     }
+    ordine_uno = ordine_uno - 1;
     return matrice_ridotta;
 }
