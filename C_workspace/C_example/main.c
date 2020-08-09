@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 int determinant(int **matrice_uno, int ordine_uno);
+void matrice_inversa(int determinante, int **matrice_uno, int ordine_uno);
 
 int main(void)
 {
@@ -38,15 +39,21 @@ int main(void)
     
     d = determinant(matrice_uno, ordine_uno);
     printf("Determinant is %d\n", d);
-    /*getch();*/
     
+    if(d != 0)
+        if(ordine_uno == 1)
+            printf("La matrice inversa della prima matrice quadrata e': %d\n", matrice_uno[0][0]);
+        else
+            matrice_inversa(d, matrice_uno, ordine_uno);
+    else
+        printf("Il determinante della prima matrice quadrata e' nullo, quindi non esiste la matrice inversa\n");
+        
     return 0;
 }
 
 int determinant(int **matrice_uno, int ordine_uno)
 {
     int det, c, i, j, m, n;
-    //int b[10][10];
     int **b;
     int s = 1;
     
@@ -90,4 +97,76 @@ int determinant(int **matrice_uno, int ordine_uno)
         }
     }
     return det;
+}
+
+void matrice_inversa(int determinante, int **matrice_uno, int ordine_uno)
+{
+    int s = 1;
+    int m = 0;
+    int n = 0;
+    int y = 0;
+    int u = 0;
+    int **matrice_ridotta;
+    int **matrice_trasposta;
+    int cofattore;
+    
+    /*Allochiamo la matrice_ridotta e la matrice trasposta*/
+    matrice_ridotta = malloc(sizeof(int*) * (ordine_uno - 1));
+    for(int f = 0; f < (ordine_uno - 1); f++)
+    {
+        matrice_ridotta[f] = malloc(sizeof(int*) * (ordine_uno - 1));
+    }
+    
+    matrice_trasposta = malloc(sizeof(int*) * ordine_uno);
+    for(int p = 0; p < ordine_uno; p++)
+    {
+        matrice_trasposta[p] = malloc(sizeof(int*) * ordine_uno);
+    }
+    
+    for(int g = 0; g < ordine_uno; g++)
+    {
+        for(int h = 0; h < ordine_uno; h++)
+        {
+            for(int a = 0; a < ordine_uno; a++)
+            {
+                for(int b = 0; b < ordine_uno; b++)
+                {
+                    //if((matrice_uno[a][b] != matrice_uno[g][b]) || (matrice_uno[a][b] != matrice_uno[a][h]))
+                    if(a != g && b != h)
+                    {
+                        matrice_ridotta[m][n] = matrice_uno[a][b];
+                        if(n < (ordine_uno - 2))
+                            n++;
+                        else
+                        {
+                            n = 0;
+                            m++;
+                        }
+                    }
+                }
+            }
+            m = 0;
+            n = 0;
+            cofattore = s * determinant(matrice_ridotta, ordine_uno - 1);
+            s = -1 * s;
+        
+            matrice_trasposta[y][u] = cofattore;
+            if(y < ordine_uno - 1)
+                y++;
+            else
+            {
+                y = 0;
+                u++;
+            }
+        }
+    }
+    
+    for(int z = 0; z < ordine_uno; z++)
+    {
+        for(int x = 0; x < ordine_uno; x++)
+        {
+            printf("%d\t", matrice_trasposta[z][x]);
+        }
+        printf("\n");
+    }
 }
