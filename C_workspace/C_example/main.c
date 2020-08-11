@@ -7,8 +7,6 @@ void matrice_inversa(int determinante, int **matrice_uno, int ordine_uno);
 int main(void)
 {
     int d, i, j;
-    //int k;
-    //int a[10][10];
     int **matrice_uno;
     int ordine_uno;
     
@@ -24,12 +22,6 @@ int main(void)
     {
         matrice_uno[q] = malloc(sizeof(int*) * ordine_uno);
     }
-    
-/*    printf("Enter order of matrix: ");
-    scanf("%d", &k);
-    
-    if(k > 10)
-        exit(0);*/
     
     printf("Enter the value for a matrix of order %d\n", ordine_uno);
     
@@ -131,7 +123,6 @@ void matrice_inversa(int determinante, int **matrice_uno, int ordine_uno)
             {
                 for(int b = 0; b < ordine_uno; b++)
                 {
-                    //if((matrice_uno[a][b] != matrice_uno[g][b]) || (matrice_uno[a][b] != matrice_uno[a][h]))
                     if(a != g && b != h)
                     {
                         matrice_ridotta[m][n] = matrice_uno[a][b];
@@ -148,7 +139,6 @@ void matrice_inversa(int determinante, int **matrice_uno, int ordine_uno)
             m = 0;
             n = 0;
             cofattore = s * determinant(matrice_ridotta, ordine_uno - 1);
-            //cofattore = -1 * determinant(matrice_ridotta, ordine_uno - 1);
             s = -1 * s;
             
             if(ordine_uno % 2 == 0)
