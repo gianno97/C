@@ -148,7 +148,16 @@ void matrice_inversa(int determinante, int **matrice_uno, int ordine_uno)
             m = 0;
             n = 0;
             cofattore = s * determinant(matrice_ridotta, ordine_uno - 1);
+            //cofattore = -1 * determinant(matrice_ridotta, ordine_uno - 1);
             s = -1 * s;
+            
+            if(ordine_uno % 2 == 0)
+            {
+                if(u % 2 == 1)
+                {
+                    cofattore = -1 * cofattore;
+                }
+            }
         
             matrice_trasposta[y][u] = cofattore;
             if(y < ordine_uno - 1)
