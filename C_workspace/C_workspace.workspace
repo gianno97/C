@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="C_workspace" Database="" Version="10000">
   <Project Name="Matrix_project" Path="Matrix_project/Matrix_project.project" Active="No"/>
-  <Project Name="C_example" Path="C_example/C_example.project" Active="Yes"/>
+  <Project Name="C_example" Path="C_example/C_example.project" Active="No"/>
+  <Project Name="Progetto_algoritmi" Path="Progetto_algoritmi/Progetto_algoritmi.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
       <Project Name="Matrix_project" ConfigName="Debug"/>
       <Project Name="C_example" ConfigName="Debug"/>
+      <Project Name="Progetto_algoritmi" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
       <Project Name="Matrix_project" ConfigName="Release"/>
       <Project Name="C_example" ConfigName="Release"/>
+      <Project Name="Progetto_algoritmi" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
