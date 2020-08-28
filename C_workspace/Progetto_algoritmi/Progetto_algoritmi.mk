@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Fabio2
-Date                   :=12/08/2020
+Date                   :=28/08/2020
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.c$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/parse_graph_from_file.c$(ObjectSuffix) 
 
 
 
@@ -93,11 +93,11 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/main.c$(ObjectSuffix): main.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.c$(ObjectSuffix) -MF$(IntermediateDirectory)/main.c$(DependSuffix) -MM main.c
-	$(CC) $(SourceSwitch) "E:/C/C_workspace/Progetto_algoritmi/main.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/main.c$(PreprocessSuffix): main.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.c$(PreprocessSuffix) main.c
+$(IntermediateDirectory)/parse_graph_from_file.c$(ObjectSuffix): parse_graph_from_file.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/parse_graph_from_file.c$(ObjectSuffix) -MF$(IntermediateDirectory)/parse_graph_from_file.c$(DependSuffix) -MM parse_graph_from_file.c
+	$(CC) $(SourceSwitch) "E:/C/C_workspace/Progetto_algoritmi/parse_graph_from_file.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/parse_graph_from_file.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/parse_graph_from_file.c$(PreprocessSuffix): parse_graph_from_file.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/parse_graph_from_file.c$(PreprocessSuffix) parse_graph_from_file.c
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
