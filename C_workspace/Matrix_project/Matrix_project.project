@@ -93,6 +93,13 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="../../../Algoritmi/Nuova cartella/Laboratorio/Grafi/Dijkstra/dijkstra.c"/>
+    <File Name="../../../Algoritmi/Nuova cartella/Laboratorio/Grafi/grafo_liste_ad_prova.c"/>
+    <File Name="../../../Algoritmi/Nuova cartella/Laboratorio/Grafi/grafo.c"/>
+    <File Name="../../../Algoritmi/Nuova cartella/Laboratorio/Contapassi/contapassi.c"/>
+    <File Name="../../../Algoritmi/Nuova cartella/ASD/Dijkstra.c"/>
     <File Name="main.c"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
 </CodeLite_Project>
