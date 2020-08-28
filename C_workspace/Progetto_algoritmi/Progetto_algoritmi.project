@@ -93,6 +93,9 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
-    <File Name="main.c"/>
+    <File Name="graph.txt"/>
+    <File Name="parse_graph_from_file.c"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
 </CodeLite_Project>
