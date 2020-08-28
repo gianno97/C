@@ -9,12 +9,14 @@
       <Project Name="Matrix_project" ConfigName="Debug"/>
       <Project Name="C_example" ConfigName="Debug"/>
       <Project Name="Progetto_algoritmi" ConfigName="Debug"/>
+      <Project Name="stazioni" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
       <Project Name="Matrix_project" ConfigName="Release"/>
       <Project Name="C_example" ConfigName="Release"/>
       <Project Name="Progetto_algoritmi" ConfigName="Release"/>
+      <Project Name="stazioni" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
