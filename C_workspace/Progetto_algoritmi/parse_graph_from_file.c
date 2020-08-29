@@ -36,7 +36,7 @@ typedef struct arco_grafo
 typedef struct elem_lista {
     vertice_grafo_t *valore;
     struct elem_lista *succ_p;
-} elem_lista_t;
+} elem_lista_vertici_t;
 
 
 /*
@@ -46,6 +46,13 @@ typedef struct elem_lista {
 arco_grafo_t *acquisisci_lista(vertice_grafo_t *grafo_p);
 vertice_grafo_t *acquisisci_grafo(int *n, FILE *fp);
 vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p, int valore);
+void avvia_visita_grafo_amp(vertice_grafo_t *grafo_p);
+void visita_grafo_amp(vertice_grafo_t *vertice_partenza_p);
+void avvia_visita_grafo_prof(vertice_grafo_t *grafo_p);
+void visita_grafo_prof(vertice_grafo_t *vertice_p, int *tempo);
+void metti_in_coda(elem_lista_vertici_t **uscita_p, elem_lista_vertici_t **ingresso_p, vertice_grafo_t *valore);
+elem_lista_vertici_t *togli_da_coda(elem_lista_vertici_t **uscita_p, elem_lista_vertici_t **ingresso_p);
+
 
 
 
@@ -82,7 +89,10 @@ int main(int argc, char **argv){
         printf("\n");
     }
     
+    printf("Coda:\n");
+    avvia_visita_grafo_amp(grafo_p);
     
+    printf("\n");
     printf("Traversal of the graph...\n");
     printf(".. and print tree of traversal\n");
     return(0);
@@ -144,4 +154,123 @@ vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p,
          ((elem_p != NULL) && (elem_p->valore != valore));
          elem_p = elem_p->vertice_succ_p);
     return(elem_p);
+}
+
+
+//visita in ampiezza del grafo
+void avvia_visita_grafo_amp(vertice_grafo_t *grafo_p)
+{
+    vertice_grafo_t *vertice_p;
+    int valore = 3;
+    vertice_p = grafo_p;
+    grafo_p->valore = valore;
+    
+    for(vertice_p->valore = grafo_p->valore; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
+    {
+        printf("VALORE: %d", vertice_p->valore);
+        vertice_p->colore = bianco;
+        vertice_p->distanza = -1;
+        vertice_p->padre_p = NULL;
+    }
+    for(vertice_p->valore = grafo_p->valore; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
+        if(vertice_p->colore == bianco)
+        {
+            visita_grafo_amp(vertice_p);
+        }
+}
+
+void visita_grafo_amp(vertice_grafo_t *vertice_partenza_p)
+{
+    vertice_grafo_t *vertice_p;
+    arco_grafo_t *arco_p;
+    elem_lista_vertici_t *uscita_p, *ingresso_p;
+
+    vertice_partenza_p->colore = grigio;
+    vertice_partenza_p->distanza = 0;
+    uscita_p = ingresso_p = NULL;
+    metti_in_coda(&uscita_p, &ingresso_p, vertice_partenza_p);
+    
+    while (uscita_p != NULL)
+    {
+        vertice_p = togli_da_coda(&uscita_p, &ingresso_p)->valore;
+        //elabora(vertice_p->valore);
+        
+        for(arco_p = vertice_p->lista_archi_p; (arco_p != NULL); arco_p = arco_p->arco_succ_p)
+            if(arco_p->vertice_adiac_p->colore == bianco)
+            {
+                arco_p->vertice_adiac_p->colore = grigio;
+                arco_p->vertice_adiac_p->distanza = vertice_p->distanza + 1;
+                arco_p->vertice_adiac_p->padre_p = vertice_p;
+                metti_in_coda(&uscita_p, &ingresso_p, arco_p->vertice_adiac_p);
+            }
+        vertice_p->colore = nero;
+    }
+}
+
+//algoritmi per la coda utilizzata nella visita in ampiezza
+void metti_in_coda(elem_lista_vertici_t **uscita_p, elem_lista_vertici_t **ingresso_p, vertice_grafo_t *valore)
+{
+    elem_lista_vertici_t *nuovo_p;
+    
+    nuovo_p = (elem_lista_vertici_t *)malloc(sizeof(elem_lista_vertici_t));
+    nuovo_p->valore = valore;
+    printf("%d ", nuovo_p->valore->valore);
+    nuovo_p->succ_p = NULL;
+    if(*ingresso_p != NULL)
+        (*ingresso_p)->succ_p = nuovo_p;
+    else
+        *uscita_p = nuovo_p;
+    *ingresso_p = nuovo_p;
+}
+
+elem_lista_vertici_t *togli_da_coda(elem_lista_vertici_t **uscita_p, elem_lista_vertici_t **ingresso_p)
+{
+    elem_lista_vertici_t *elem_p;
+    
+    elem_p = *uscita_p;
+    if (*uscita_p != NULL)
+    {
+        *uscita_p = (*uscita_p)->succ_p;
+        if (*uscita_p == NULL)
+            *ingresso_p = NULL;
+    }
+    return(elem_p);
+}
+
+
+
+
+// visita in profondità del grafo
+void avvia_visita_grafo_prof(vertice_grafo_t *grafo_p)
+{
+    vertice_grafo_t *vertice_p;
+    int tempo;
+    
+    for(vertice_p = grafo_p; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
+    {
+        vertice_p->colore = bianco;
+        vertice_p->inizio = vertice_p->fine = -1;
+        vertice_p->padre_p = NULL;
+    }
+    for(vertice_p = grafo_p, tempo = 0; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
+        if (vertice_p->colore == bianco)
+            visita_grafo_prof(vertice_p, &tempo);
+}
+
+
+void visita_grafo_prof(vertice_grafo_t *vertice_p, int *tempo)
+{
+    arco_grafo_t *arco_p;
+    
+    vertice_p->colore = grigio;
+    vertice_p->inizio = ++(*tempo);
+    //elabora(vertice_p->valore);
+    for(arco_p = vertice_p->lista_archi_p; (arco_p != NULL); arco_p = arco_p->arco_succ_p)
+        if (arco_p->vertice_adiac_p->colore == bianco)
+        {
+            arco_p->vertice_adiac_p->padre_p = vertice_p;
+            visita_grafo_prof(arco_p->vertice_adiac_p, tempo);
+        }
+    vertice_p->colore = nero;
+    vertice_p->fine = ++(*tempo);
 }
