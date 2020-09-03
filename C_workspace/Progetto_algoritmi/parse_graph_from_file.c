@@ -89,12 +89,12 @@ int main(int argc, char **argv){
         printf("\n");
     }*/
     
-    printf("Coda:\n");
+    printf("Visita in ampiezza: ");
     avvia_visita_grafo_amp(grafo_p);
     
     printf("\n");
-    printf("Traversal of the graph...\n");
-    printf(".. and print tree of traversal\n");
+    //printf("Traversal of the graph...\n");
+    //printf(".. and print tree of traversal\n");
     return(0);
 }
 
@@ -161,7 +161,7 @@ vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p,
 void avvia_visita_grafo_amp(vertice_grafo_t *grafo_p)
 {
     vertice_grafo_t *vertice_p;
-    int valore_vertice = 3;
+    int valore_vertice = 5;
     //grafo_p->valore = valore;
     
     for(vertice_p = grafo_p; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
@@ -171,7 +171,6 @@ void avvia_visita_grafo_amp(vertice_grafo_t *grafo_p)
         vertice_p->distanza = -1;
         vertice_p->padre_p = NULL;
     }
-    printf("Grafo:");
     for(vertice_p = grafo_p; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
     {
         //printf("%d ", vertice_p->valore);
@@ -203,6 +202,7 @@ void visita_grafo_amp(vertice_grafo_t *vertice_partenza_p)
     {
         vertice_p = togli_da_coda(&uscita_p, &ingresso_p)->valore;
         //elabora(vertice_p->valore);
+        printf("%d ", vertice_p->valore);
         
         for(arco_p = vertice_p->lista_archi_p; (arco_p != NULL); arco_p = arco_p->arco_succ_p)
             if(arco_p->vertice_adiac_p->colore == bianco)
@@ -223,7 +223,7 @@ void metti_in_coda(elem_lista_vertici_t **uscita_p, elem_lista_vertici_t **ingre
     
     nuovo_p = (elem_lista_vertici_t *)malloc(sizeof(elem_lista_vertici_t));
     nuovo_p->valore = valore;
-    printf("%d ", nuovo_p->valore->valore);
+    //printf("%d ", nuovo_p->valore->valore);
     nuovo_p->succ_p = NULL;
     if(*ingresso_p != NULL)
         (*ingresso_p)->succ_p = nuovo_p;
