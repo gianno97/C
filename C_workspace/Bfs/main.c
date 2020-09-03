@@ -171,7 +171,7 @@ int main() {
   addEdge(graph, 5, 1);
   addEdge(graph, 5, 2);
 
-  bfs(graph, 3);
+  bfs(graph, 5);
 
   return 0;
 }
