@@ -259,6 +259,7 @@ void avvia_visita_grafo_prof(vertice_grafo_t *grafo_p)
 {
     vertice_grafo_t *vertice_p;
     int tempo;
+    int valore_vertice = 5;
     
     for(vertice_p = grafo_p; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
     {
@@ -268,7 +269,8 @@ void avvia_visita_grafo_prof(vertice_grafo_t *grafo_p)
     }
     for(vertice_p = grafo_p, tempo = 0; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
         if (vertice_p->colore == bianco)
-            visita_grafo_prof(vertice_p, &tempo);
+            if(vertice_p->valore == valore_vertice)
+                visita_grafo_prof(vertice_p, &tempo);
 }
 
 
