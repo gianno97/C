@@ -82,12 +82,12 @@ int main(int argc, char **argv){
     printf("... done.\n******************\n");
     printf("Graph with %d vertices\n",n);
     /* stampa liste primaria e secondaria */
-    for (vertice_p = grafo_p;(vertice_p!=NULL);vertice_p = vertice_p->vertice_succ_p){
-        printf("Adjacency list of vertex %d:\n",vertice_p->valore);
+    /*for (vertice_p = grafo_p;(vertice_p!=NULL);vertice_p = vertice_p->vertice_succ_p){
+        //printf("Adjacency list of vertex %d:\n",vertice_p->valore);
         for (arco_p = vertice_p->lista_archi_p; (arco_p!= NULL); arco_p = arco_p->arco_succ_p)
-            printf("%d ",arco_p->vertice_adiac_p->valore);
+            //printf("%d ",arco_p->vertice_adiac_p->valore);
         printf("\n");
-    }
+    }*/
     
     printf("Coda:\n");
     avvia_visita_grafo_amp(grafo_p);
@@ -108,7 +108,7 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
     arco_p = NULL;
     fscanf(fin,"%d\n",&n);
     *nvg = n;
-    printf("Nr. of nodes = %d\n",*nvg);
+    //printf("Nr. of nodes = %d\n",*nvg);
     /* costruiamo prima la lista primaria, senza liste secondarie */
     for (i=n; i>0; i--) {
         nuovov_p = (vertice_grafo_t *)malloc(sizeof(vertice_grafo_t));
@@ -124,16 +124,16 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
         for (i=0; i<nV; i++) {
             fscanf(fin, "%d %d\n", &src, &dest);
             // printf
-            printf("src = %d, dest = %d\n",src, dest);
+            //printf("src = %d, dest = %d\n",src, dest);
             vertice_p = cerca_in_lista(grafo_p,src); /*cerca nella lista primaria il vertice con label src*/
             // secondo printf
             if (vertice_p!=NULL)
-                printf("found vertex %d\n",vertice_p->valore);
+                //printf("found vertex %d\n",vertice_p->valore);
             nuovoa_p = malloc(sizeof(arco_grafo_t));
             nuovoa_p->vertice_adiac_p = cerca_in_lista(grafo_p,dest); /*cerca nella lista primaria il vertice con label dest*/
             // terzo printf
             if (nuovoa_p->vertice_adiac_p!=NULL)
-                printf("found vertex %d\n",nuovoa_p->vertice_adiac_p->valore);
+                //printf("found vertex %d\n",nuovoa_p->vertice_adiac_p->valore);
             nuovoa_p->arco_succ_p = arco_p;
             arco_p = nuovoa_p;
             vertice_p->lista_archi_p = arco_p;
@@ -161,22 +161,31 @@ vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p,
 void avvia_visita_grafo_amp(vertice_grafo_t *grafo_p)
 {
     vertice_grafo_t *vertice_p;
-    int valore = 3;
-    vertice_p = grafo_p;
-    grafo_p->valore = valore;
+    int valore_vertice = 3;
+    //grafo_p->valore = valore;
     
-    for(vertice_p->valore = grafo_p->valore; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
+    for(vertice_p = grafo_p; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
     {
-        printf("VALORE: %d", vertice_p->valore);
+        //printf("VALORE: %d", vertice_p->valore);
         vertice_p->colore = bianco;
         vertice_p->distanza = -1;
         vertice_p->padre_p = NULL;
     }
-    for(vertice_p->valore = grafo_p->valore; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
+    printf("Grafo:");
+    for(vertice_p = grafo_p; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
+    {
+        //printf("%d ", vertice_p->valore);
         if(vertice_p->colore == bianco)
         {
-            visita_grafo_amp(vertice_p);
+            //printf("%d ", vertice_p->valore);
+            //visita_grafo_amp(vertice_p);
+            if(vertice_p->valore == valore_vertice)
+            {
+                //printf("%d ", vertice_p->valore);
+                visita_grafo_amp(vertice_p);
+            }
         }
+    }
 }
 
 void visita_grafo_amp(vertice_grafo_t *vertice_partenza_p)
@@ -184,7 +193,7 @@ void visita_grafo_amp(vertice_grafo_t *vertice_partenza_p)
     vertice_grafo_t *vertice_p;
     arco_grafo_t *arco_p;
     elem_lista_vertici_t *uscita_p, *ingresso_p;
-
+    
     vertice_partenza_p->colore = grigio;
     vertice_partenza_p->distanza = 0;
     uscita_p = ingresso_p = NULL;
@@ -234,6 +243,7 @@ elem_lista_vertici_t *togli_da_coda(elem_lista_vertici_t **uscita_p, elem_lista_
         if (*uscita_p == NULL)
             *ingresso_p = NULL;
     }
+    //printf("%d ", elem_p->valore->valore);
     return(elem_p);
 }
 
