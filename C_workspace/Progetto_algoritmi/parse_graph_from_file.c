@@ -93,6 +93,10 @@ int main(int argc, char **argv){
     avvia_visita_grafo_amp(grafo_p);
     
     printf("\n");
+    printf("Visita in profondita': ");
+    avvia_visita_grafo_prof(grafo_p);
+    
+    printf("\n");
     //printf("Traversal of the graph...\n");
     //printf(".. and print tree of traversal\n");
     return(0);
@@ -275,6 +279,8 @@ void visita_grafo_prof(vertice_grafo_t *vertice_p, int *tempo)
     vertice_p->colore = grigio;
     vertice_p->inizio = ++(*tempo);
     //elabora(vertice_p->valore);
+    printf("%d ", vertice_p->valore);
+    
     for(arco_p = vertice_p->lista_archi_p; (arco_p != NULL); arco_p = arco_p->arco_succ_p)
         if (arco_p->vertice_adiac_p->colore == bianco)
         {
