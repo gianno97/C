@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="C_workspace" Database="" Version="10000">
   <Project Name="C_example" Path="C_example/C_example.project" Active="No"/>
-  <Project Name="Progetto_algoritmi" Path="Progetto_algoritmi/Progetto_algoritmi.project" Active="Yes"/>
+  <Project Name="Progetto_algoritmi" Path="Progetto_algoritmi/Progetto_algoritmi.project" Active="No"/>
   <Project Name="Bfs" Path="Bfs/Bfs.project" Active="No"/>
+  <Project Name="Matrix_project" Path="Matrix_project/Matrix_project.project" Active="No"/>
+  <Project Name="Dijkstra" Path="Dijkstra/Dijkstra.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
@@ -11,6 +13,7 @@
       <Project Name="Progetto_algoritmi" ConfigName="Debug"/>
       <Project Name="stazioni" ConfigName="Debug"/>
       <Project Name="Bfs" ConfigName="Debug"/>
+      <Project Name="Dijkstra" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
@@ -19,7 +22,7 @@
       <Project Name="Progetto_algoritmi" ConfigName="Release"/>
       <Project Name="stazioni" ConfigName="Release"/>
       <Project Name="Bfs" ConfigName="Release"/>
+      <Project Name="Dijkstra" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
-  <Project Name="Matrix_project" Path="Matrix_project/Matrix_project.project" Active="No"/>
 </CodeLite_Workspace>
