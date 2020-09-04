@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="Stazioni" Version="11000" InternalType="Console">
-  <VirtualDirectory Name="Consegna_progetto_ASD">
-    <File Name="../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/main.c"/>
-    <File Name="../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/libreria.h"/>
-    <File Name="../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/libreria.c"/>
-  </VirtualDirectory>
-  <VirtualDirectory Name="Sperimentale">
-    <File Name="../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/Sperimentale/sperimentale_statistiche.c"/>
-  </VirtualDirectory>
   <Description/>
   <Dependencies/>
   <Settings Type="Executable">
@@ -100,4 +92,10 @@
       </Completion>
     </Configuration>
   </Settings>
+  <VirtualDirectory Name="src">
+    <File Name="main.c"/>
+    <File Name="libreria.h"/>
+    <File Name="libreria.c"/>
+    <File Name="file_stazioni.txt"/>
+  </VirtualDirectory>
 </CodeLite_Project>
