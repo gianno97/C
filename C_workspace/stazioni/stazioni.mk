@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Fabio2
-Date                   :=21/08/2020
+Date                   :=04/09/2020
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_main.c$(ObjectSuffix) $(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_libreria.c$(ObjectSuffix) $(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_Sperimentale_sperimentale_statistiche.c$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IntermediateDirectory)/libreria.c$(ObjectSuffix) 
 
 
 
@@ -93,23 +93,17 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_main.c$(ObjectSuffix): ../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/main.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_main.c$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_main.c$(DependSuffix) -MM "../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/main.c"
-	$(CC) $(SourceSwitch) "E:/Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/main.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_main.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_main.c$(PreprocessSuffix): ../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/main.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_main.c$(PreprocessSuffix) "../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/main.c"
+$(IntermediateDirectory)/main.c$(ObjectSuffix): main.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.c$(ObjectSuffix) -MF$(IntermediateDirectory)/main.c$(DependSuffix) -MM main.c
+	$(CC) $(SourceSwitch) "E:/C/C_workspace/Stazioni/main.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/main.c$(PreprocessSuffix): main.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.c$(PreprocessSuffix) main.c
 
-$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_libreria.c$(ObjectSuffix): ../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/libreria.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_libreria.c$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_libreria.c$(DependSuffix) -MM "../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/libreria.c"
-	$(CC) $(SourceSwitch) "E:/Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/libreria.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_libreria.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_libreria.c$(PreprocessSuffix): ../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/libreria.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_libreria.c$(PreprocessSuffix) "../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/libreria.c"
-
-$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_Sperimentale_sperimentale_statistiche.c$(ObjectSuffix): ../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/Sperimentale/sperimentale_statistiche.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_Sperimentale_sperimentale_statistiche.c$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_Sperimentale_sperimentale_statistiche.c$(DependSuffix) -MM "../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/Sperimentale/sperimentale_statistiche.c"
-	$(CC) $(SourceSwitch) "E:/Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/Sperimentale/sperimentale_statistiche.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_Sperimentale_sperimentale_statistiche.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_Sperimentale_sperimentale_statistiche.c$(PreprocessSuffix): ../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/Sperimentale/sperimentale_statistiche.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_up_Algoritmi_Nuova cartella_Progetti_Progetto sessione estiva 2016-2017_Progetto stazioni_Consegna_progetto_ASD_Sperimentale_sperimentale_statistiche.c$(PreprocessSuffix) "../../../Algoritmi/Nuova cartella/Progetti/Progetto sessione estiva 2016-2017/Progetto stazioni/Consegna_progetto_ASD/Sperimentale/sperimentale_statistiche.c"
+$(IntermediateDirectory)/libreria.c$(ObjectSuffix): libreria.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/libreria.c$(ObjectSuffix) -MF$(IntermediateDirectory)/libreria.c$(DependSuffix) -MM libreria.c
+	$(CC) $(SourceSwitch) "E:/C/C_workspace/Stazioni/libreria.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/libreria.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/libreria.c$(PreprocessSuffix): libreria.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/libreria.c$(PreprocessSuffix) libreria.c
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
