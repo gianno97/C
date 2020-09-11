@@ -19,21 +19,21 @@
     </TabInfo>
     <TabInfo>
       <wxString Value="E:\C\C_workspace\Dijkstra\dijkstra_graph_from_file.c" Name="FileName"/>
-      <int Value="195" Name="FirstVisibleLine"/>
+      <int Value="69" Name="FirstVisibleLine"/>
       <int Value="70" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="E:\C\C_workspace\Stazioni\main.c" Name="FileName"/>
-      <int Value="191" Name="FirstVisibleLine"/>
+      <int Value="5" Name="FirstVisibleLine"/>
       <int Value="6" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="E:\C\C_workspace\Stazioni\libreria.h" Name="FileName"/>
-      <int Value="87" Name="FirstVisibleLine"/>
+      <int Value="3" Name="FirstVisibleLine"/>
       <int Value="4" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
@@ -47,7 +47,7 @@
     </TabInfo>
     <TabInfo>
       <wxString Value="E:\C\C_workspace\Stazioni\libreria.c" Name="FileName"/>
-      <int Value="372" Name="FirstVisibleLine"/>
+      <int Value="9" Name="FirstVisibleLine"/>
       <int Value="10" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
