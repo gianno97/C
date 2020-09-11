@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Dijkstra_2.txt"/>
     <File Name="graph.txt"/>
     <File Name="parse_graph_from_file.c"/>
   </VirtualDirectory>
