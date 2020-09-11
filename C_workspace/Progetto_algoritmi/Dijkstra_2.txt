@@ -1,0 +1,70 @@
+/* Algoritmo di Dijkstra per calcolo del percorso più breve in base alla Distanza */
+void dijkstra_distanza(vertice_grafo_t *grafo, vertice_grafo_t *sorgente, int stazioni_tot)
+{
+	vertice_grafo_t *vertice_p;
+	arco_grafo_t *arco_p;
+	int i,
+		j = 1,											/* Variabile per tenere il numero di vertici considerati */
+		considerati[stazioni_tot + 1];						/* array per verificare se un vertice è stato considerato */	
+	vertice_grafo_t *non_considerati[stazioni_tot + 1];		/* array di vertici non considerati */
+	
+	/* inizializzo Dikstra */
+	inizializza(grafo, sorgente);
+	/* creo array vertici */
+	crea_array(grafo, non_considerati);
+	/* creo lo heap */
+	crea_heap(non_considerati, stazioni_tot + 1);
+	
+
+	/* inizializzo array a 0 come non considerati */
+	for(i = 0; i < stazioni_tot + 1; i++) 
+		considerati[i] = 0;
+	
+	/* finchè l'indice j < Stazioni_tot vuol dire che sono presenti dei vertici da considerare */
+	while( j < stazioni_tot)
+	{
+		/* prendo il minimo che si trova in posizione 1 */
+		vertice_p = non_considerati[1];
+		
+		/* assegno 1 in corrispondenza della posizione del vertice considerati */
+		considerati[vertice_p -> id] = 1;		
+		for(arco_p = vertice_p -> lista_stazioni_adiacenti_p; arco_p != NULL; arco_p = arco_p -> arco_succ_p)
+		{
+			/* se nn è stato considerato allora rilasso */
+			if(considerati[arco_p -> stazione_adiac_p -> id] == 0)
+			{
+				rilassa_distanza(arco_p, vertice_p);				
+			}		
+				
+		}
+		/* scambio gli elementi portando quello con distanza min in fondo all'array */
+		scambia(&non_considerati[1], &non_considerati[stazioni_tot - j]);
+		/* ricreo lo heap per far si che il setacciamento funzioni */
+		crea_heap(non_considerati, (stazioni_tot - j));
+		j++;
+	}
+}
+
+/* rilassamento della distanza */
+void rilassa_distanza(arco_grafo_t *arco_p, vertice_grafo_t *vertice_p)
+{
+	if(arco_p -> stazione_adiac_p -> min > vertice_p -> min + arco_p -> distanza)
+	{
+		arco_p -> stazione_adiac_p -> min = vertice_p -> min + arco_p -> distanza;
+		arco_p -> stazione_adiac_p -> padre_p = vertice_p;
+	}
+}
+
+/* inizializza dijkstra */
+void inizializza(vertice_grafo_t *grafo, vertice_grafo_t *sorgente)
+{
+	vertice_grafo_t *vertice_p;
+	
+	for(vertice_p = grafo; vertice_p != NULL; vertice_p = vertice_p -> stazione_succ_p)
+	{
+		vertice_p -> min = INF;
+		vertice_p -> padre_p = NULL;
+		vertice_p -> figlio_p = NULL;
+	}
+	sorgente -> min = 0.0;
+}
