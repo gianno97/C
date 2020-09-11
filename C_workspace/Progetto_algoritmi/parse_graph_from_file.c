@@ -11,6 +11,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define INFINITO 9999
+
 /*data structures declarations*/
 
 typedef enum {bianco, grigio, nero} colore_t;
@@ -22,6 +24,7 @@ typedef struct vertice_grafo
     struct vertice_grafo *vertice_succ_p;
     struct arco_grafo *lista_archi_p;
     colore_t colore;
+    double distanza_min;
     int distanza, inizio, fine;
     struct vertice_grafo *padre_p;
 } vertice_grafo_t;
@@ -52,7 +55,9 @@ void avvia_visita_grafo_prof(vertice_grafo_t *grafo_p);
 void visita_grafo_prof(vertice_grafo_t *vertice_p, int *tempo);
 void metti_in_coda(elem_lista_vertici_t **uscita_p, elem_lista_vertici_t **ingresso_p, vertice_grafo_t *valore);
 elem_lista_vertici_t *togli_da_coda(elem_lista_vertici_t **uscita_p, elem_lista_vertici_t **ingresso_p);
-
+void inizializza(vertice_grafo_t *grafo_p, vertice_grafo_t *sorgente_p);
+void riduci(arco_grafo_t *arco_p, vertice_grafo_t *vertice_p);
+void dijkstra(vertice_grafo_t *grafo_p, vertice_grafo_t *sorgente_p, int n);
 
 
 
@@ -62,7 +67,7 @@ elem_lista_vertici_t *togli_da_coda(elem_lista_vertici_t **uscita_p, elem_lista_
 
 int main(int argc, char **argv){
     int n;
-    vertice_grafo_t *grafo_p, *vertice_p;
+    vertice_grafo_t *grafo_p, *vertice_p, *sorgente_p;
     arco_grafo_t *arco_p;
     FILE *INFILE;
     //char *fname;
@@ -95,8 +100,9 @@ int main(int argc, char **argv){
     printf("\n");
     printf("Visita in profondita': ");
     avvia_visita_grafo_prof(grafo_p);
-    
     printf("\n");
+    
+    dijkstra(grafo_p, sorgente_p, n);
     //printf("Traversal of the graph...\n");
     //printf(".. and print tree of traversal\n");
     return(0);
@@ -291,4 +297,72 @@ void visita_grafo_prof(vertice_grafo_t *vertice_p, int *tempo)
         }
     vertice_p->colore = nero;
     vertice_p->fine = ++(*tempo);
+}
+
+
+
+
+
+
+// implementazione algoritmo di dijkstra
+void inizializza(vertice_grafo_t *grafo_p, vertice_grafo_t *sorgente_p)
+{
+    vertice_grafo_t *vertice_p;
+
+    for (vertice_p = grafo_p; (vertice_p != NULL); vertice_p = vertice_p->vertice_succ_p)
+    {
+        vertice_p->distanza_min = INFINITO;
+        vertice_p->padre_p = NULL;
+    }
+    sorgente_p->distanza_min = 0.0;
+}
+
+void riduci(arco_grafo_t *arco_p, vertice_grafo_t *vertice_p) /* vertice da cui l’arco esce */
+{
+    if (arco_p->vertice_adiac_p->distanza_min > vertice_p->distanza_min + arco_p->peso)
+    {
+        arco_p->vertice_adiac_p->distanza_min = vertice_p->distanza_min + arco_p->peso;
+        arco_p->vertice_adiac_p->padre_p = vertice_p;
+    }
+}
+
+void dijkstra(vertice_grafo_t *grafo_p, vertice_grafo_t *sorgente_p, int n)
+{
+    vertice_grafo_t *vertice_p;
+    arco_grafo_t *arco_p;
+    int k = 1;
+    int vertici_considerati = 1;
+
+    inizializza(grafo_p, sorgente_p);
+    
+    //"costruisci un insieme per i vertici gia’ considerati (inizialmente vuoto)";
+    int considerati[n + 1];
+    
+    for(int i = 0; i < n + 1; i++)
+        considerati[i] = -1;
+    
+    //"costruisci una struttura per i vertici da considerare (inizialmente tutti)";
+    int non_considerati[n + 1];
+    
+    for(int j = 0; j < n + 1; j++)
+        non_considerati[j] = j;
+    
+    while (k < n)
+    {
+        //"rimuovi dalla struttura il vertice vertice_p con distanza_min minima";
+        non_considerati[vertici_considerati] = -1;
+        //"inserisci vertice_p nell’insieme dei vertici gia’ considerati";
+        considerati[vertici_considerati] = vertici_considerati;
+        
+        //"arco_p->vertice_adiac_p non e’ nell’insieme dei vertici gia’ considerati"
+        for(arco_p = vertice_p->lista_archi_p; (arco_p != NULL); arco_p = arco_p->arco_succ_p)
+        {
+            if (considerati[arco_p->vertice_adiac_p->valore] == -1)
+            {
+                riduci(arco_p, vertice_p);
+            }
+        }
+        k++;
+        vertici_considerati++;
+    }
 }
