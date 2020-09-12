@@ -58,7 +58,7 @@ void inizializza(vertice_grafo_t *grafo_p, vertice_grafo_t *sorgente_p);
 /* * main function */
 
 int main(int argc, char **argv) {
-    int  n, sorgente, i, n_el_in_pq;
+    int  n, sorgente, destinazione, i, n_el_in_pq;
     vertice_grafo_t *grafo_p, *vertice_p, *sorgente_p;
     arco_grafo_t *arco_p;
     vertice_grafo_t *PQ[MAX]; /*coda con priorità implementata (simulata) tramite array*/
@@ -86,6 +86,8 @@ int main(int argc, char **argv) {
     
     printf("Vertice sorgente: ");
     scanf("%d", &sorgente);
+    printf("Vertice destinazione: ");
+    scanf("%d", &destinazione);
     for (vertice_p = grafo_p; vertice_p != NULL; vertice_p = vertice_p->vertice_succ_p) {
         if (vertice_p->valore == sorgente)
             sorgente_p = vertice_p;
@@ -103,7 +105,11 @@ int main(int argc, char **argv) {
     printf("...calcola percorsi brevi...\n");
     while (n_el_in_pq > 0) {
         vertice_p = estrai_min(PQ,n_el_in_pq);
-        printf("Estratto vertice %d con dmin = %f\n",vertice_p->valore,vertice_p->distanza_min);
+        if(vertice_p->valore == destinazione)
+        {
+            printf("Estratto vertice %d con dmin = %f\n",vertice_p->valore,vertice_p->distanza_min);
+        }
+        //printf("Estratto vertice %d con dmin = %f\n",vertice_p->valore,vertice_p->distanza_min);
         /*scansione della lista secondaria per esplorare l'insieme di adiacenza del vertice appena estratto dalla coda e rilassamento degli archi */
         for (arco_p = vertice_p->lista_archi_p; (arco_p!=NULL); arco_p = arco_p->arco_succ_p) {
             if (arco_p->vertice_adiac_p->distanza_min== INFINITO || arco_p->vertice_adiac_p->distanza_min > vertice_p->distanza_min + arco_p->peso){
@@ -116,11 +122,19 @@ int main(int argc, char **argv) {
     /* stampa albero percorsi piu' brevi*/
     printf("\n Albero dei percorsi più brevi:\n");
     for (vertice_p = grafo_p; vertice_p!=NULL; vertice_p = vertice_p->vertice_succ_p){
-        printf("vertice %d: \n",vertice_p->valore);
+        if(vertice_p->valore == destinazione)
+        {
+            printf("vertice %d: \n",vertice_p->valore);
+            /*if (vertice_p->padre_p!=NULL){
+                printf("padre =  %d, ",vertice_p->padre_p->valore);
+                printf("distanza =  %f\n",vertice_p->distanza_min);
+            }*/
+        }
+        /*printf("vertice %d: \n",vertice_p->valore);
         if (vertice_p->padre_p!=NULL){
             printf("padre =  %d, ",vertice_p->padre_p->valore);
             printf("distanza =  %f\n",vertice_p->distanza_min);
-        }
+        }*/
     }
     return(0);
 }
@@ -153,7 +167,8 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
     while (fscanf(fin, "%d", &nV) != EOF) {
         arco_p = NULL;
         for (i=0; i<nV; i++) {
-            fscanf(fin, "%d %d %lf\n", &src, &dest, &peso);
+            //fscanf(fin, "%d %d %lf\n", &src, &dest, &peso);
+            fscanf(fin, "%d %d\n", &src, &dest);
             printf("src = %d, dest = %d\n",src, dest);
             vertice_p = cerca_in_lista(grafo_p,src); /*cerca nella lista primaria il vertice con label src*/
             if (vertice_p!=NULL)
@@ -164,7 +179,7 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
                 printf("trovato vertice %d\n",nuovoa_p->vertice_adiac_p->valore);
             nuovoa_p->arco_succ_p = arco_p;
             arco_p = nuovoa_p;
-            arco_p->peso = peso;
+            arco_p->peso = 1;
             vertice_p->lista_archi_p = arco_p;
         }
         vertice_p = vertice_p->vertice_succ_p;
