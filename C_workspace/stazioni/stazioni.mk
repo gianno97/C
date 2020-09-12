@@ -6,14 +6,14 @@
 ProjectName            :=Stazioni
 ConfigurationName      :=Debug
 WorkspacePath          :=E:/C/C_workspace
-ProjectPath            :=E:/C/C_workspace/Stazioni
+ProjectPath            :=E:/C/C_workspace/stazioni
 IntermediateDirectory  :=$(ConfigurationName)
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Fabio2
-Date                   :=04/09/2020
+Date                   :=12/09/2020
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IntermediateDirectory)/libreria.c$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/libreria.c$(ObjectSuffix) $(IntermediateDirectory)/main.c$(ObjectSuffix) 
 
 
 
@@ -93,17 +93,17 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/main.c$(ObjectSuffix): main.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.c$(ObjectSuffix) -MF$(IntermediateDirectory)/main.c$(DependSuffix) -MM main.c
-	$(CC) $(SourceSwitch) "E:/C/C_workspace/Stazioni/main.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/main.c$(PreprocessSuffix): main.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.c$(PreprocessSuffix) main.c
-
 $(IntermediateDirectory)/libreria.c$(ObjectSuffix): libreria.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/libreria.c$(ObjectSuffix) -MF$(IntermediateDirectory)/libreria.c$(DependSuffix) -MM libreria.c
-	$(CC) $(SourceSwitch) "E:/C/C_workspace/Stazioni/libreria.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/libreria.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "E:/C/C_workspace/stazioni/libreria.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/libreria.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/libreria.c$(PreprocessSuffix): libreria.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/libreria.c$(PreprocessSuffix) libreria.c
+
+$(IntermediateDirectory)/main.c$(ObjectSuffix): main.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.c$(ObjectSuffix) -MF$(IntermediateDirectory)/main.c$(DependSuffix) -MM main.c
+	$(CC) $(SourceSwitch) "E:/C/C_workspace/stazioni/main.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/main.c$(PreprocessSuffix): main.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.c$(PreprocessSuffix) main.c
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
