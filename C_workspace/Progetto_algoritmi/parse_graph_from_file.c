@@ -58,6 +58,11 @@ elem_lista_vertici_t *togli_da_coda(elem_lista_vertici_t **uscita_p, elem_lista_
 void inizializza(vertice_grafo_t *grafo_p, vertice_grafo_t *sorgente_p);
 void riduci(arco_grafo_t *arco_p, vertice_grafo_t *vertice_p);
 void dijkstra(vertice_grafo_t *grafo_p, vertice_grafo_t *sorgente_p, int n);
+void crea_array(vertice_grafo_t *grafo, vertice_grafo_t **vertici);
+void setaccia_heap(vertice_grafo_t **a, int sx, int dx);
+void crea_heap(vertice_grafo_t **a, int n);
+void scambia(vertice_grafo_t **a, vertice_grafo_t **b);
+void crea_array_pesi(vertice_grafo_t *grafo, arco_grafo_t **pesi);
 
 
 
@@ -102,6 +107,7 @@ int main(int argc, char **argv){
     avvia_visita_grafo_prof(grafo_p);
     printf("\n");
     
+    
     dijkstra(grafo_p, sorgente_p, n);
     //printf("Traversal of the graph...\n");
     //printf(".. and print tree of traversal\n");
@@ -111,6 +117,7 @@ int main(int argc, char **argv){
 
 vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
     int n, nV, i, src, dest;
+    double peso;
     vertice_grafo_t *nuovov_p, *grafo_p, *vertice_p;
     arco_grafo_t *arco_p, *nuovoa_p;
 
@@ -133,6 +140,7 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
         arco_p = NULL;
         for (i=0; i<nV; i++) {
             fscanf(fin, "%d %d\n", &src, &dest);
+            //fscanf(fin, "%d %d %lf\n", &src, &dest, &peso);
             // printf
             //printf("src = %d, dest = %d\n",src, dest);
             vertice_p = cerca_in_lista(grafo_p,src); /*cerca nella lista primaria il vertice con label src*/
@@ -146,6 +154,7 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
                 //printf("found vertex %d\n",nuovoa_p->vertice_adiac_p->valore);
             nuovoa_p->arco_succ_p = arco_p;
             arco_p = nuovoa_p;
+            arco_p->peso = 1;
             vertice_p->lista_archi_p = arco_p;
         }
         vertice_p = vertice_p->vertice_succ_p;
@@ -331,25 +340,28 @@ void dijkstra(vertice_grafo_t *grafo_p, vertice_grafo_t *sorgente_p, int n)
     vertice_grafo_t *vertice_p;
     arco_grafo_t *arco_p;
     int k = 1;
-    int vertici_considerati = 1;
-
-    inizializza(grafo_p, sorgente_p);
-    
+    //int vertici_considerati = 1;
+    vertice_grafo_t *non_considerati[n + 1];
     //"costruisci un insieme per i vertici gia’ considerati (inizialmente vuoto)";
     int considerati[n + 1];
+    
+    
+    inizializza(grafo_p, sorgente_p);
+    crea_array(grafo_p, non_considerati);
+    crea_heap(non_considerati, n + 1);
     
     for(int i = 0; i < n + 1; i++)
         considerati[i] = -1;
     
     //"costruisci una struttura per i vertici da considerare (inizialmente tutti)";
-    int non_considerati[n + 1];
+    /*int non_considerati[n + 1];
     
     for(int j = 0; j < n + 1; j++)
-        non_considerati[j] = j;
+        non_considerati[j] = j;*/
     
     while (k < n)
     {
-        //"rimuovi dalla struttura il vertice vertice_p con distanza_min minima";
+/*        //"rimuovi dalla struttura il vertice vertice_p con distanza_min minima";
         non_considerati[vertici_considerati] = -1;
         //"inserisci vertice_p nell’insieme dei vertici gia’ considerati";
         considerati[vertici_considerati] = vertici_considerati;
@@ -363,6 +375,97 @@ void dijkstra(vertice_grafo_t *grafo_p, vertice_grafo_t *sorgente_p, int n)
             }
         }
         k++;
-        vertici_considerati++;
+        vertici_considerati++;*/
+        
+        
+        vertice_p = non_considerati[1];
+        considerati[vertice_p->valore] = 1;
+        
+        for(arco_p = vertice_p->lista_archi_p; (arco_p != NULL); arco_p = arco_p->arco_succ_p)
+        {
+            if (considerati[arco_p->vertice_adiac_p->valore] == -1)
+            {
+                riduci(arco_p, vertice_p);
+            }
+        }
+        scambia(&non_considerati[1], &non_considerati[n - k]);
+        crea_heap(non_considerati, (n - k));
+        k++;
     }
+}
+
+/* funzione che scorre la lista primaria e salva i vertici in un array */
+void crea_array(vertice_grafo_t *grafo, vertice_grafo_t **vertici)
+{
+	vertice_grafo_t *corr_p;
+	int indice;
+	/* il primo elemento nn lo considero poichè lo heap di seguito nell'algoritmo
+	   di Dijkstra nn lo considera */
+	vertici[0] = NULL;
+	for(indice = 1, corr_p = grafo; (corr_p != NULL); corr_p = corr_p->vertice_succ_p)
+	{
+		vertici[indice] = corr_p;
+		indice++;
+	}
+}
+
+/* funzione di setacciamento per far risalire il minimo nella radice dello heap*/
+void setaccia_heap(vertice_grafo_t **a, int sx, int dx) 
+{
+	vertice_grafo_t *vertice;
+	int i,
+		j;
+		
+	for(vertice = a[sx], i = sx, j = 2 * i; (j <= dx); ) 
+	{
+		if ((j < dx) && (a[j + 1]->distanza_min < a[j] -> distanza_min)) 
+			j++;
+		if (vertice -> distanza_min > a[j] -> distanza_min) 
+		{
+			a[i] = a[j];
+			i = j;
+			j = 2 * i; 
+		}
+		else 
+			j = dx + 1; 
+	}
+	if (i != sx) 
+		a[i] = vertice;
+}
+
+/* funzione per creare uno heap */
+void crea_heap(vertice_grafo_t **a, int n) 
+{
+	int sx;
+	
+	for (sx = n / 2; (sx >= 1); sx--) 
+		setaccia_heap(a, sx, n - 1);
+}
+
+/* funzione per scambiare due elementi dell'array di vertici */
+void scambia(vertice_grafo_t **a, vertice_grafo_t **b)
+{
+	vertice_grafo_t *tmp;
+	
+	tmp = (*b);
+	b = a;
+	(*a) = tmp;
+}
+
+/* funzione per la creazione di un array che comprende tutti gli archi */
+void crea_array_pesi(vertice_grafo_t *grafo, arco_grafo_t **pesi)
+{
+	vertice_grafo_t *corr_p;
+	arco_grafo_t *arco;
+	int indice = 0;
+	
+	for(corr_p = grafo; (corr_p != NULL); corr_p = corr_p->vertice_succ_p)
+	{
+		for(arco = corr_p ->lista_archi_p; arco != NULL; arco = arco -> arco_succ_p)
+		{
+			pesi[indice]->peso = 1;
+			indice++;
+			
+		}
+	}
 }
