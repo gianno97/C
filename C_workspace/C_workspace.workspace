@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="C_workspace" Database="" Version="10000">
   <Project Name="C_example" Path="C_example/C_example.project" Active="No"/>
-  <Project Name="Progetto_algoritmi" Path="Progetto_algoritmi/Progetto_algoritmi.project" Active="Yes"/>
+  <Project Name="Progetto_algoritmi" Path="Progetto_algoritmi/Progetto_algoritmi.project" Active="No"/>
   <Project Name="Bfs" Path="Bfs/Bfs.project" Active="No"/>
   <Project Name="Matrix_project" Path="Matrix_project/Matrix_project.project" Active="No"/>
-  <Project Name="Dijkstra" Path="Dijkstra/Dijkstra.project" Active="No"/>
+  <Project Name="Dijkstra" Path="Dijkstra/Dijkstra.project" Active="Yes"/>
   <Project Name="stazioni" Path="stazioni/stazioni.project" Active="No"/>
   <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
   <BuildMatrix>
