@@ -1,11 +1,15 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 /***************LIBERARE LA MEMORIA DEI PUNTATORI***************************/
 /*1. Formattazione output*/
 /*1. Long double*/
 /*1. Controlli stretti sui valori in input*/
 /*1. Controlli sui valori massimi e minimi inseribili in riferimento al long double*/
+
+#define MAXINPUT 100
 
 double calcola_determinante(double **matrice_uno, int ordine_uno);
 void matrice_inversa(double determinante, double **matrice_uno, int ordine_uno);
@@ -16,11 +20,42 @@ int main(void)
     double determinante;
     double **matrice_uno, **matrice_due;
     int ordine_uno, ordine_due;
+    //int esito_lettura;
     
     /*Prima matrice quadrata*/
     /*Prendiamo la grandezza della matrice da tastiera*/
-    printf("Digita l'ordine della prima matrice quadrata: ");
-    scanf("%d", &ordine_uno);
+    /*do
+    {
+        printf("Digita l'ordine della prima matrice quadrata: ");
+        esito_lettura = scanf("%d", &ordine_uno);
+        if(esito_lettura != 1)
+        {
+            esito_lettura = 1;
+            printf("failure\n");
+            ordine_uno = 0;
+        }
+    }while(ordine_uno < 1 || ordine_uno > 10);*/
+    
+    char input[MAXINPUT] = "";
+    int length,i; 
+
+    scanf ("%s", input);
+    length = strlen (input);
+    for (i=0;i<length; i++)
+        if (!isdigit(input[i]))
+        {
+            printf ("Entered input is not a number\n");
+            exit(1);
+        }
+    printf ("Given input is a number\n");
+    
+    
+    
+    
+
+    //printf("Digita l'ordine della prima matrice quadrata: ");
+    //scanf("%d", &ordine_uno);
+    
     
     /*Allochiamo la matrice*/
     matrice_uno = malloc(sizeof(double*) * ordine_uno);
