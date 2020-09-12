@@ -1,1 +1,1 @@
-Debug/main.c.o Debug/libreria.c.o   
+Debug/libreria.c.o Debug/main.c.o   
