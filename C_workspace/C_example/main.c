@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <float.h>
 
 /***************LIBERARE LA MEMORIA DEI PUNTATORI***************************/
 /*1. Formattazione output*/
@@ -19,43 +20,36 @@ int main(void)
 {
     double determinante;
     double **matrice_uno, **matrice_due;
-    int ordine_uno, ordine_due;
-    //int esito_lettura;
+    int ordine_due;
+    int ordine_uno = 0;
+    
+    char input[MAXINPUT] = "";
+    char input_2[MAXINPUT] = "";
+    char valori_matrice_uno[MAXINPUT] = "";
+    char valori_matrice_due[MAXINPUT] = "";
+    int indice_ordine_uno = 0;
+    int indice_ordine_due = 0;
+    int sentinella = -1;
     
     /*Prima matrice quadrata*/
     /*Prendiamo la grandezza della matrice da tastiera*/
-    /*do
+    while(ordine_uno < 1 || ordine_uno > 10)
     {
-        printf("Digita l'ordine della prima matrice quadrata: ");
-        esito_lettura = scanf("%d", &ordine_uno);
-        if(esito_lettura != 1)
+        printf("Digita l'ordine della prima matrice quadrata (da 1 a 10): ");
+        scanf ("%s", input);
+        if (!isdigit(input[indice_ordine_uno]))
         {
-            esito_lettura = 1;
-            printf("failure\n");
-            ordine_uno = 0;
+            printf ("Input non valido\n");
         }
-    }while(ordine_uno < 1 || ordine_uno > 10);*/
-    
-    char input[MAXINPUT] = "";
-    int length,i; 
-
-    scanf ("%s", input);
-    length = strlen (input);
-    for (i=0;i<length; i++)
-        if (!isdigit(input[i]))
+        else 
         {
-            printf ("Entered input is not a number\n");
-            exit(1);
+            ordine_uno = atoi(input);
+            if(ordine_uno < 1 || ordine_uno > 10)
+            {
+                printf ("Input non valido\n");
+            }
         }
-    printf ("Given input is a number\n");
-    
-    
-    
-    
-
-    //printf("Digita l'ordine della prima matrice quadrata: ");
-    //scanf("%d", &ordine_uno);
-    
+    }
     
     /*Allochiamo la matrice*/
     matrice_uno = malloc(sizeof(double*) * ordine_uno);
@@ -67,14 +61,52 @@ int main(void)
     
     printf("Inserisci i valori per una matrice quadrata di ordine %d\n", ordine_uno);
     
-    for(int i = 0; i < ordine_uno; i++)
+    /*for(int i = 0; i < ordine_uno; i++)
         for(int j = 0; j < ordine_uno; j++)
-            scanf("%lf", &matrice_uno[i][j]);
+            scanf("%lf", &matrice_uno[i][j]);*/
+            
+            
+            
+    for(int i = 0; i < ordine_uno; i++)
+    {
+        for(int j = 0; j < ordine_uno; j++)
+        {
+            while(sentinella == -1)
+            {
+                scanf ("%s", valori_matrice_uno);
+                if (!isdigit(valori_matrice_uno[indice_ordine_uno]))
+                {
+                    printf ("Input non valido\n");
+                }
+                else 
+                {
+                    matrice_uno[i][j] = atoi(valori_matrice_uno);
+                    sentinella = 0;
+                }
+            }
+            sentinella = -1;
+        }
+    }
     
     /*Seconda matrice quadrata*/
     /*Prendiamo la grandezza della matrice da tastiera*/
-    printf("Digita l'ordine della seconda matrice quadrata: ");
-    scanf("%d", &ordine_due);
+    while(ordine_due < 1 || ordine_due > 10)
+    {
+        printf("Digita l'ordine della seconda matrice quadrata (da 1 a 10): ");
+        scanf ("%s", input_2);
+        if (!isdigit(input_2[indice_ordine_due]))
+        {
+            printf ("Input non valido\n");
+        }
+        else 
+        {
+            ordine_due = atoi(input_2);
+            if(ordine_due < 1 || ordine_due > 10)
+            {
+                printf ("Input non valido\n");
+            }
+        }
+    }
     
     /*Allochiamo la matrice*/
     matrice_due = malloc(sizeof(double*) * ordine_due);
@@ -86,9 +118,30 @@ int main(void)
     
     printf("Inserisci i valori per una matrice quadrata di ordine %d\n", ordine_due);
     
-    for(int k = 0; k < ordine_due; k++)
+    /*for(int k = 0; k < ordine_due; k++)
         for(int l = 0; l < ordine_due; l++)
-            scanf("%lf", &matrice_due[k][l]);
+            scanf("%lf", &matrice_due[k][l]);*/
+    
+    for(int k = 0; k < ordine_due; k++)
+    {
+        for(int l = 0; l < ordine_due; l++)
+        {
+            while(sentinella == -1)
+            {
+                scanf ("%s", valori_matrice_due);
+                if (!isdigit(valori_matrice_due[indice_ordine_due]))
+                {
+                    printf ("Input non valido\n");
+                }
+                else 
+                {
+                    matrice_due[k][l] = atoi(valori_matrice_due);
+                    sentinella = 0;
+                }
+            }
+            sentinella = -1;
+        }
+    }
     
     determinante = calcola_determinante(matrice_uno, ordine_uno);
     printf("Il determinante della prima matrice quadrata e' %.3f\n", determinante);
