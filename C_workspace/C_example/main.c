@@ -74,14 +74,33 @@ int main(void)
             while(sentinella == -1)
             {
                 scanf ("%s", valori_matrice_uno);
-                if (!isdigit(valori_matrice_uno[indice_ordine_uno]))
+                if(valori_matrice_uno[0] == '-')
                 {
-                    printf ("Input non valido\n");
+                    if (!isdigit(valori_matrice_uno[1]))
+                    {
+                        printf ("Input non valido\n");
+                    }
+                    else 
+                    {
+                        matrice_uno[i][j] = atof(valori_matrice_uno);
+                        //if(matrice_uno[i][j] == -0)
+                            //matrice_uno[i][j] = 0;
+                        printf("Il valore: %f\n", matrice_uno[i][j]);
+                        sentinella = 0;
+                    }
                 }
-                else 
+                else
                 {
-                    matrice_uno[i][j] = atoi(valori_matrice_uno);
-                    sentinella = 0;
+                    if (!isdigit(valori_matrice_uno[0]))
+                    {
+                        printf ("Input non valido\n");
+                    }
+                    else 
+                    {
+                        matrice_uno[i][j] = atof(valori_matrice_uno);
+                        printf("Il valore: %f\n", matrice_uno[i][j]);
+                        sentinella = 0;
+                    }
                 }
             }
             sentinella = -1;
@@ -129,14 +148,32 @@ int main(void)
             while(sentinella == -1)
             {
                 scanf ("%s", valori_matrice_due);
-                if (!isdigit(valori_matrice_due[indice_ordine_due]))
+                if(valori_matrice_due[0] == '-')
                 {
-                    printf ("Input non valido\n");
+                    if (!isdigit(valori_matrice_due[1]))
+                    {
+                        printf ("Input non valido\n");
+                    }
+                    else 
+                    {
+                        matrice_due[k][l] = atof(valori_matrice_due);
+                        //if(matrice_due[k][l] == -0)
+                            //matrice_due[k][l] = 0;
+                        //printf("Il valore: %f\n", matrice_due[k][l]);
+                        sentinella = 0;
+                    }
                 }
-                else 
+                else
                 {
-                    matrice_due[k][l] = atoi(valori_matrice_due);
-                    sentinella = 0;
+                    if (!isdigit(valori_matrice_due[indice_ordine_due]))
+                    {
+                        printf ("Input non valido\n");
+                    }
+                    else 
+                    {
+                        matrice_due[k][l] = atof(valori_matrice_due);
+                        sentinella = 0;
+                    }
                 }
             }
             sentinella = -1;
@@ -204,6 +241,9 @@ double calcola_determinante(double **matrice_uno, int ordine_uno)
             s = -1 * s;
         }
     }
+    if(determinante == -0)
+        determinante = 0;
+    
     return determinante;
 }
 
@@ -218,6 +258,7 @@ void matrice_inversa(double determinante, double **matrice_uno, int ordine_uno)
     double **matrice_trasposta;
     double cofattore;
     double reciproco_determinante = 1 / determinante;
+    double valore_matrice_inversa;
     
     /*Allochiamo la matrice_ridotta e la matrice trasposta*/
     matrice_ridotta = malloc(sizeof(double*) * (ordine_uno - 1));
@@ -282,7 +323,11 @@ void matrice_inversa(double determinante, double **matrice_uno, int ordine_uno)
     {
         for(int x = 0; x < ordine_uno; x++)
         {
-            printf("  %.3f  ", reciproco_determinante * matrice_trasposta[z][x]);
+            valore_matrice_inversa = reciproco_determinante * matrice_trasposta[z][x];
+            if(valore_matrice_inversa == -0)
+                valore_matrice_inversa = 0;
+            
+            printf("  %.3f  ", valore_matrice_inversa);
         }
         printf("\n");
     }
@@ -296,6 +341,9 @@ void calcola_matrice_trasposta(double **matrice_due, int ordine_due)
     {
         for(int j = 0; j < ordine_due; j++)
         {
+            if(matrice_due[j][i] == -0)
+                matrice_due[j][i] = 0;
+            
             printf("  %.3f  ", matrice_due[j][i]);
         }
         printf("\n");
