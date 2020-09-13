@@ -8,28 +8,8 @@
 int main()
 {
     char input[MAXINPUT] = "";
-    //int length;
     int i = 0;
-    //int sentinella = -1;
     int number = 0;
-
-    //scanf ("%s", input);
-    //length = strlen (input);
-    /*for(i = 0; i < 1; i++)
-    {
-        if (!isdigit(input[i]))
-        {
-            
-            printf ("Entered input is not a number\n");
-            //exit(1);
-        }
-        else
-        {
-            printf ("Given input is a number\n");
-            number = atoi(input);
-            printf("Number is: %d\n", number);
-        }
-    }*/
     
     while(number < 1 || number > 10)
     {
@@ -37,7 +17,6 @@ int main()
         if (!isdigit(input[i]))
         {
             printf ("Entered input is not valid\n");
-            //exit(1);
         }
         else 
         {
@@ -53,6 +32,8 @@ int main()
             }
         }
     }
+}
+
         /*if (!isdigit(input[i]))
         {
             
@@ -87,4 +68,24 @@ int main()
                 sentinella = 0;
             }
         }while(sentinella == -1);*/
-}
+
+
+
+
+    //scanf ("%s", input);
+    //length = strlen (input);
+    /*for(i = 0; i < 1; i++)
+    {
+        if (!isdigit(input[i]))
+        {
+            
+            printf ("Entered input is not a number\n");
+            //exit(1);
+        }
+        else
+        {
+            printf ("Given input is a number\n");
+            number = atoi(input);
+            printf("Number is: %d\n", number);
+        }
+    }*/
