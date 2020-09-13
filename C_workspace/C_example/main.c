@@ -325,8 +325,9 @@ void matrice_inversa(double determinante, double **matrice_uno, int ordine_uno)
         {
             valore_matrice_inversa = reciproco_determinante * matrice_trasposta[z][x];
             if(valore_matrice_inversa == -0)
+            {
                 valore_matrice_inversa = 0;
-            
+            }
             printf("  %.3f  ", valore_matrice_inversa);
         }
         printf("\n");
