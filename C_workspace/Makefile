@@ -1,8 +1,8 @@
 .PHONY: clean All
 
 All:
-	@echo "----------Building project:[ Input_validation - Debug ]----------"
-	@cd "Input_validation" && "$(MAKE)" -f  "Input_validation.mk"
+	@echo "----------Building project:[ C_example - Debug ]----------"
+	@cd "C_example" && "$(MAKE)" -f  "C_example.mk"
 clean:
-	@echo "----------Cleaning project:[ Input_validation - Debug ]----------"
-	@cd "Input_validation" && "$(MAKE)" -f  "Input_validation.mk" clean
+	@echo "----------Cleaning project:[ C_example - Debug ]----------"
+	@cd "C_example" && "$(MAKE)" -f  "C_example.mk" clean
