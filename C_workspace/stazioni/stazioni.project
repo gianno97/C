@@ -98,4 +98,6 @@
     <File Name="libreria.c"/>
     <File Name="file_stazioni.txt"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
 </CodeLite_Project>
