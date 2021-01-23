@@ -127,3 +127,15 @@ void ruota_dx(nodo_albero_bin_rn_t *sent_p, nodo_albero_bin_rn_t *y_p)
     x_p->dx_p = y_p;
     y_p->padre_p = x_p;
 }
+
+nodo_albero_bin_rn_t *cerca_in_albero_bin_ric_rn(nodo_albero_bin_rn_t *sent_p, int valore)
+{
+    nodo_albero_bin_rn_t *nodo_p;
+    
+    for(nodo_p = sent_p->sx_p;
+         ((nodo_p != sent_p) && (nodo_p->valore != valore));
+         nodo_p = (valore < nodo_p->valore)?
+                    nodo_p->sx_p:
+                    nodo_p->dx_p);
+    return(nodo_p);
+}
