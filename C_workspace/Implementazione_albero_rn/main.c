@@ -85,3 +85,45 @@ int main(int argc, char **argv)
 
     return 0;
 }
+
+void ruota_sx(nodo_albero_bin_rn_t *sent_p, nodo_albero_bin_rn_t *x_p)
+{
+    nodo_albero_bin_rn_t *y_p;
+    
+    y_p = x_p->dx_p;
+    x_p->dx_p = y_p->sx_p;
+    y_p->sx_p->padre_p = x_p;
+    y_p->padre_p = x_p->padre_p;
+    
+    if(x_p == sent_p->sx_p)
+        sent_p->sx_p = sent_p->dx_p = y_p;
+    else
+        if(x_p == x_p->padre_p->sx_p)
+            x_p->padre_p->sx_p = y_p;
+        else
+            x_p->padre_p->dx_p = y_p;
+
+    y_p->sx_p = x_p;
+    x_p->padre_p = y_p;
+}
+
+void ruota_dx(nodo_albero_bin_rn_t *sent_p, nodo_albero_bin_rn_t *y_p)
+{
+    nodo_albero_bin_rn_t *x_p;
+    
+    x_p = y_p->sx_p;
+    y_p->sx_p = x_p->dx_p;
+    x_p->dx_p->padre_p = y_p;
+    x_p->padre_p = y_p->padre_p;
+    
+    if(y_p == sent_p->dx_p)
+        sent_p->dx_p = sent_p->sx_p = x_p;
+    else
+        if(y_p == y_p->padre_p->dx_p)
+            y_p->padre_p->dx_p = x_p;
+        else
+            y_p->padre_p->sx_p = x_p;
+            
+    x_p->dx_p = y_p;
+    y_p->padre_p = x_p;
+}
