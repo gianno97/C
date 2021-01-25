@@ -20,7 +20,7 @@ void ripristina_ins_albero_bin_ric_rn(nodo_albero_bin_rn_t *sent_p, nodo_albero_
 void ruota_sx(nodo_albero_bin_rn_t *sent_p, nodo_albero_bin_rn_t *x_p);
 void ruota_dx(nodo_albero_bin_rn_t *sent_p, nodo_albero_bin_rn_t *y_p);
 
-int main(int argc, char **argv)
+int main(void)
 {
     /* dichiarazione delle variabili locali alla funzione */
     int i,
@@ -83,7 +83,7 @@ int main(int argc, char **argv)
     else
         printf("Elemento non presente nell'albero!\n");
 
-    return 0;
+    return (0);
 }
 
 void ruota_sx(nodo_albero_bin_rn_t *sent_p, nodo_albero_bin_rn_t *x_p)
@@ -215,13 +215,18 @@ void ripristina_ins_albero_bin_ric_rn(nodo_albero_bin_rn_t *sent_p, nodo_albero_
             {
                 if(nodo_p == nodo_p->padre_p->sx_p)
                 {
-                    nodo_p = nodo_p->padre_p;
-                    ruota_dx(sent_p, nodo_p);
+                    //nodo_p = nodo_p->padre_p;
+                    nodo_p->padre_p->colore = nero;
+                    nodo_p->padre_p->padre_p->colore = rosso;
+                    ruota_dx(sent_p, nodo_p->padre_p->padre_p);
+                    //ruota_sx(sent_p, nodo_p);
                 }
-                nodo_p->padre_p->colore = nero;
-                nodo_p->padre_p->padre_p->colore = rosso;
-                ruota_sx(sent_p, nodo_p->padre_p->padre_p);
+                //nodo_p->padre_p->colore = nero;
+                //nodo_p->padre_p->padre_p->colore = rosso;
+                //ruota_dx(sent_p, nodo_p->padre_p->padre_p);
+                nodo_p = nodo_p->padre_p;
+                ruota_sx(sent_p, nodo_p);
             }
         }
-        sent_p->sx_p->colore = nero;
+    sent_p->sx_p->colore = nero;
 }
