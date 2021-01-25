@@ -31,6 +31,7 @@ int main(void)
     char carattere_rimosso;
     nodo_albero_bin_rn_t *sent_p,
                          *esito;
+    int inserito;
 
     do
     {
@@ -47,8 +48,15 @@ int main(void)
     }
     while(esito_lettura != 1 || num_elem_albero < 0);
 
-    sent_p = NULL;
-
+    sent_p = (nodo_albero_bin_rn_t *)malloc(sizeof(nodo_albero_bin_rn_t));
+    //sent_p = NULL;
+    //padre_p = NULL;
+    sent_p->padre_p = NULL;
+    sent_p->sx_p = NULL;
+    sent_p->dx_p = NULL;
+    sent_p->colore = nero;
+    //sent_p->valore = 0;
+    
     srand(time(NULL)); /* inizializza il generatore */
 
     printf("Gli elementi dell'albero sono:\n");
@@ -56,7 +64,7 @@ int main(void)
     for(i = 0; i < num_elem_albero; i++)
     {
         x = 1 + rand() % 40; /*genera un numero casuale tra 1 e 40*/
-        inserisci_in_albero_bin_ric_rn(sent_p, x);
+        inserito = inserisci_in_albero_bin_ric_rn(sent_p, x);
         printf("%d,", x); 
     }
     printf("\n");
@@ -146,6 +154,11 @@ int inserisci_in_albero_bin_ric_rn(nodo_albero_bin_rn_t *sent_p, int valore)
     nodo_albero_bin_rn_t *nodo_p,
                          *padre_p,
                          *nuovo_p;
+    
+    nodo_p = (nodo_albero_bin_rn_t *)malloc(sizeof(nodo_albero_bin_rn_t));
+    padre_p = (nodo_albero_bin_rn_t *)malloc(sizeof(nodo_albero_bin_rn_t));
+    sent_p = (nodo_albero_bin_rn_t *)malloc(sizeof(nodo_albero_bin_rn_t));
+    nodo_p->valore = valore;
     
     for(nodo_p = sent_p->sx_p, padre_p = sent_p;
         ((nodo_p != sent_p) && (nodo_p->valore != valore));
