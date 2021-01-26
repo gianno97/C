@@ -20,7 +20,7 @@ typedef struct albero_rn
     nodo_albero_bin_rn_t *sent_p;
 } albero_rn_t;
 
-int inserisci_in_albero_bin_ric_rn(nodo_albero_bin_rn_t *sent_p, int valore);
+int inserisci_in_albero_bin_ric_rn(albero_rn_t *sent_p, int valore);
 nodo_albero_bin_rn_t *cerca_in_albero_bin_ric_rn(nodo_albero_bin_rn_t *sent_p, int valore);
 void ripristina_ins_albero_bin_ric_rn(nodo_albero_bin_rn_t *sent_p, nodo_albero_bin_rn_t *nodo_p);
 void ruota_sx(nodo_albero_bin_rn_t *sent_p, nodo_albero_bin_rn_t *x_p);
@@ -32,6 +32,7 @@ int main(void)
 {
     albero_rn_t *t = nuovo_albero_rn();
     
+    /*
     nodo_albero_bin_rn_t *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k, *l, *m;
     a = nuovo_nodo_albero(10);
     b = nuovo_nodo_albero(20);
@@ -46,6 +47,21 @@ int main(void)
     k = nuovo_nodo_albero(150);
     l = nuovo_nodo_albero(110);
     m = nuovo_nodo_albero(120);
+    */
+    
+    inserisci_in_albero_bin_ric_rn(t, 10);
+    inserisci_in_albero_bin_ric_rn(t, 20);
+    inserisci_in_albero_bin_ric_rn(t, 30);
+    inserisci_in_albero_bin_ric_rn(t, 100);
+    inserisci_in_albero_bin_ric_rn(t, 90);
+    inserisci_in_albero_bin_ric_rn(t, 40);
+    inserisci_in_albero_bin_ric_rn(t, 50);
+    inserisci_in_albero_bin_ric_rn(t, 60);
+    inserisci_in_albero_bin_ric_rn(t, 70);
+    inserisci_in_albero_bin_ric_rn(t, 80);
+    inserisci_in_albero_bin_ric_rn(t, 150);
+    inserisci_in_albero_bin_ric_rn(t, 110);
+    inserisci_in_albero_bin_ric_rn(t, 120);
     
     return (0);
 }
@@ -131,7 +147,7 @@ nodo_albero_bin_rn_t *cerca_in_albero_bin_ric_rn(nodo_albero_bin_rn_t *sent_p, i
     return(nodo_p);
 }
 
-int inserisci_in_albero_bin_ric_rn(nodo_albero_bin_rn_t *sent_p, int valore)
+int inserisci_in_albero_bin_ric_rn(albero_rn_t *sent_p, int valore)
 {
     int                  inserito;
     nodo_albero_bin_rn_t *nodo_p,
