@@ -20,7 +20,7 @@ typedef struct albero_rn
     nodo_albero_bin_rn_t *sent_p;
 } albero_rn_t;
 
-int inserisci_in_albero_bin_ric_rn(albero_rn_t *sent_p, int valore);
+int inserisci_in_albero_bin_ric_rn(albero_rn_t *t, int valore);
 nodo_albero_bin_rn_t *cerca_in_albero_bin_ric_rn(nodo_albero_bin_rn_t *sent_p, int valore);
 void ripristina_ins_albero_bin_ric_rn(nodo_albero_bin_rn_t *sent_p, nodo_albero_bin_rn_t *nodo_p);
 void ruota_sx(nodo_albero_bin_rn_t *sent_p, nodo_albero_bin_rn_t *x_p);
@@ -48,20 +48,34 @@ int main(void)
     l = nuovo_nodo_albero(110);
     m = nuovo_nodo_albero(120);
     */
+    int inserito;
+    //nodo_albero_bin_rn_t *sent_p_node;
+    //sent_p_node = NULL;
     
-    inserisci_in_albero_bin_ric_rn(t, 10);
-    inserisci_in_albero_bin_ric_rn(t, 20);
-    inserisci_in_albero_bin_ric_rn(t, 30);
-    inserisci_in_albero_bin_ric_rn(t, 100);
-    inserisci_in_albero_bin_ric_rn(t, 90);
-    inserisci_in_albero_bin_ric_rn(t, 40);
-    inserisci_in_albero_bin_ric_rn(t, 50);
-    inserisci_in_albero_bin_ric_rn(t, 60);
-    inserisci_in_albero_bin_ric_rn(t, 70);
-    inserisci_in_albero_bin_ric_rn(t, 80);
-    inserisci_in_albero_bin_ric_rn(t, 150);
-    inserisci_in_albero_bin_ric_rn(t, 110);
-    inserisci_in_albero_bin_ric_rn(t, 120);
+    //nodo_albero_bin_rn_t *sent_p_node = malloc(sizeof(nodo_albero_bin_rn_t));
+    //sent_p_node->sx_p = NULL;
+    //sent_p_node->dx_p = NULL;
+    //sent_p_node->padre_p = NULL;
+    //sent_p_node->colore = nero;
+    //sent_p_node->valore = 0;
+    
+    //printf("%d", t->sent_p->valore);
+    //printf("%d", t->sent_p->sx_p->valore);
+    
+    inserito = inserisci_in_albero_bin_ric_rn(t, 10);
+    printf("%d\n", inserito);
+    //inserisci_in_albero_bin_ric_rn(t, 20);
+    //inserisci_in_albero_bin_ric_rn(t, 30);
+    //inserisci_in_albero_bin_ric_rn(t, 100);
+    //inserisci_in_albero_bin_ric_rn(t, 90);
+    //inserisci_in_albero_bin_ric_rn(t, 40);
+    //inserisci_in_albero_bin_ric_rn(sent_p_node, 50);
+    //inserisci_in_albero_bin_ric_rn(sent_p_node, 60);
+    //inserisci_in_albero_bin_ric_rn(sent_p_node, 70);
+    //inserisci_in_albero_bin_ric_rn(sent_p_node, 80);
+    //inserisci_in_albero_bin_ric_rn(sent_p_node, 150);
+    //inserisci_in_albero_bin_ric_rn(sent_p_node, 110);
+    //inserisci_in_albero_bin_ric_rn(sent_p_node, 120);
     
     return (0);
 }
@@ -147,19 +161,27 @@ nodo_albero_bin_rn_t *cerca_in_albero_bin_ric_rn(nodo_albero_bin_rn_t *sent_p, i
     return(nodo_p);
 }
 
-int inserisci_in_albero_bin_ric_rn(albero_rn_t *sent_p, int valore)
+int inserisci_in_albero_bin_ric_rn(albero_rn_t *t, int valore)
 {
     int                  inserito;
     nodo_albero_bin_rn_t *nodo_p,
                          *padre_p,
                          *nuovo_p;
     
-    for(nodo_p = sent_p->sx_p, padre_p = sent_p;
-        ((nodo_p != sent_p) && (nodo_p->valore != valore));
+    //nodo_p = nuovo_nodo_albero(100);
+    //padre_p = nuovo_nodo_albero(50);
+    //printf("%d", nodo_p->valore);
+    //printf("%d", padre_p->valore);
+    
+    //if((nodo_p != t->sent_p) && (nodo_p->valore != valore))
+        //printf("DIOPORCO");
+    
+    for(nodo_p = t->sent_p->sx_p, padre_p = t->sent_p;
+        ((nodo_p != t->sent_p) && (nodo_p->valore != valore));
         padre_p = nodo_p, nodo_p = (valore < nodo_p->valore)?
                                      nodo_p->sx_p:
                                      nodo_p->dx_p);
-    if(nodo_p != sent_p)
+    if(nodo_p != t->sent_p)
         inserito = 0;
     else
     {
@@ -167,16 +189,16 @@ int inserisci_in_albero_bin_ric_rn(albero_rn_t *sent_p, int valore)
         nuovo_p = (nodo_albero_bin_rn_t *)malloc(sizeof(nodo_albero_bin_rn_t));
         nuovo_p->valore = valore;
         nuovo_p->colore = rosso;
-        nuovo_p->sx_p = nuovo_p->dx_p = sent_p;
+        nuovo_p->sx_p = nuovo_p->dx_p = t->sent_p;
         nuovo_p->padre_p = padre_p;
-        if(padre_p == sent_p)
-            sent_p->sx_p = sent_p->dx_p = nuovo_p;
+        if(padre_p == t->sent_p)
+            t->sent_p->sx_p = t->sent_p->dx_p = nuovo_p;
         else
             if(valore < padre_p->valore)
                 padre_p->sx_p = nuovo_p;
             else
                 padre_p->dx_p = nuovo_p;
-        ripristina_ins_albero_bin_ric_rn(sent_p, nuovo_p);
+        ripristina_ins_albero_bin_ric_rn(t->sent_p, nuovo_p);
     }
     return(inserito);
 }
