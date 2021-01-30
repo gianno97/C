@@ -4,13 +4,14 @@
   <VirtualDirectory Name="Alberi">
     <Project Name="Inserimento_alb_bin" Path="Inserimento_alb_bin/Inserimento_alb_bin.project" Active="No"/>
     <Project Name="Progetto_algoritmi_CPU" Path="Progetto_algoritmi_CPU/Progetto_algoritmi_CPU.project" Active="No"/>
-    <Project Name="Implementazione_albero_rn" Path="Implementazione_albero_rn/Implementazione_albero_rn.project" Active="Yes"/>
+    <Project Name="Implementazione_albero_rn" Path="Implementazione_albero_rn/Implementazione_albero_rn.project" Active="No"/>
     <Project Name="Albero_Luca" Path="Albero_Luca/Albero_Luca.project" Active="No"/>
     <Project Name="Cerca_albero_bin_ric" Path="Cerca_albero_bin_ric/Cerca_albero_bin_ric.project" Active="No"/>
     <Project Name="Progetto_algoritmi_CPU" Path="Progetto_algoritmi_CPU/Progetto_algoritmi_CPU.project" Active="No"/>
-    <Project Name="Implementazione_albero_rn" Path="Implementazione_albero_rn/Implementazione_albero_rn.project" Active="Yes"/>
+    <Project Name="Implementazione_albero_rn" Path="Implementazione_albero_rn/Implementazione_albero_rn.project" Active="No"/>
     <Project Name="Progetto_algoritmi_CPU" Path="Progetto_algoritmi_CPU/Progetto_algoritmi_CPU.project" Active="No"/>
-    <Project Name="Implementazione_albero_rn" Path="Implementazione_albero_rn/Implementazione_albero_rn.project" Active="Yes"/>
+    <Project Name="Implementazione_albero_rn" Path="Implementazione_albero_rn/Implementazione_albero_rn.project" Active="No"/>
+    <Project Name="Implementazione_albero_rb_alternativa" Path="Implementazione_albero_rb_alternativa/Implementazione_albero_rb_alternativa.project" Active="Yes"/>
   </VirtualDirectory>
   <VirtualDirectory Name="Altro">
     <Project Name="Input_validation" Path="Input_validation/Input_validation.project" Active="No"/>
@@ -25,6 +26,7 @@
     <Project Name="Input_validation" Path="Input_validation/Input_validation.project" Active="No"/>
     <Project Name="Matrix_project" Path="Matrix_project/Matrix_project.project" Active="No"/>
     <Project Name="Progetto_algoritmi" Path="Progetto_algoritmi/Progetto_algoritmi.project" Active="No"/>
+    <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
     <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
     <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
     <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
@@ -63,6 +65,8 @@
       <Project Name="Stazioni" ConfigName="Debug"/>
       <Project Name="Stazioni" ConfigName="Debug"/>
       <Project Name="Stazioni" ConfigName="Debug"/>
+      <Project Name="Stazioni" ConfigName="Debug"/>
+      <Project Name="Implementazione_albero_rb_alternativa" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
@@ -94,6 +98,8 @@
       <Project Name="Stazioni" ConfigName="Release"/>
       <Project Name="Stazioni" ConfigName="Release"/>
       <Project Name="Stazioni" ConfigName="Release"/>
+      <Project Name="Stazioni" ConfigName="Release"/>
+      <Project Name="Implementazione_albero_rb_alternativa" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

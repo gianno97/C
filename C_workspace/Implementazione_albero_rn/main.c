@@ -9,6 +9,7 @@ typedef enum {rosso, nero} colore_t;
 
 typedef struct nodo_albero_bin_rn
 {
+    int turno;
     int valore;
     colore_t colore;
     struct nodo_albero_bin_rn *sx_p, *dx_p, *padre_p;
@@ -19,6 +20,9 @@ typedef struct albero_rn
     nodo_albero_bin_rn_t *radice;
     nodo_albero_bin_rn_t *sent_p;
 } albero_rn_t;
+
+nodo_albero_bin_rn_t *ROOT;
+nodo_albero_bin_rn_t *NILL;
 
 int inserisci_in_albero_bin_ric_rn(albero_rn_t *t, int valore);
 int inserisci_in_albero_bin_ric_rn_second_version(nodo_albero_bin_rn_t *sent_p, int valore);
@@ -53,30 +57,41 @@ int main(void)
     //nodo_albero_bin_rn_t *sent_p_node;
     //sent_p_node = NULL;
     
-    nodo_albero_bin_rn_t *sent_p_node = malloc(sizeof(nodo_albero_bin_rn_t));
-    sent_p_node->sx_p = NULL;
-    sent_p_node->dx_p = NULL;
-    sent_p_node->padre_p = NULL;
-    sent_p_node->colore = nero;
-    sent_p_node->valore = 0;
+    //nodo_albero_bin_rn_t* sent_p_node = (nodo_albero_bin_rn_t*)malloc(sizeof(nodo_albero_bin_rn_t));
+    //nodo_albero_bin_rn_t* sent_p_node = NULL;
+    //sent_p_node = NULL;
+    //sent_p_node->sx_p = NULL;
+    //sent_p_node->dx_p = NULL;
+    //sent_p_node->padre_p = NULL;
+    //sent_p_node->colore = rosso;
+    //sent_p_node->valore = 0;
+    //sent_p_node->turno = 0;
+    //sent_p_node = NULL;
     
     //printf("%d", t->sent_p->valore);
     //printf("%d", t->sent_p->sx_p->valore);
     
-    inserito = inserisci_in_albero_bin_ric_rn_second_version(sent_p_node, 10);
+    NILL = malloc(sizeof(nodo_albero_bin_rn_t));
+    NILL->colore = nero;
+
+    ROOT = NILL;
+    
+    inserito = inserisci_in_albero_bin_ric_rn_second_version(NILL, 10);
     printf("%d\n", inserito);
-    //inserisci_in_albero_bin_ric_rn(t, 20);
-    //inserisci_in_albero_bin_ric_rn(t, 30);
-    //inserisci_in_albero_bin_ric_rn(t, 100);
-    //inserisci_in_albero_bin_ric_rn(t, 90);
-    //inserisci_in_albero_bin_ric_rn(t, 40);
-    //inserisci_in_albero_bin_ric_rn(sent_p_node, 50);
-    //inserisci_in_albero_bin_ric_rn(sent_p_node, 60);
-    //inserisci_in_albero_bin_ric_rn(sent_p_node, 70);
-    //inserisci_in_albero_bin_ric_rn(sent_p_node, 80);
-    //inserisci_in_albero_bin_ric_rn(sent_p_node, 150);
-    //inserisci_in_albero_bin_ric_rn(sent_p_node, 110);
-    //inserisci_in_albero_bin_ric_rn(sent_p_node, 120);
+    inserito = inserisci_in_albero_bin_ric_rn_second_version(NILL, 10);
+    printf("%d\n", inserito);
+    inserito = inserisci_in_albero_bin_ric_rn_second_version(NILL, 10);
+    printf("%d\n", inserito);
+    inserito = inserisci_in_albero_bin_ric_rn_second_version(NILL, 10);
+    printf("%d\n", inserito);
+    inserito = inserisci_in_albero_bin_ric_rn_second_version(NILL, 10);
+    printf("%d\n", inserito);
+    inserito = inserisci_in_albero_bin_ric_rn_second_version(NILL, 10);
+    printf("%d\n", inserito);
+    inserito = inserisci_in_albero_bin_ric_rn_second_version(NILL, 10);
+    printf("%d\n", inserito);
+    inserito = inserisci_in_albero_bin_ric_rn_second_version(NILL, 10);
+    printf("%d\n", inserito);
     
     return (0);
 }
@@ -262,8 +277,14 @@ int inserisci_in_albero_bin_ric_rn_second_version(nodo_albero_bin_rn_t *sent_p, 
     
     nodo_p = sent_p->sx_p;
     padre_p = sent_p;
-    sent_p = NULL;
+    //sent_p = NULL;
     
+    /*if(sent_p->turno == 0)
+    {
+        sent_p->turno = 1;
+        sent_p = NULL;
+    }*/
+
     while((nodo_p != sent_p) && (nodo_p->valore != valore))
     {
         padre_p = nodo_p;
@@ -274,12 +295,6 @@ int inserisci_in_albero_bin_ric_rn_second_version(nodo_albero_bin_rn_t *sent_p, 
         inserito = 0;
     else
     {
-        /*for(nodo_p = t->sent_p->sx_p, padre_p = t->sent_p;
-        ((nodo_p != t->sent_p) && (nodo_p->valore != valore));
-        padre_p = nodo_p, nodo_p = (valore < nodo_p->valore)?
-                                     nodo_p->sx_p:
-                                     nodo_p->dx_p);
-                                      */
         inserito = 1;
         nuovo_p = (nodo_albero_bin_rn_t *)malloc(sizeof(nodo_albero_bin_rn_t));
         nuovo_p->valore = valore;
