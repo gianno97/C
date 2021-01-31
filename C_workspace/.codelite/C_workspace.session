@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="E:\C\C_workspace\C_workspace.workspace">
-  <int Value="2" Name="m_selectedTab"/>
+  <int Value="4" Name="m_selectedTab"/>
   <wxString Value="E:\C\C_workspace\C_workspace.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
@@ -12,15 +12,8 @@
     </TabInfo>
     <TabInfo>
       <wxString Value="E:\C\C_workspace\Progetto_algoritmi_CPU\file_CPU.txt" Name="FileName"/>
-      <int Value="5" Name="FirstVisibleLine"/>
+      <int Value="0" Name="FirstVisibleLine"/>
       <int Value="7" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="FileName"/>
-      <int Value="45" Name="FirstVisibleLine"/>
-      <int Value="62" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -32,9 +25,16 @@
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="E:\C\C_workspace\Dijkstra\dijkstra_graph_from_file.c" Name="FileName"/>
-      <int Value="17" Name="FirstVisibleLine"/>
-      <int Value="18" Name="CurrentLine"/>
+      <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\C\C_workspace\Implementazione_albero_rb_alternativa\main.c" Name="FileName"/>
+      <int Value="30" Name="FirstVisibleLine"/>
+      <int Value="47" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -43,7 +43,7 @@
     <long Value="39" Name="Count"/>
     <SerializedObject Name="Breakpoint0">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="214" Name="lineno"/>
+      <int Value="223" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -59,7 +59,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint1">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="215" Name="lineno"/>
+      <int Value="224" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -75,7 +75,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint2">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="217" Name="lineno"/>
+      <int Value="226" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -91,7 +91,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint3">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="218" Name="lineno"/>
+      <int Value="227" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -107,7 +107,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint4">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="220" Name="lineno"/>
+      <int Value="229" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -123,7 +123,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint5">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="225" Name="lineno"/>
+      <int Value="234" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -139,7 +139,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint6">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="227" Name="lineno"/>
+      <int Value="236" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -155,7 +155,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint7">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="229" Name="lineno"/>
+      <int Value="238" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -171,7 +171,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint8">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="232" Name="lineno"/>
+      <int Value="241" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -187,7 +187,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint9">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="237" Name="lineno"/>
+      <int Value="246" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -203,7 +203,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint10">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="239" Name="lineno"/>
+      <int Value="248" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -219,7 +219,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint11">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="240" Name="lineno"/>
+      <int Value="249" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -235,7 +235,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint12">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="242" Name="lineno"/>
+      <int Value="251" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -251,7 +251,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint13">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="247" Name="lineno"/>
+      <int Value="256" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -267,7 +267,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint14">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="249" Name="lineno"/>
+      <int Value="258" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -283,7 +283,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint15">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="251" Name="lineno"/>
+      <int Value="260" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -299,7 +299,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint16">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="254" Name="lineno"/>
+      <int Value="263" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -315,7 +315,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint17">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="259" Name="lineno"/>
+      <int Value="268" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -331,7 +331,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint18">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="269" Name="lineno"/>
+      <int Value="278" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -347,7 +347,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint19">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="270" Name="lineno"/>
+      <int Value="279" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -363,7 +363,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint20">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="278" Name="lineno"/>
+      <int Value="287" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -379,7 +379,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint21">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="279" Name="lineno"/>
+      <int Value="288" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -395,7 +395,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint22">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="281" Name="lineno"/>
+      <int Value="290" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -411,7 +411,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint23">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="282" Name="lineno"/>
+      <int Value="291" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -427,7 +427,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint24">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="285" Name="lineno"/>
+      <int Value="294" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -443,7 +443,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint25">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="287" Name="lineno"/>
+      <int Value="296" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -459,7 +459,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint26">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="290" Name="lineno"/>
+      <int Value="299" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -475,7 +475,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint27">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="291" Name="lineno"/>
+      <int Value="300" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -491,7 +491,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint28">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="292" Name="lineno"/>
+      <int Value="301" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -507,7 +507,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint29">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="293" Name="lineno"/>
+      <int Value="302" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -523,7 +523,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint30">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="294" Name="lineno"/>
+      <int Value="303" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -539,7 +539,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint31">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="295" Name="lineno"/>
+      <int Value="304" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -555,7 +555,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint32">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="296" Name="lineno"/>
+      <int Value="305" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -571,7 +571,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint33">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="297" Name="lineno"/>
+      <int Value="306" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -587,7 +587,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint34">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="298" Name="lineno"/>
+      <int Value="307" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -603,7 +603,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint35">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="299" Name="lineno"/>
+      <int Value="308" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -619,7 +619,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint36">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="300" Name="lineno"/>
+      <int Value="309" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -635,7 +635,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint37">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="301" Name="lineno"/>
+      <int Value="310" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
@@ -651,7 +651,7 @@
     </SerializedObject>
     <SerializedObject Name="Breakpoint38">
       <wxString Value="E:\C\C_workspace\Implementazione_albero_rn\main.c" Name="file"/>
-      <int Value="302" Name="lineno"/>
+      <int Value="311" Name="lineno"/>
       <wxString Value="" Name="function_name"/>
       <wxString Value="" Name="memory_address"/>
       <int Value="1" Name="bp_type"/>
