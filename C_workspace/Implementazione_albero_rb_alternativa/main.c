@@ -17,11 +17,11 @@ typedef struct nodo_albero_bin_rn
 //int inserisci_in_albero_rn(nodo_albero_bin_rn_t *nodo);
 nodo_albero_bin_rn_t* grandparent(nodo_albero_bin_rn_t *n);
 nodo_albero_bin_rn_t* uncle(nodo_albero_bin_rn_t *n);
-int insert_case1(nodo_albero_bin_rn_t *n);
-void insert_case2(nodo_albero_bin_rn_t *n);
-void insert_case3(nodo_albero_bin_rn_t *n);
-void insert_case4(nodo_albero_bin_rn_t *n);
-void insert_case5(nodo_albero_bin_rn_t *n);
+int insert_case1(nodo_albero_bin_rn_t *n, nodo_albero_bin_rn_t *sent_p);
+void insert_case2(nodo_albero_bin_rn_t *n, nodo_albero_bin_rn_t *sent_p);
+void insert_case3(nodo_albero_bin_rn_t *n, nodo_albero_bin_rn_t *sent_p);
+void insert_case4(nodo_albero_bin_rn_t *n, nodo_albero_bin_rn_t *sent_p);
+void insert_case5(nodo_albero_bin_rn_t *n, nodo_albero_bin_rn_t *sent_p);
 void rotate_right(nodo_albero_bin_rn_t *sent_p, nodo_albero_bin_rn_t *y_p);
 void rotate_left(nodo_albero_bin_rn_t *sent_p, nodo_albero_bin_rn_t *x_p);
 
@@ -50,7 +50,7 @@ nodo_albero_bin_rn_t* uncle(nodo_albero_bin_rn_t *n)
         return grandparent(n)->sx_p;
 }
 
-int insert_case1(nodo_albero_bin_rn_t *n)
+int insert_case1(nodo_albero_bin_rn_t *n, nodo_albero_bin_rn_t *sent_p)
 {
     int inserito;
     
@@ -60,33 +60,33 @@ int insert_case1(nodo_albero_bin_rn_t *n)
         inserito = 1; 
     }
     else
-        insert_case2(n);
+        insert_case2(n, sent_p);
     
     return inserito;
 }
 
-void insert_case2(nodo_albero_bin_rn_t *n)
+void insert_case2(nodo_albero_bin_rn_t *n, nodo_albero_bin_rn_t *sent_p)
 {
     if (n->padre_p->colore == nero)
         /* Tree is still valid */
         printf("L'albero è ancora valido");
     else
-        insert_case3(n);
+        insert_case3(n, sent_p);
 }
 
-void insert_case3(nodo_albero_bin_rn_t *n)
+void insert_case3(nodo_albero_bin_rn_t *n, nodo_albero_bin_rn_t *sent_p)
 {
     if (uncle(n) != NULL && uncle(n)->colore == rosso) {
         n->padre_p->colore = nero;
         uncle(n)->colore = nero;
         grandparent(n)->colore = rosso;
-        insert_case1(grandparent(n));
+        insert_case1(grandparent(n), sent_p);
     }
     else
-        insert_case4(n);
+        insert_case4(n, sent_p);
 }
 
-void insert_case4(nodo_albero_bin_rn_t *n)
+void insert_case4(nodo_albero_bin_rn_t *n, nodo_albero_bin_rn_t *sent_p)
 {
     if (n == n->padre_p->dx_p && n->padre_p == grandparent(n)->sx_p) {
         rotate_left(sent_p, n->padre_p);
@@ -95,10 +95,10 @@ void insert_case4(nodo_albero_bin_rn_t *n)
         rotate_right(sent_p, n->padre_p);
         n = n->dx_p;
     }
-        insert_case5(n);
+        insert_case5(n, sent_p);
 }
 
-void insert_case5(nodo_albero_bin_rn_t *n)
+void insert_case5(nodo_albero_bin_rn_t *n, nodo_albero_bin_rn_t *sent_p)
 {
     n->padre_p->colore = nero;
     grandparent(n)->colore = rosso;
