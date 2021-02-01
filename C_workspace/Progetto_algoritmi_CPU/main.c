@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <float.h>
+#include <time.h>
 
 typedef struct nodo_albero_bin
 {
@@ -29,17 +30,30 @@ int main(int argc, char **argv)
     }
     else
     {
+        int x, inserito;
         nodo_albero_bin_t *radice = NULL;
         
+        srand(time(NULL));
+        
         //printf("%-10s%-13s%-15s%-15s%-15s%-15s\n", "Tempo", "CPU", "Potenza", "Temperatura", "Processi", "Memoria");
-        fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", radice->tempo, radice->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
+        x = 1 + rand() % 40;
+        inserisci_in_albero_bin_ric(&radice, x);
+        fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &radice->tempo, radice->codice_cpu, &radice->potenza, &radice->temperatura, &radice->processi, &radice->memoria);
         
         while(!feof(cpuPtr))
         {
             //printf("%-10d%-13s%-15f%-15f%-15f%-15f\n", tempo, cpu_code, potenza, temperature, process, memory);
-            fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", radice->tempo, radice->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
+            x = 1 + rand() % 40;
+            inserito = inserisci_in_albero_bin_ric(&radice, x);
+            if(inserito == 1)
+                fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &radice->tempo, radice->codice_cpu, &radice->potenza, &radice->temperatura, &radice->processi, &radice->memoria);
         }
         fclose(cpuPtr);
+    }
+    
+    while()
+    {
+        
     }
     
     return 0;
@@ -86,4 +100,12 @@ nodo_albero_bin_t *cerca_in_albero_bin_ric(nodo_albero_bin_t *radice_p, int chia
                     nodo_p->sx_p:
                     nodo_p->dx_p);
     return(nodo_p);
+}
+
+void visita_albero_bin_ant(nodo_albero_bin_t *nodo_p)
+{
+    if(nodo_p != NULL)
+    {
+        printf("")
+    }
 }
