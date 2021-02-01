@@ -134,6 +134,7 @@ int inserisci_in_albero_bin_ric(nodo_albero_bin_t **radice_p, int valore)
 	}
 	return(inserito);
 }
+
 nodo_albero_bin_t *cerca_in_albero_bin_ric(nodo_albero_bin_t *radice_p, int valore)
 {
 	nodo_albero_bin_t *nodo_p;
