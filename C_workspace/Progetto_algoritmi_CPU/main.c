@@ -36,21 +36,19 @@ int main(int argc, char **argv)
     {
         srand(time(NULL));
         
-        //printf("%-10s%-13s%-15s%-15s%-15s%-15s\n", "Tempo", "CPU", "Potenza", "Temperatura", "Processi", "Memoria");
-        //x = 1 + rand() % 40;
-        //inserisci_in_albero_bin_ric(&radice, x);
-        //fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
-        //printf("%-10d%-13s%-15f%-15f%-15f%-15f\n", radice->tempo, radice->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
+        printf("%-10s%-13s%-15s%-15s%-15s%-15s\n", "Tempo", "CPU", "Potenza", "Temperatura", "Processi", "Memoria");
+        x = 1 + rand() % 40;
+        inserisci_in_albero_bin_ric(&radice, x);
+        fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
         
         while(!feof(cpuPtr))
         {
-            //printf("%-10d%-13s%-15f%-15f%-15f%-15f\n", tempo, cpu_code, potenza, temperature, process, memory);
             x = 1 + rand() % 40;
             inserito = inserisci_in_albero_bin_ric(&radice, x);
             if(inserito == 1)
             {
-                fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
                 printf("%-10d%-13s%-15f%-15f%-15f%-15f\n", radice->tempo, radice->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
+                fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
             }
         }
         fclose(cpuPtr);
