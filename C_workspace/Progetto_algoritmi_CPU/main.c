@@ -26,12 +26,6 @@ int main(int argc, char **argv)
     FILE *cpuPtr;
     
     int x;
-    int tempo;
-    char codice_cpu[7];
-    double potenza;
-    double temperatura;
-    double processi;
-    double memoria;
     nodo_albero_bin_t *radice = NULL;
     
     if((cpuPtr = fopen("file_CPU.txt", "r")) == NULL)
@@ -45,8 +39,8 @@ int main(int argc, char **argv)
         //printf("%-10s%-13s%-15s%-15s%-15s%-15s\n", "Tempo", "CPU", "Potenza", "Temperatura", "Processi", "Memoria");
         x = 1 + rand() % 40;
         inserisci_in_albero_bin_ric(&radice, x);
-        fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &tempo, codice_cpu, &potenza, &temperatura, &processi, &memoria);
-        radice->tempo = tempo;
+        fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
+        printf("%-10d%-13s%-15f%-15f%-15f%-15f\n", radice->tempo, radice->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
         
         while(!feof(cpuPtr))
         {
@@ -54,12 +48,13 @@ int main(int argc, char **argv)
             x = 1 + rand() % 40;
             inserisci_in_albero_bin_ric(&radice, x);
             //if(inserito == 1)
-            fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &tempo, codice_cpu, &potenza, &temperatura, &processi, &memoria);
+            fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
+            printf("%-10d%-13s%-15f%-15f%-15f%-15f\n", radice->tempo, radice->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
         }
         fclose(cpuPtr);
     }
     
-    visita_albero_bin_ant(radice);
+    //visita_albero_bin_ant(radice);
     
     return 0;
 }
