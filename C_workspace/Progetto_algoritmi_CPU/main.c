@@ -47,7 +47,7 @@ int main(int argc, char **argv)
             inserito = inserisci_in_albero_bin_ric(&radice, x);
             if(inserito == 1)
             {
-                printf("%-10d%-13s%-15f%-15f%-15f%-15f\n", radice->tempo, radice->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
+                printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", radice->tempo, radice->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
                 fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
             }
         }
