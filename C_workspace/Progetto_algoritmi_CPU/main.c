@@ -19,10 +19,20 @@ typedef struct nodo_albero_bin
 
 int inserisci_in_albero_bin_ric(nodo_albero_bin_t **radice_p, int chiave);
 nodo_albero_bin_t *cerca_in_albero_bin_ric(nodo_albero_bin_t *radice_p, int chiave);
+void visita_albero_bin_ant(nodo_albero_bin_t *nodo_p);
 
 int main(int argc, char **argv)
 {
     FILE *cpuPtr;
+    
+    int x;
+    int tempo;
+    char codice_cpu[7];
+    double potenza;
+    double temperatura;
+    double processi;
+    double memoria;
+    nodo_albero_bin_t *radice = NULL;
     
     if((cpuPtr = fopen("file_CPU.txt", "r")) == NULL)
     {
@@ -30,31 +40,26 @@ int main(int argc, char **argv)
     }
     else
     {
-        int x, inserito;
-        nodo_albero_bin_t *radice = NULL;
-        
         srand(time(NULL));
         
         //printf("%-10s%-13s%-15s%-15s%-15s%-15s\n", "Tempo", "CPU", "Potenza", "Temperatura", "Processi", "Memoria");
         x = 1 + rand() % 40;
         inserisci_in_albero_bin_ric(&radice, x);
-        fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &radice->tempo, radice->codice_cpu, &radice->potenza, &radice->temperatura, &radice->processi, &radice->memoria);
+        fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &tempo, codice_cpu, &potenza, &temperatura, &processi, &memoria);
+        radice->tempo = tempo;
         
         while(!feof(cpuPtr))
         {
             //printf("%-10d%-13s%-15f%-15f%-15f%-15f\n", tempo, cpu_code, potenza, temperature, process, memory);
             x = 1 + rand() % 40;
-            inserito = inserisci_in_albero_bin_ric(&radice, x);
-            if(inserito == 1)
-                fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &radice->tempo, radice->codice_cpu, &radice->potenza, &radice->temperatura, &radice->processi, &radice->memoria);
+            inserisci_in_albero_bin_ric(&radice, x);
+            //if(inserito == 1)
+            fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &tempo, codice_cpu, &potenza, &temperatura, &processi, &memoria);
         }
         fclose(cpuPtr);
     }
     
-    while()
-    {
-        
-    }
+    visita_albero_bin_ant(radice);
     
     return 0;
 }
@@ -104,8 +109,12 @@ nodo_albero_bin_t *cerca_in_albero_bin_ric(nodo_albero_bin_t *radice_p, int chia
 
 void visita_albero_bin_ant(nodo_albero_bin_t *nodo_p)
 {
+    //printf("%-10s%-13s%-15s%-15s%-15s%-15s\n", "Tempo", "CPU", "Potenza", "Temperatura", "Processi", "Memoria");
+    
     if(nodo_p != NULL)
     {
-        printf("")
+        printf("%-10d%-13s%-15f%-15f%-15f%-15f\n", (nodo_p->tempo), (nodo_p->codice_cpu), (nodo_p->potenza), (nodo_p->temperatura), (nodo_p->processi), (nodo_p->memoria));
+        visita_albero_bin_ant(nodo_p->sx_p);
+        visita_albero_bin_ant(nodo_p->dx_p);
     }
 }
