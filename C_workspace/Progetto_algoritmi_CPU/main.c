@@ -18,7 +18,7 @@ typedef struct nodo_albero_bin
 } nodo_albero_bin_t;
 
 int inserisci_in_albero_bin_ric(nodo_albero_bin_t **radice_p, int chiave);
-nodo_albero_bin_t *cerca_in_albero_bin_ric(nodo_albero_bin_t *radice_p, int chiave);
+void cerca_in_albero_bin_ric(nodo_albero_bin_t *radice_p, char codice_cpu[7]);
 void visita_albero_bin_ant(nodo_albero_bin_t *nodo_p);
 
 int main(int argc, char **argv)
@@ -26,6 +26,7 @@ int main(int argc, char **argv)
     FILE *cpuPtr;
     
     int x, inserito;
+    char codice_cpu[7];
     nodo_albero_bin_t *radice = NULL;
     
     if((cpuPtr = fopen("file_CPU.txt", "r")) == NULL)
@@ -54,7 +55,9 @@ int main(int argc, char **argv)
         fclose(cpuPtr);
     }
     
-    //visita_albero_bin_ant(radice);
+    printf("Digitare il codice della CPU:\n");
+    scanf("%s", codice_cpu);
+    cerca_in_albero_bin_ric(radice, codice_cpu);
     
     return 0;
 }
@@ -90,16 +93,36 @@ int inserisci_in_albero_bin_ric(nodo_albero_bin_t **radice_p, int chiave)
     return(inserito);
 }
 
-nodo_albero_bin_t *cerca_in_albero_bin_ric(nodo_albero_bin_t *radice_p, int chiave)
+void cerca_in_albero_bin_ric(nodo_albero_bin_t *radice_p, char codice_cpu[7])
 {
     nodo_albero_bin_t *nodo_p;
+    
+    nodo_p = radice_p;
+    
+    while(nodo_p != NULL)
+    {
+        if(nodo_p->codice_cpu != codice_cpu)
+        {
+            if(nodo_p->sx_p != NULL)
+            {
+                nodo_p = nodo_p->sx_p;
+            }
+            else
+            {
+                nodo_p = nodo_p->dx_p;
+            }
+        }
+        else
+        {
+            printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", nodo_p->tempo, nodo_p->codice_cpu, nodo_p->potenza, nodo_p->temperatura, nodo_p->processi, nodo_p->memoria);
+        }
+    }
 
-    for (nodo_p = radice_p;
-         ((nodo_p != NULL) && (nodo_p->chiave != chiave));
+    /*for (nodo_p = radice_p;
+         ((nodo_p != NULL) && (nodo_p->codice_cpu != codice_cpu));
          nodo_p = (chiave < nodo_p->chiave)?
                     nodo_p->sx_p:
-                    nodo_p->dx_p);
-    return(nodo_p);
+                    nodo_p->dx_p);*/
 }
 
 void visita_albero_bin_ant(nodo_albero_bin_t *nodo_p)
