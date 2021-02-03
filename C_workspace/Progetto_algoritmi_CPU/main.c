@@ -5,11 +5,17 @@
 #include <float.h>
 #include <time.h>
 
+typedef struct elem_albero_bin
+{
+    int chiave;
+    char codice_cpu[7];
+} elem_albero_bin_t;
+
 typedef struct nodo_albero_bin
 {
     int chiave;
     int tempo;
-    char codice_cpu[7];
+    elem_albero_bin_t *nome_cpu;
     double potenza;
     double temperatura;
     double processi;
@@ -26,8 +32,11 @@ int main(int argc, char **argv)
     FILE *cpuPtr;
     
     int x, inserito;
-    char codice_cpu[7];
+    //char codice_cpu[7];
+    //elem_albero_bin_t *nome_cpu = (elem_albero_bin_t *)malloc(sizeof(elem_albero_bin_t));
     nodo_albero_bin_t *radice = NULL;
+    //radice->nome_cpu = (elem_albero_bin_t *)malloc(sizeof(elem_albero_bin_t));
+    //nome_cpu = (elem_albero_bin_t *)malloc(sizeof(elem_albero_bin_t));
     
     if((cpuPtr = fopen("file_CPU.txt", "r")) == NULL)
     {
@@ -40,24 +49,28 @@ int main(int argc, char **argv)
         printf("%-10s%-13s%-15s%-15s%-15s%-15s\n", "Tempo", "CPU", "Potenza", "Temperatura", "Processi", "Memoria");
         x = 1 + rand() % 40;
         inserisci_in_albero_bin_ric(&radice, x);
-        fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
+        //radice->nome_cpu->chiave = x;
+        fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->nome_cpu->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
         
         while(!feof(cpuPtr))
         {
             x = 1 + rand() % 40;
             inserito = inserisci_in_albero_bin_ric(&radice, x);
+            //radice->nome_cpu = (elem_albero_bin_t *)malloc(sizeof(elem_albero_bin_t));
+            
             if(inserito == 1)
             {
-                printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", radice->tempo, radice->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
-                fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
+                //radice->nome_cpu->chiave = x;
+                printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", radice->tempo, radice->nome_cpu->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
+                fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->nome_cpu->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
             }
         }
         fclose(cpuPtr);
     }
     
-    printf("Digitare il codice della CPU:\n");
-    scanf("%s", codice_cpu);
-    cerca_in_albero_bin_ric(radice, codice_cpu);
+    //printf("Digitare il codice della CPU:\n");
+    //scanf("%s", codice_cpu);
+    //cerca_in_albero_bin_ric(radice, codice_cpu);
     
     return 0;
 }
@@ -80,7 +93,9 @@ int inserisci_in_albero_bin_ric(nodo_albero_bin_t **radice_p, int chiave)
     {
         inserito = 1;
         nuovo_p = (nodo_albero_bin_t *)malloc(sizeof(nodo_albero_bin_t));
+        nuovo_p->nome_cpu = (elem_albero_bin_t *)malloc(sizeof(elem_albero_bin_t));
         nuovo_p->chiave = chiave;
+        nuovo_p->nome_cpu->chiave = chiave;
         nuovo_p->sx_p = nuovo_p->dx_p = NULL;
         if (nodo_p == *radice_p)
             *radice_p = nuovo_p;
@@ -97,26 +112,7 @@ void cerca_in_albero_bin_ric(nodo_albero_bin_t *radice_p, char codice_cpu[7])
 {
     nodo_albero_bin_t *nodo_p;
     
-    nodo_p = radice_p;
-    
-    while(nodo_p != NULL)
-    {
-        if(nodo_p->codice_cpu != codice_cpu)
-        {
-            if(nodo_p->sx_p != NULL)
-            {
-                nodo_p = nodo_p->sx_p;
-            }
-            else
-            {
-                nodo_p = nodo_p->dx_p;
-            }
-        }
-        else
-        {
-            printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", nodo_p->tempo, nodo_p->codice_cpu, nodo_p->potenza, nodo_p->temperatura, nodo_p->processi, nodo_p->memoria);
-        }
-    }
+
 
     /*for (nodo_p = radice_p;
          ((nodo_p != NULL) && (nodo_p->codice_cpu != codice_cpu));
@@ -131,7 +127,7 @@ void visita_albero_bin_ant(nodo_albero_bin_t *nodo_p)
     
     if(nodo_p != NULL)
     {
-        printf("%-10d%-13s%-15f%-15f%-15f%-15f\n", (nodo_p->tempo), (nodo_p->codice_cpu), (nodo_p->potenza), (nodo_p->temperatura), (nodo_p->processi), (nodo_p->memoria));
+        printf("%-10d%-13s%-15f%-15f%-15f%-15f\n", (nodo_p->tempo), (nodo_p->nome_cpu->codice_cpu), (nodo_p->potenza), (nodo_p->temperatura), (nodo_p->processi), (nodo_p->memoria));
         visita_albero_bin_ant(nodo_p->sx_p);
         visita_albero_bin_ant(nodo_p->dx_p);
     }
