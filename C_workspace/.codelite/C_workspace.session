@@ -12,14 +12,14 @@
     </TabInfo>
     <TabInfo>
       <wxString Value="E:\C\C_workspace\Progetto_algoritmi_CPU\main.c" Name="FileName"/>
-      <int Value="26" Name="FirstVisibleLine"/>
-      <int Value="41" Name="CurrentLine"/>
+      <int Value="62" Name="FirstVisibleLine"/>
+      <int Value="73" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="E:\C\C_workspace\Cerca_albero_bin_ric\cerca_albero_bin_ric.c" Name="FileName"/>
-      <int Value="68" Name="FirstVisibleLine"/>
+      <int Value="74" Name="FirstVisibleLine"/>
       <int Value="97" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
