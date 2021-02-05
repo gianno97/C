@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     FILE *cpuPtr;
     
     int x = 0;
-    //int inserito;
+    int inserito = 0;
     //int confronto;
     int tempo;
     char codice_cpu[7];
@@ -52,41 +52,20 @@ int main(int argc, char **argv)
     {
         srand(time(NULL));
         
-        //printf("%-10s%-13s%-15s%-15s%-15s%-15s\n", "Tempo", "CPU", "Potenza", "Temperatura", "Processi", "Memoria");
-        //fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &tempo, codice_cpu, &potenza, &temperatura, &processi, &memoria);
-        //x = 1 + rand() % 40;
-        //inserisci_in_albero_bin_ric(&radice, x, tempo, codice_cpu, potenza, temperatura, processi, memoria);
-        //printf("%d\n", inserito);
-        //fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
-        
         while(!feof(cpuPtr))
         {
-            //printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", radice->tempo, radice->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
-            //tempo = 0;
-            //codice_cpu = {0};
-            //potenza = 0;
-            //temperatura = 0;
-            //processi = 0;
-            //memoria = 0;
             fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &tempo, codice_cpu, &potenza, &temperatura, &processi, &memoria);
             if(feof(cpuPtr))
                 printf("Inserimento completato\n");
             else
-            {
-                x += 1;
-                inserisci_in_albero_bin_ric(&radice, x, tempo, codice_cpu, potenza, temperatura, processi, memoria);
-            }
-            /*if(inserito != 1)
             {
                 while(inserito != 1)
                 {
                     x = 1 + rand() % 40;
                     inserito = inserisci_in_albero_bin_ric(&radice, x, tempo, codice_cpu, potenza, temperatura, processi, memoria);
                 }
-            }*/
-            //printf("%d\n", inserito);
-            //printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", radice->tempo, radice->nome_cpu->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
-            //fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &tempo, codice_cpu, &potenza, &temperatura, &processi, &memoria);
+                inserito = 0;
+            }
         }
         fclose(cpuPtr);
     }
