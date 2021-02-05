@@ -32,9 +32,9 @@ int main(int argc, char **argv)
 {
     FILE *cpuPtr;
     
-    int x;
-    int inserito;
-    int confronto;
+    int x = 0;
+    //int inserito;
+    //int confronto;
     int tempo;
     char codice_cpu[7];
     double potenza;
@@ -53,9 +53,9 @@ int main(int argc, char **argv)
         srand(time(NULL));
         
         //printf("%-10s%-13s%-15s%-15s%-15s%-15s\n", "Tempo", "CPU", "Potenza", "Temperatura", "Processi", "Memoria");
-        fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &tempo, codice_cpu, &potenza, &temperatura, &processi, &memoria);
-        x = 1 + rand() % 40;
-        inserisci_in_albero_bin_ric(&radice, x, tempo, codice_cpu, potenza, temperatura, processi, memoria);
+        //fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &tempo, codice_cpu, &potenza, &temperatura, &processi, &memoria);
+        //x = 1 + rand() % 40;
+        //inserisci_in_albero_bin_ric(&radice, x, tempo, codice_cpu, potenza, temperatura, processi, memoria);
         //printf("%d\n", inserito);
         //fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &(radice->tempo), (radice->codice_cpu), &(radice->potenza), &(radice->temperatura), &(radice->processi), &(radice->memoria));
         
@@ -69,17 +69,21 @@ int main(int argc, char **argv)
             //processi = 0;
             //memoria = 0;
             fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &tempo, codice_cpu, &potenza, &temperatura, &processi, &memoria);
-            x = 1 + rand() % 40;
-            confronto = strcmp(radice->codice_cpu, codice_cpu);
-            if(radice->tempo != tempo && confronto != 0)
+            if(feof(cpuPtr))
+                printf("Inserimento completato\n");
+            else
             {
-                inserito = inserisci_in_albero_bin_ric(&radice, x, tempo, codice_cpu, potenza, temperatura, processi, memoria);
+                x += 1;
+                inserisci_in_albero_bin_ric(&radice, x, tempo, codice_cpu, potenza, temperatura, processi, memoria);
             }
-            while(inserito != 1)
+            /*if(inserito != 1)
             {
-                x = 1 + rand() % 40;
-                inserito = inserisci_in_albero_bin_ric(&radice, x, tempo, codice_cpu, potenza, temperatura, processi, memoria);
-            }
+                while(inserito != 1)
+                {
+                    x = 1 + rand() % 40;
+                    inserito = inserisci_in_albero_bin_ric(&radice, x, tempo, codice_cpu, potenza, temperatura, processi, memoria);
+                }
+            }*/
             //printf("%d\n", inserito);
             //printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", radice->tempo, radice->nome_cpu->codice_cpu, radice->potenza, radice->temperatura, radice->processi, radice->memoria);
             //fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &tempo, codice_cpu, &potenza, &temperatura, &processi, &memoria);
@@ -87,8 +91,8 @@ int main(int argc, char **argv)
         fclose(cpuPtr);
     }
     
-    printf("Digitare il codice della CPU:\n");
-    scanf("%s", codice_ricerca);
+    //printf("Digitare il codice della CPU:\n");
+    //scanf("%s", codice_ricerca);
     //printf("%s", codice_cpu);
     visita_albero_bin_ant(radice, codice_ricerca);
     
@@ -147,10 +151,9 @@ void cerca_in_albero_bin_ric(nodo_albero_bin_t *radice_p, int chiave)
 
 void visita_albero_bin_ant(nodo_albero_bin_t *nodo_p, char codice_ricerca[7])
 {
-    //printf("%s\n", codice_cpu);
-    int confronto;
+    //int confronto;
     
-    if(nodo_p != NULL)
+    /*if(nodo_p != NULL)
     {
         confronto = strcmp(nodo_p->codice_cpu, codice_ricerca);
         if(confronto == confronto)
@@ -159,5 +162,13 @@ void visita_albero_bin_ant(nodo_albero_bin_t *nodo_p, char codice_ricerca[7])
         }
         visita_albero_bin_ant(nodo_p->sx_p, codice_ricerca);
         visita_albero_bin_ant(nodo_p->dx_p, codice_ricerca);
+    }*/
+    if(nodo_p != NULL)
+    {
+        //printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", nodo_p->tempo, nodo_p->codice_cpu, nodo_p->potenza, nodo_p->temperatura, nodo_p->processi, nodo_p->memoria);
+        visita_albero_bin_ant(nodo_p->sx_p, codice_ricerca);
+        //printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", nodo_p->tempo, nodo_p->codice_cpu, nodo_p->potenza, nodo_p->temperatura, nodo_p->processi, nodo_p->memoria);
+        visita_albero_bin_ant(nodo_p->dx_p, codice_ricerca);
+        printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", nodo_p->tempo, nodo_p->codice_cpu, nodo_p->potenza, nodo_p->temperatura, nodo_p->processi, nodo_p->memoria);
     }
 }
