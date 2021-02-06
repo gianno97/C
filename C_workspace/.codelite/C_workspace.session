@@ -12,8 +12,8 @@
     </TabInfo>
     <TabInfo>
       <wxString Value="E:\C\C_workspace\Progetto_algoritmi_CPU\main.c" Name="FileName"/>
-      <int Value="54" Name="FirstVisibleLine"/>
-      <int Value="76" Name="CurrentLine"/>
+      <int Value="51" Name="FirstVisibleLine"/>
+      <int Value="69" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
