@@ -31,7 +31,7 @@ int inserisci_in_albero_bin_ric(nodo_albero_bin_t **radice_p, int chiave, int te
 //int inserisci_in_albero_bin_ric(nodo_albero_bin_t **radice_p, int chiave);
 void cerca_in_albero_bin_ric(nodo_albero_bin_t *radice_p, int chiave);
 void visita_albero_bin_ant(nodo_albero_bin_t *nodo_p, char codice_ricerca[7]);
-int ricerca_lineare_array(int a[], int n, int valore);
+void ricerca_lineare_array(elemento_array_t elem[], int n, char codice_ricerca[7]);
 
 int main(int argc, char **argv)
 {
@@ -46,10 +46,11 @@ int main(int argc, char **argv)
     double temperatura;
     double processi;
     double memoria;
-    //char codice_ricerca[7];
+    char codice_ricerca[7];
     //nodo_albero_bin_t *radice = NULL;
     elemento_array_t elem[50] = {0};
     int a = 0;
+    int j;
     
     
     
@@ -97,15 +98,16 @@ int main(int argc, char **argv)
         fclose(cpuPtr);
     }
     
-    for(int i = 0; i < 7; i++)
+    for(j = 0; j < 7; j++)
     {
-        printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", elem[i].tempo, elem[i].codice_cpu, elem[i].potenza, elem[i].temperatura, elem[i].processi, elem[i].memoria);
+        printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", elem[j].tempo, elem[j].codice_cpu, elem[j].potenza, elem[j].temperatura, elem[j].processi, elem[j].memoria);
     }
     
-    //printf("Digitare il codice della CPU:\n");
-    //scanf("%s", codice_ricerca);
+    printf("Digitare il codice della CPU:\n");
+    scanf("%s", codice_ricerca);
     //printf("%s", codice_cpu);
     //visita_albero_bin_ant(radice, codice_ricerca);
+    ricerca_lineare_array(elem, 7, codice_ricerca);
     
     return 0;
 }
@@ -184,14 +186,15 @@ void visita_albero_bin_ant(nodo_albero_bin_t *nodo_p, char codice_ricerca[7])
     }*/
 }
 
-int ricerca_lineare_array(int a[], int n, int valore)
+void ricerca_lineare_array(elemento_array_t elem[], int n, char codice_ricerca[7])
 {
-    int i;
+    int i, confronto;
     
-    for(i = 0;
-        ((i < n) && (a[i] != valore));
-        i++);
-    return((i < n)?
-             i:
-             -1);
+    for(i = 0; (i < n); i++)
+    {
+        confronto = strcmp(elem[i].codice_cpu, codice_ricerca);
+        
+        if(confronto == 0)
+            printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", elem[i].tempo, elem[i].codice_cpu, elem[i].potenza, elem[i].temperatura, elem[i].processi, elem[i].memoria);
+    }
 }
