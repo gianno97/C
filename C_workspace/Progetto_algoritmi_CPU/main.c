@@ -5,12 +5,6 @@
 #include <float.h>
 #include <time.h>
 
-typedef struct elem_albero_bin
-{
-    int chiave;
-    char codice_cpu[7];
-} elem_albero_bin_t;
-
 typedef struct nodo_albero_bin
 {
     int chiave;
@@ -23,17 +17,28 @@ typedef struct nodo_albero_bin
     struct nodo_albero_bin *sx_p, *dx_p;
 } nodo_albero_bin_t;
 
+typedef struct elemento_array
+{
+    int tempo;
+    char codice_cpu[7];
+    double potenza;
+    double temperatura;
+    double processi;
+    double memoria;
+} elemento_array_t;
+
 int inserisci_in_albero_bin_ric(nodo_albero_bin_t **radice_p, int chiave, int tempo, char codice_cpu[7], double potenza, double temperatura, double processi, double memoria);
 //int inserisci_in_albero_bin_ric(nodo_albero_bin_t **radice_p, int chiave);
 void cerca_in_albero_bin_ric(nodo_albero_bin_t *radice_p, int chiave);
 void visita_albero_bin_ant(nodo_albero_bin_t *nodo_p, char codice_ricerca[7]);
+int ricerca_lineare_array(int a[], int n, int valore);
 
 int main(int argc, char **argv)
 {
     FILE *cpuPtr;
     
-    int x = 0;
-    int inserito = 0;
+    //int x = 0;
+    //int inserito = 0;
     //int confronto;
     int tempo;
     char codice_cpu[7];
@@ -41,8 +46,12 @@ int main(int argc, char **argv)
     double temperatura;
     double processi;
     double memoria;
-    char codice_ricerca[7];
-    nodo_albero_bin_t *radice = NULL;
+    //char codice_ricerca[7];
+    //nodo_albero_bin_t *radice = NULL;
+    elemento_array_t elem[50] = {0};
+    int a = 0;
+    
+    
     
     if((cpuPtr = fopen("file_CPU.txt", "r")) == NULL)
     {
@@ -50,6 +59,7 @@ int main(int argc, char **argv)
     }
     else
     {
+        /*
         srand(time(NULL));
         
         while(!feof(cpuPtr))
@@ -67,13 +77,35 @@ int main(int argc, char **argv)
                 inserito = 0;
             }
         }
+        */
+        while(!feof(cpuPtr))
+        {
+            fscanf(cpuPtr, "%d%s%lf%lf%lf%lf", &tempo, codice_cpu, &potenza, &temperatura, &processi, &memoria);
+            if(feof(cpuPtr))
+                printf("Inserimento completato\n");
+            else
+            {
+                elem[a].tempo = tempo;
+                strcpy(elem[a].codice_cpu, codice_cpu);
+                elem[a].potenza = potenza;
+                elem[a].temperatura = temperatura;
+                elem[a].processi = processi;
+                elem[a].memoria = memoria;
+            }
+            a++;
+        }
         fclose(cpuPtr);
     }
     
-    printf("Digitare il codice della CPU:\n");
-    scanf("%s", codice_ricerca);
+    for(int i = 0; i < 7; i++)
+    {
+        printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", elem[i].tempo, elem[i].codice_cpu, elem[i].potenza, elem[i].temperatura, elem[i].processi, elem[i].memoria);
+    }
+    
+    //printf("Digitare il codice della CPU:\n");
+    //scanf("%s", codice_ricerca);
     //printf("%s", codice_cpu);
-    visita_albero_bin_ant(radice, codice_ricerca);
+    //visita_albero_bin_ant(radice, codice_ricerca);
     
     return 0;
 }
@@ -150,4 +182,16 @@ void visita_albero_bin_ant(nodo_albero_bin_t *nodo_p, char codice_ricerca[7])
         visita_albero_bin_ant(nodo_p->dx_p, codice_ricerca);
         //printf("%-10d%-13s%-15.2f%-15.2f%-15.2f%-15.2f\n", nodo_p->tempo, nodo_p->codice_cpu, nodo_p->potenza, nodo_p->temperatura, nodo_p->processi, nodo_p->memoria);
     }*/
+}
+
+int ricerca_lineare_array(int a[], int n, int valore)
+{
+    int i;
+    
+    for(i = 0;
+        ((i < n) && (a[i] != valore));
+        i++);
+    return((i < n)?
+             i:
+             -1);
 }
