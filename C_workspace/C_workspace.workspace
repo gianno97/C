@@ -3,13 +3,13 @@
   <Project Name="stazioni" Path="stazioni/stazioni.project" Active="No"/>
   <VirtualDirectory Name="Alberi">
     <Project Name="Inserimento_alb_bin" Path="Inserimento_alb_bin/Inserimento_alb_bin.project" Active="No"/>
-    <Project Name="Progetto_algoritmi_CPU" Path="Progetto_algoritmi_CPU/Progetto_algoritmi_CPU.project" Active="Yes"/>
+    <Project Name="Progetto_algoritmi_CPU" Path="Progetto_algoritmi_CPU/Progetto_algoritmi_CPU.project" Active="No"/>
     <Project Name="Implementazione_albero_rn" Path="Implementazione_albero_rn/Implementazione_albero_rn.project" Active="No"/>
     <Project Name="Albero_Luca" Path="Albero_Luca/Albero_Luca.project" Active="No"/>
     <Project Name="Cerca_albero_bin_ric" Path="Cerca_albero_bin_ric/Cerca_albero_bin_ric.project" Active="No"/>
-    <Project Name="Progetto_algoritmi_CPU" Path="Progetto_algoritmi_CPU/Progetto_algoritmi_CPU.project" Active="Yes"/>
+    <Project Name="Progetto_algoritmi_CPU" Path="Progetto_algoritmi_CPU/Progetto_algoritmi_CPU.project" Active="No"/>
     <Project Name="Implementazione_albero_rn" Path="Implementazione_albero_rn/Implementazione_albero_rn.project" Active="No"/>
-    <Project Name="Progetto_algoritmi_CPU" Path="Progetto_algoritmi_CPU/Progetto_algoritmi_CPU.project" Active="Yes"/>
+    <Project Name="Progetto_algoritmi_CPU" Path="Progetto_algoritmi_CPU/Progetto_algoritmi_CPU.project" Active="No"/>
     <Project Name="Implementazione_albero_rn" Path="Implementazione_albero_rn/Implementazione_albero_rn.project" Active="No"/>
     <Project Name="Implementazione_albero_rb_alternativa" Path="Implementazione_albero_rb_alternativa/Implementazione_albero_rb_alternativa.project" Active="No"/>
     <Project Name="Funzioni_varie" Path="Funzioni_varie/Funzioni_varie.project" Active="No"/>
@@ -34,6 +34,9 @@
     <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
     <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
     <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="Progetto_ppl">
+    <Project Name="Composizione_e_differenza_simmetrica" Path="Composizione_e_differenza_simmetrica/Composizione_e_differenza_simmetrica.project" Active="Yes"/>
   </VirtualDirectory>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
@@ -69,6 +72,7 @@
       <Project Name="Stazioni" ConfigName="Debug"/>
       <Project Name="Implementazione_albero_rb_alternativa" ConfigName="Debug"/>
       <Project Name="Funzioni_varie" ConfigName="Debug"/>
+      <Project Name="Composizione_e_differenza_simmetrica" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
@@ -103,6 +107,7 @@
       <Project Name="Stazioni" ConfigName="Release"/>
       <Project Name="Implementazione_albero_rb_alternativa" ConfigName="Release"/>
       <Project Name="Funzioni_varie" ConfigName="Release"/>
+      <Project Name="Composizione_e_differenza_simmetrica" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
