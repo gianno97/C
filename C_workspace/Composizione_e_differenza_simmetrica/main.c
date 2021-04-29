@@ -9,6 +9,13 @@ int main(int argc, char **argv)
     int contatore_numeri_insieme = 0;
     int contatore_coppie_relazioni_binarie = 0;
     int j, k;
+    int array_composizione[100] = {0};
+    int contatore_esterno = 0;
+    int contatore_interno = 0;
+    int contatore_prima_rel_bin = 1;
+    int contatore_seconda_rel_bin = 0;
+    int contatore_elem_coppia_comp = 0;
+    int a;
     
     printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
     while(contatore_numeri_insieme < 10){
@@ -50,7 +57,28 @@ int main(int argc, char **argv)
     printf("Seconda relazione binaria:\n");
     for(k = 0; k < 10; k += 2)
         printf("%d,%d ", seconda_relazione_binaria[k], seconda_relazione_binaria[k+1]);
-        
+    printf("\n");
+    
+    /*Composizione*/
+    while(contatore_esterno < 5){
+        while(contatore_interno < 5){
+            if(prima_relazione_binaria[contatore_prima_rel_bin] == seconda_relazione_binaria[contatore_seconda_rel_bin]){
+                array_composizione[contatore_elem_coppia_comp] = prima_relazione_binaria[contatore_prima_rel_bin-1];
+                contatore_elem_coppia_comp++;
+                array_composizione[contatore_elem_coppia_comp] = seconda_relazione_binaria[contatore_seconda_rel_bin+1];
+                contatore_elem_coppia_comp++;
+            }
+            contatore_seconda_rel_bin += 2;
+            contatore_interno++;
+        }
+        contatore_esterno++;
+        contatore_interno = 0;
+        contatore_prima_rel_bin += 2;
+    }
+    
+    printf("Composizione:\n");
+    for(a = 0; a < 100; a += 2)
+        printf("%d,%d ", array_composizione[a], array_composizione[a+1]);
     printf("\n");
     
     
