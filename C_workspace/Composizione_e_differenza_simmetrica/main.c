@@ -73,6 +73,7 @@ int main(int argc, char **argv)
         }
         contatore_esterno++;
         contatore_interno = 0;
+        contatore_seconda_rel_bin = 0;
         contatore_prima_rel_bin += 2;
     }
     
