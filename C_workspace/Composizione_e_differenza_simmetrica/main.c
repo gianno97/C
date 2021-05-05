@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define MAXINPUT 100
+
 int main(int argc, char **argv)
 {
     int insieme_finito_num_naturali[10] = {0};
@@ -23,12 +25,18 @@ int main(int argc, char **argv)
     int contatore_seconda_rel_bin_diff_simm = 0;
     int contatore_array_diff_simm = 0;
     
+    /*Dichiarazione variabili per la validazione dell'input*/
+    char input[MAXINPUT] = "";
+    int contatore_str_input = 0;
+    int numero = 0;
+    
     printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
-    while(contatore_numeri_insieme < 10){
+    /*while(contatore_numeri_insieme < 10){
         scanf("%d", &numero_acquisito);
         insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
         contatore_numeri_insieme++;
-    }
+    }*/
+    
     
     printf("Insieme acquisito da tastiera:\n");
     for(i = 0; i < 10; i++)

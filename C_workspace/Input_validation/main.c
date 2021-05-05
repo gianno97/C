@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <limits.h>
 
 #define MAXINPUT 100
 
@@ -13,6 +14,8 @@ int main()
     
     while(number < 1 || number > 10)
     {
+        printf("%u\n", UINT_MAX);
+        printf("%lu\n", ULONG_MAX);
         scanf ("%s", input);
         if (!isdigit(input[i]))
         {
