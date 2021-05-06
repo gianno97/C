@@ -24,6 +24,8 @@ int main(int argc, char **argv)
     int contatore_prima_rel_bin_diff_simm = 0;
     int contatore_seconda_rel_bin_diff_simm = 0;
     int contatore_array_diff_simm = 0;
+    int cat[n];
+    int n;
     
     /*Dichiarazione variabili per la validazione dell'input*/
     char input[MAXINPUT] = "";
