@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <ctype.h>
 
 #define MAXINPUT 100
 
@@ -33,9 +34,9 @@ int main(int argc, char **argv)
     //int numero_scanf;
     
     /*Dichiarazione variabili per la validazione dell'input*/
-    //char input[MAXINPUT] = "";
-    //int contatore_str_input = 0;
-    //int numero = 0;
+    char input[MAXINPUT] = "";
+    int contatore_str_input = 0;
+    unsigned long number = -1;
     
     int esito_lettura;
     
@@ -52,7 +53,7 @@ int main(int argc, char **argv)
     }
     while(esito_lettura != 1 || grandezza_insieme < 1 || grandezza_insieme > 20);
     
-    printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
+    /*printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
     do
     {
         esito_lettura = scanf("%u", &numero_acquisito);
@@ -67,6 +68,34 @@ int main(int argc, char **argv)
         while (getchar() != '\n');
     }
     while(contatore_numeri_insieme < grandezza_insieme);
+    */
+    
+    printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
+    do
+    {
+        //printf("%lu\n", ULONG_MAX);
+        scanf ("%s", input);
+        if (!isdigit(input[contatore_str_input]))
+        {
+            printf ("Entered input is not valid\n");
+        }
+        else 
+        {
+            number = strtoul(input, NULL, 0);
+            //printf("%lu\n", number);
+            //printf("%lu\n", ULONG_MAX);
+            if(number < 0 || number >= ULONG_MAX)
+            {
+                printf ("Entered input is a number but is not valid\n");
+            }
+            else
+            {
+                printf ("Given input is valid\n");
+                printf("Number is: %lu\n", number);
+            }
+        }
+    }
+    while(number < 0 || number >= ULONG_MAX || number == -1);
     
     printf("Insieme acquisito da tastiera:\n");
     for(i = 0; i < grandezza_insieme; i++)
