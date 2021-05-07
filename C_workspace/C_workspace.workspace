@@ -15,7 +15,7 @@
     <Project Name="Funzioni_varie" Path="Funzioni_varie/Funzioni_varie.project" Active="No"/>
   </VirtualDirectory>
   <VirtualDirectory Name="Altro">
-    <Project Name="Input_validation" Path="Input_validation/Input_validation.project" Active="Yes"/>
+    <Project Name="Input_validation" Path="Input_validation/Input_validation.project" Active="No"/>
     <Project Name="Bfs" Path="Bfs/Bfs.project" Active="No"/>
     <Project Name="C_example" Path="C_example/C_example.project" Active="No"/>
     <Project Name="Dijkstra" Path="Dijkstra/Dijkstra.project" Active="No"/>
@@ -24,7 +24,7 @@
     <Project Name="Bfs" Path="Bfs/Bfs.project" Active="No"/>
     <Project Name="C_example" Path="C_example/C_example.project" Active="No"/>
     <Project Name="Dijkstra" Path="Dijkstra/Dijkstra.project" Active="No"/>
-    <Project Name="Input_validation" Path="Input_validation/Input_validation.project" Active="Yes"/>
+    <Project Name="Input_validation" Path="Input_validation/Input_validation.project" Active="No"/>
     <Project Name="Matrix_project" Path="Matrix_project/Matrix_project.project" Active="No"/>
     <Project Name="Progetto_algoritmi" Path="Progetto_algoritmi/Progetto_algoritmi.project" Active="No"/>
     <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
@@ -36,7 +36,7 @@
     <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
   </VirtualDirectory>
   <VirtualDirectory Name="Progetto_ppl">
-    <Project Name="Composizione_e_differenza_simmetrica" Path="Composizione_e_differenza_simmetrica/Composizione_e_differenza_simmetrica.project" Active="No"/>
+    <Project Name="Composizione_e_differenza_simmetrica" Path="Composizione_e_differenza_simmetrica/Composizione_e_differenza_simmetrica.project" Active="Yes"/>
   </VirtualDirectory>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
