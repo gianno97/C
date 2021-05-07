@@ -1,18 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 #define MAXINPUT 100
 
 int main(int argc, char **argv)
 {
     //int insieme_finito_num_naturali[10] = {0};
-    int *insieme_finito_num_naturali;
-    int grandezza_insieme = 0;
+    unsigned int *insieme_finito_num_naturali;
+    int grandezza_insieme;
     int prima_relazione_binaria[10] = {0};
     int seconda_relazione_binaria[10] = {0};
-    //int numero_acquisito;
+    unsigned int numero_acquisito;
     int i;
-    //int contatore_numeri_insieme = 0;
+    int contatore_numeri_insieme = 0;
     int contatore_coppie_relazioni_binarie = 0;
     int j, k;
     int array_composizione[100] = {0};
@@ -36,48 +37,40 @@ int main(int argc, char **argv)
     //int contatore_str_input = 0;
     //int numero = 0;
     
-    int esito_lettura = 0;
-    //double miglia;
+    int esito_lettura;
     
-    /*printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
-    while(contatore_numeri_insieme < 20){
-        numero_scanf = scanf("%d", &numero_acquisito);
-        printf("%d", numero_scanf);
-        insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
-        contatore_numeri_insieme++;
-    }*/
     
     do
     {
         printf("Digita la grandezza dell'insieme(<= 20):\n");
         esito_lettura = scanf("%d", &grandezza_insieme);
-        if(esito_lettura != 1 || grandezza_insieme < 0 || grandezza_insieme > 20)
+        if(esito_lettura != 1 || grandezza_insieme < 1 || grandezza_insieme > 20)
             printf("Inserimento non valido\n");
         else
-            insieme_finito_num_naturali = (int*) malloc(grandezza_insieme * sizeof(int));
+            insieme_finito_num_naturali = (unsigned int*) malloc(grandezza_insieme * sizeof(unsigned int));
         while (getchar() != '\n');
     }
-    while(esito_lettura != 1 || grandezza_insieme < 0 || grandezza_insieme > 20);
+    while(esito_lettura != 1 || grandezza_insieme < 1 || grandezza_insieme > 20);
     
-    
-    
-    
-    /*do
+    printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
+    do
     {
-        printf("Digita la distanza in miglia (>= 0): ");
-        esito_lettura = scanf("%lf",
-                              &miglia);
-        if (esito_lettura != 1 || miglia < 0)
-            printf("Valore non accettabile!\n");
+        esito_lettura = scanf("%u", &numero_acquisito);
+        printf("%d  %u\n", esito_lettura, numero_acquisito);
+        if(esito_lettura != 1 || numero_acquisito < 0 || numero_acquisito > 4294967295)
+            printf("Inserimento non valido\n");
+        else
+        {
+            insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
+            contatore_numeri_insieme++;
+        }
         while (getchar() != '\n');
     }
-    while (esito_lettura != 1 || miglia < 0);
-    */
+    while(contatore_numeri_insieme < grandezza_insieme);
     
     printf("Insieme acquisito da tastiera:\n");
-    for(i = 0; i < 50; i++)
-        printf("%d ", insieme_finito_num_naturali[i]);
-        
+    for(i = 0; i < grandezza_insieme; i++)
+        printf("%u ", insieme_finito_num_naturali[i]);
     printf("\n");
     
     printf("Digita due relazioni binarie sull'insieme acquisito da tastiera.\n");
