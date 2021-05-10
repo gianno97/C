@@ -30,6 +30,7 @@ int main(int argc, char **argv)
     int contatore_prima_rel_bin_diff_simm = 0;
     int contatore_seconda_rel_bin_diff_simm = 0;
     int contatore_array_diff_simm = 0;
+    int esito_lettura;
     //int n;
     //int numero_scanf;
     
@@ -37,9 +38,9 @@ int main(int argc, char **argv)
     char input[MAXINPUT] = "";
     int contatore_str_input = 0;
     //unsigned long number = -1;
-    
-    int esito_lettura;
-    
+
+    char input_prima_rel_bin[MAXINPUT] = "";
+    int contatore_str_prima_rel_bin = 0;
     
     do
     {
@@ -76,6 +77,7 @@ int main(int argc, char **argv)
         }
     }
     while(numero_acquisito < 0 || numero_acquisito >= ULONG_MAX || numero_acquisito == -1 || (contatore_numeri_insieme < grandezza_insieme));
+    //numero_acquisito = 0;
     
     printf("Insieme acquisito da tastiera:\n");
     for(i = 0; i < grandezza_insieme; i++)
@@ -83,15 +85,41 @@ int main(int argc, char **argv)
     printf("\n");
     
     printf("Digita due relazioni binarie sull'insieme acquisito da tastiera.\n");
-    printf("Digita la prima relazione binaria:\n");
+    printf("Digita la prima relazione binaria.\n");
     printf("Digita i due numeri della coppia:\n");
     
+    do
+    {
+        printf("Digita il primo numero della coppia:\n");
+        scanf ("%s", input_prima_rel_bin);
+        if (!isdigit(input_prima_rel_bin[contatore_str_prima_rel_bin]))
+        {
+            printf("Inserimento non valido\n");
+        }
+        else 
+        {
+            numero_acquisito = strtoul(input_prima_rel_bin, NULL, 0);
+            if(numero_acquisito < 0 || numero_acquisito >= ULONG_MAX)
+            {
+                printf ("L'input inserito è un numero ma non è valido\n");
+            }
+            else
+            {
+                insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
+                contatore_numeri_insieme++;
+            }
+        }
+    }
+    while();
+    
+    /*
     while(contatore_coppie_relazioni_binarie < 10){
         scanf("%d %d", &prima_relazione_binaria[contatore_coppie_relazioni_binarie], &prima_relazione_binaria[contatore_coppie_relazioni_binarie+1]);
         contatore_coppie_relazioni_binarie += 2;
     }
     contatore_coppie_relazioni_binarie = 0;
     printf("Prima relazione binaria acquisita!\n");
+    */
     
     printf("Digita la seconda relazione binaria:\n");
     printf("Digita i due numeri della coppia:\n");
