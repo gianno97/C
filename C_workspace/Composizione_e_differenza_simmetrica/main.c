@@ -12,7 +12,7 @@ int main(int argc, char **argv)
     int grandezza_insieme;
     int prima_relazione_binaria[10] = {0};
     int seconda_relazione_binaria[10] = {0};
-    unsigned int numero_acquisito;
+    unsigned int numero_acquisito = -1;
     int i;
     int contatore_numeri_insieme = 0;
     int contatore_coppie_relazioni_binarie = 0;
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
     /*Dichiarazione variabili per la validazione dell'input*/
     char input[MAXINPUT] = "";
     int contatore_str_input = 0;
-    unsigned long number = -1;
+    //unsigned long number = -1;
     
     int esito_lettura;
     
@@ -73,6 +73,33 @@ int main(int argc, char **argv)
     printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
     do
     {
+        scanf ("%s", input);
+        if (!isdigit(input[contatore_str_input]))
+        {
+            printf("Inserimento non valido\n");
+        }
+        else 
+        {
+            numero_acquisito = strtoul(input, NULL, 0);
+            if(numero_acquisito < 0 || numero_acquisito >= ULONG_MAX)
+            {
+                printf ("L'input inserito è un numero ma non è valido\n");
+            }
+            else
+            {
+                insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
+                contatore_numeri_insieme++;
+            }
+        }
+    }
+    while(numero_acquisito < 0 || numero_acquisito >= ULONG_MAX || numero_acquisito == -1 || (contatore_numeri_insieme < grandezza_insieme));
+    
+    
+    
+    /*
+    printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
+    do
+    {
         //printf("%lu\n", ULONG_MAX);
         scanf ("%s", input);
         if (!isdigit(input[contatore_str_input]))
@@ -96,6 +123,7 @@ int main(int argc, char **argv)
         }
     }
     while(number < 0 || number >= ULONG_MAX || number == -1);
+    */
     
     printf("Insieme acquisito da tastiera:\n");
     for(i = 0; i < grandezza_insieme; i++)
