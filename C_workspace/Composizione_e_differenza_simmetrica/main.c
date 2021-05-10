@@ -3,6 +3,8 @@
 #include <limits.h>
 #include <ctype.h>
 
+int ricerca_lineare_array(unsigned int a[], int n, unsigned int valore);
+
 #define MAXINPUT 100
 
 int main(int argc, char **argv)
@@ -31,8 +33,8 @@ int main(int argc, char **argv)
     int contatore_seconda_rel_bin_diff_simm = 0;
     int contatore_array_diff_simm = 0;
     int esito_lettura;
-    //int n;
-    //int numero_scanf;
+    int trovato = -1;
+    unsigned int coppia_prima_rel_bin[2] = {-1, -1};
     
     /*Dichiarazione variabili per la validazione dell'input*/
     char input[MAXINPUT] = "";
@@ -41,6 +43,9 @@ int main(int argc, char **argv)
 
     char input_prima_rel_bin[MAXINPUT] = "";
     int contatore_str_prima_rel_bin = 0;
+    char input_seconda_rel_bin[MAXINPUT] = "";
+    int contatore_str_seconda_rel_bin = 0;
+    
     
     do
     {
@@ -99,18 +104,45 @@ int main(int argc, char **argv)
         else 
         {
             numero_acquisito = strtoul(input_prima_rel_bin, NULL, 0);
-            if(numero_acquisito < 0 || numero_acquisito >= ULONG_MAX)
+            trovato = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito);
+            if(trovato == -1)
             {
-                printf ("L'input inserito è un numero ma non è valido\n");
+                printf ("Il numero inserito non è presente all'interno dell'insieme\n");
             }
             else
             {
-                insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
-                contatore_numeri_insieme++;
+                coppia_prima_rel_bin[0] = numero_acquisito;
+                trovato = 0;
             }
         }
     }
-    while();
+    while(trovato == -1);
+    
+    trovato = -1;
+    do
+    {
+        printf("Digita il secondo numero della coppia:\n");
+        scanf ("%s", input_seconda_rel_bin);
+        if (!isdigit(input_seconda_rel_bin[contatore_str_seconda_rel_bin]))
+        {
+            printf("Inserimento non valido\n");
+        }
+        else 
+        {
+            numero_acquisito = strtoul(input_seconda_rel_bin, NULL, 0);
+            trovato = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito);
+            if(trovato == -1)
+            {
+                printf ("Il numero inserito non è presente all'interno dell'insieme\n");
+            }
+            else
+            {
+                coppia_prima_rel_bin[1] = numero_acquisito;
+                trovato = 0;
+            }
+        }
+    }
+    while(trovato == -1);
     
     /*
     while(contatore_coppie_relazioni_binarie < 10){
@@ -217,4 +249,13 @@ int main(int argc, char **argv)
     printf("\n");
     
     return 0;
+}
+
+int ricerca_lineare_array(unsigned int a[], int n, unsigned int valore)
+{
+    int i;
+    
+    for(i = 0; ((i < n) && (a[i] != valore)); i++);
+    
+    return ((i < n)?i:-1);
 }
