@@ -5,15 +5,15 @@
 ## Debug
 ProjectName            :=C_example
 ConfigurationName      :=Debug
-WorkspacePath          :=E:/C/C_workspace
-ProjectPath            :=E:/C/C_workspace/C_example
+WorkspacePath          :=E:/Storage_E/C/C_workspace
+ProjectPath            :=E:/Storage_E/C/C_workspace/C_example
 IntermediateDirectory  :=$(ConfigurationName)
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Fabio2
-Date                   :=13/09/2020
+Date                   :=12/05/2021
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
@@ -95,7 +95,7 @@ PreBuild:
 ##
 $(IntermediateDirectory)/main.c$(ObjectSuffix): main.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.c$(ObjectSuffix) -MF$(IntermediateDirectory)/main.c$(DependSuffix) -MM main.c
-	$(CC) $(SourceSwitch) "E:/C/C_workspace/C_example/main.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "E:/Storage_E/C/C_workspace/C_example/main.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.c$(PreprocessSuffix): main.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.c$(PreprocessSuffix) main.c
 

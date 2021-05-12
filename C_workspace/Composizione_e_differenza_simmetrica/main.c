@@ -16,6 +16,7 @@ int ricerca_lineare_array(unsigned int a[], int n, unsigned int valore);
 int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
                                 unsigned int valore_uno,
                                 unsigned int valore_due);
+void visita_lista(elem_lista_t *testa_p);
 
 int main(int argc, char **argv)
 {
@@ -25,6 +26,7 @@ int main(int argc, char **argv)
     int prima_relazione_binaria[10] = {0};
     int seconda_relazione_binaria[10] = {0};
     unsigned int numero_acquisito = -1;
+    unsigned int numero_acquisito_due = -1;
     int i;
     int contatore_numeri_insieme = 0;
     int contatore_coppie_relazioni_binarie = 0;
@@ -55,6 +57,11 @@ int main(int argc, char **argv)
     int contatore_str_prima_rel_bin = 0;
     char input_seconda_rel_bin[MAXINPUT] = "";
     int contatore_str_seconda_rel_bin = 0;
+    
+    elem_lista_t *testa_p = NULL;
+    int inserito;
+    int fine_inser_prima_rel_bin = 1;
+    int valore_inserito = -1;
     
     
     do
@@ -103,58 +110,119 @@ int main(int argc, char **argv)
     printf("Digita la prima relazione binaria.\n");
     printf("Digita i due numeri della coppia:\n");
     
-    do
+    while(fine_inser_prima_rel_bin == 1)
     {
-        printf("Digita il primo numero della coppia:\n");
-        scanf ("%s", input_prima_rel_bin);
-        if (!isdigit(input_prima_rel_bin[contatore_str_prima_rel_bin]))
+        do
         {
-            printf("Inserimento non valido\n");
-        }
-        else 
-        {
-            numero_acquisito = strtoul(input_prima_rel_bin, NULL, 0);
-            trovato = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito);
-            if(trovato == -1)
+            printf("Digita il primo numero della coppia:\n");
+            scanf ("%s", input_prima_rel_bin);
+            if (!isdigit(input_prima_rel_bin[contatore_str_prima_rel_bin]))
             {
-                printf ("Il numero inserito non è presente all'interno dell'insieme\n");
+                printf("Inserimento non valido\n");
+            }
+            else 
+            {
+                numero_acquisito = strtoul(input_prima_rel_bin, NULL, 0);
+                trovato = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito);
+                if(trovato == -1)
+                {
+                    printf ("Il numero inserito non è presente all'interno dell'insieme\n");
+                }
+                else
+                {
+                    coppia_prima_rel_bin[0] = numero_acquisito;
+                    trovato = 0;
+                }
+            }
+        }
+        while(trovato == -1);
+    
+        trovato = -1;
+        do
+        {
+            printf("Digita il secondo numero della coppia:\n");
+            scanf ("%s", input_seconda_rel_bin);
+            if (!isdigit(input_seconda_rel_bin[contatore_str_seconda_rel_bin]))
+            {
+                printf("Inserimento non valido\n");
+            }
+            else 
+            {
+                numero_acquisito_due = strtoul(input_seconda_rel_bin, NULL, 0);
+                trovato = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito_due);
+                if(trovato == -1)
+                {
+                    printf ("Il numero inserito non è presente all'interno dell'insieme\n");
+                }
+                else
+                {
+                    coppia_prima_rel_bin[1] = numero_acquisito_due;
+                    trovato = 0;
+                }
+            }
+        }
+        while(trovato == -1);
+    
+        //printf("%u %u\n", testa_p->valore_uno, testa_p->valore_due);
+        inserito = inserisci_in_lista_ordinata(&testa_p, coppia_prima_rel_bin[0], coppia_prima_rel_bin[1]);
+        //printf("%u %u\n", testa_p->valore_uno, testa_p->valore_due);
+    
+        if(inserito == 1)
+            printf("Coppia inserita\n");
+        else
+            printf("Coppia già presente all'interno della relazione binaria\n");
+        
+        visita_lista(testa_p);
+        printf("\n");
+        
+        do
+        {
+            printf("Digita 0 per terminare l'inserimento delle coppie per la prima relazione binaria.\n");
+            printf("Digita 1 per continuare l'inserimento.\n");
+            scanf("%d", &valore_inserito);
+            if(valore_inserito == 0)
+            {
+                printf("Inserimento terminato\n");
+                fine_inser_prima_rel_bin = 0;
+            }
+            else if(valore_inserito == 1)
+            {
+                printf("Proseguimento dell'inserimento\n"); 
             }
             else
             {
-                coppia_prima_rel_bin[0] = numero_acquisito;
-                trovato = 0;
+                printf("Valore non valido!\n");
             }
+            while (getchar() != '\n');
         }
-    }
-    while(trovato == -1);
-    
-    trovato = -1;
-    do
-    {
-        printf("Digita il secondo numero della coppia:\n");
-        scanf ("%s", input_seconda_rel_bin);
-        if (!isdigit(input_seconda_rel_bin[contatore_str_seconda_rel_bin]))
+        while(valore_inserito != 0 && valore_inserito != 1);
+        
+        /*
+        do
         {
-            printf("Inserimento non valido\n");
-        }
-        else 
-        {
-            numero_acquisito = strtoul(input_seconda_rel_bin, NULL, 0);
-            trovato = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito);
-            if(trovato == -1)
+            printf("Digita 0 per terminare l'inserimento delle coppie per la prima relazione binaria.\n");
+            printf("Digita 1 per continuare l'inserimento.\n");
+            scanf()
+            
+            if(valore_inserito == 0)
             {
-                printf ("Il numero inserito non è presente all'interno dell'insieme\n");
+                printf("Inserimento terminato\n");
+                fine_inser_prima_rel_bin = 0;
+            }
+            else if(valore_inserito == 1)
+            {
+                printf("Proseguimento dell'inserimento\n"); 
             }
             else
             {
-                coppia_prima_rel_bin[1] = numero_acquisito;
-                trovato = 0;
+                printf("Valore non valido!\n");
             }
         }
+        while(valore_inserito != 0 || valore_inserito != 1);
+        */
+
     }
-    while(trovato == -1);
-    
-    inserito = inserisci_in_lista_ordinata();
+
     
     /*
     while(contatore_coppie_relazioni_binarie < 10){
@@ -282,12 +350,11 @@ int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
                  *nuovo_p;
     
     for(corr_p = prec_p = *testa_p;
-        ((corr_p != NULL) && (corr_p->valore_uno < valore_uno));
+        (corr_p != NULL);
         prec_p = corr_p, corr_p = corr_p->succ_p)
         {
-            if(corr_p->valore_uno == valore_uno)
-                if(corr_p->valore_due == valore_due)
-                    inserito = 0;
+            if((corr_p->valore_uno == valore_uno) && (corr_p->valore_due == valore_due))
+                inserito = 0;
         }
     if(inserito == 1)
     {
@@ -301,4 +368,14 @@ int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
             prec_p->succ_p = nuovo_p;
     }
     return(inserito);
+}
+
+void visita_lista(elem_lista_t *testa_p)
+{
+    elem_lista_t *elem_p;
+    
+    for(elem_p = testa_p;
+        (elem_p != NULL);
+        elem_p = elem_p->succ_p)
+        printf("%u,%u ", elem_p->valore_uno, elem_p->valore_due);
 }
