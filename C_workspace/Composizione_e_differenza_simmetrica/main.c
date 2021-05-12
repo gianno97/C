@@ -3,9 +3,19 @@
 #include <limits.h>
 #include <ctype.h>
 
-int ricerca_lineare_array(unsigned int a[], int n, unsigned int valore);
-
 #define MAXINPUT 100
+
+typedef struct elem_lista
+{
+    unsigned int valore_uno;
+    unsigned int valore_due;
+    struct elem_lista *succ_p;
+} elem_lista_t;
+
+int ricerca_lineare_array(unsigned int a[], int n, unsigned int valore);
+int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
+                                unsigned int valore_uno,
+                                unsigned int valore_due);
 
 int main(int argc, char **argv)
 {
@@ -144,6 +154,8 @@ int main(int argc, char **argv)
     }
     while(trovato == -1);
     
+    inserito = inserisci_in_lista_ordinata();
+    
     /*
     while(contatore_coppie_relazioni_binarie < 10){
         scanf("%d %d", &prima_relazione_binaria[contatore_coppie_relazioni_binarie], &prima_relazione_binaria[contatore_coppie_relazioni_binarie+1]);
@@ -258,4 +270,35 @@ int ricerca_lineare_array(unsigned int a[], int n, unsigned int valore)
     for(i = 0; ((i < n) && (a[i] != valore)); i++);
     
     return ((i < n)?i:-1);
+}
+
+int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
+                                unsigned int valore_uno,
+                                unsigned int valore_due)
+{
+    int          inserito = 1;
+    elem_lista_t *corr_p,
+                 *prec_p,
+                 *nuovo_p;
+    
+    for(corr_p = prec_p = *testa_p;
+        ((corr_p != NULL) && (corr_p->valore_uno < valore_uno));
+        prec_p = corr_p, corr_p = corr_p->succ_p)
+        {
+            if(corr_p->valore_uno == valore_uno)
+                if(corr_p->valore_due == valore_due)
+                    inserito = 0;
+        }
+    if(inserito == 1)
+    {
+        nuovo_p = (elem_lista_t *)malloc(sizeof(elem_lista_t));
+        nuovo_p->valore_uno = valore_uno;
+        nuovo_p->valore_due = valore_due;
+        nuovo_p->succ_p = corr_p;
+        if(corr_p == *testa_p)
+            *testa_p = nuovo_p;
+        else
+            prec_p->succ_p = nuovo_p;
+    }
+    return(inserito);
 }

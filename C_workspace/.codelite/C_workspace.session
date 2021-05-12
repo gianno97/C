@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="E:\Storage_E\C\C_workspace\C_workspace.workspace">
-  <int Value="0" Name="m_selectedTab"/>
+  <int Value="1" Name="m_selectedTab"/>
   <wxString Value="E:\Storage_E\C\C_workspace\C_workspace.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="E:\Storage_E\C\C_workspace\Input_validation\main.c" Name="FileName"/>
-      <int Value="9" Name="FirstVisibleLine"/>
-      <int Value="33" Name="CurrentLine"/>
+      <wxString Value="E:\Storage_E\C\C_workspace\Composizione_e_differenza_simmetrica\main.c" Name="FileName"/>
+      <int Value="136" Name="FirstVisibleLine"/>
+      <int Value="165" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\Storage_E\C\C_workspace\Composizione_e_differenza_simmetrica\snippet.txt" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
