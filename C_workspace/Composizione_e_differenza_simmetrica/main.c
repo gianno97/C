@@ -68,11 +68,12 @@ int main(int argc, char **argv)
     int fine_inser_sec_rel_bin = 1;
     int valore_inserito = -1;
     //int valore_inserito_due = -1;
+    int numero_presente;
     
     
     do
     {
-        printf("Digita la grandezza dell'insieme(<= 20):\n");
+        printf("Digita la grandezza dell'insieme(1 <= grandezza <= 20):\n");
         esito_lettura = scanf("%d", &grandezza_insieme);
         if(esito_lettura != 1 || grandezza_insieme < 1 || grandezza_insieme > 20)
             printf("Inserimento non valido\n");
@@ -95,12 +96,18 @@ int main(int argc, char **argv)
             numero_acquisito = strtoul(input, NULL, 0);
             if(numero_acquisito < 0 || numero_acquisito >= ULONG_MAX)
             {
-                printf ("L'input inserito è un numero ma non è valido\n");
+                printf ("L'input inserito e' un numero ma non e' valido\n");
             }
             else
             {
-                insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
-                contatore_numeri_insieme++;
+                numero_presente = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito);
+                if(numero_presente == -1)
+                {
+                    insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
+                    contatore_numeri_insieme++;
+                }
+                else
+                    printf("Il numero inserito e' gia' presente all'interno dell'insieme\n");
             }
         }
     }
@@ -114,7 +121,6 @@ int main(int argc, char **argv)
     
     printf("Digita due relazioni binarie sull'insieme acquisito da tastiera.\n");
     printf("Digita la prima relazione binaria.\n");
-    printf("Digita i due numeri della coppia:\n");
     
     while(fine_inser_prima_rel_bin == 1)
     {
@@ -132,7 +138,7 @@ int main(int argc, char **argv)
                 trovato = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito);
                 if(trovato == -1)
                 {
-                    printf ("Il numero inserito non è presente all'interno dell'insieme\n");
+                    printf ("Il numero inserito non e' presente all'interno dell'insieme\n");
                 }
                 else
                 {
@@ -158,7 +164,7 @@ int main(int argc, char **argv)
                 trovato = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito_due);
                 if(trovato == -1)
                 {
-                    printf ("Il numero inserito non è presente all'interno dell'insieme\n");
+                    printf ("Il numero inserito non e' presente all'interno dell'insieme\n");
                 }
                 else
                 {
@@ -169,14 +175,12 @@ int main(int argc, char **argv)
         }
         while(trovato == -1);
     
-        //printf("%u %u\n", testa_p->valore_uno, testa_p->valore_due);
         inserito = inserisci_in_lista_ordinata(&testa_p, coppia_prima_rel_bin[0], coppia_prima_rel_bin[1]);
-        //printf("%u %u\n", testa_p->valore_uno, testa_p->valore_due);
     
         if(inserito == 1)
             printf("Coppia inserita\n");
         else
-            printf("Coppia già presente all'interno della relazione binaria\n");
+            printf("Coppia gia' presente all'interno della relazione binaria\n");
         
         visita_lista(testa_p);
         printf("\n");
@@ -187,7 +191,7 @@ int main(int argc, char **argv)
             printf("Digita 1 per continuare l'inserimento.\n");
             esito_lettura = scanf("%d", &valore_inserito);
             
-            if(esito_lettura != 1 || valore_inserito != 0 || valore_inserito != 1)
+            if(esito_lettura != 1)
                 printf("Input non valido!\n");
             else
             {
@@ -200,14 +204,16 @@ int main(int argc, char **argv)
                 {
                     printf("Proseguimento dell'inserimento\n"); 
                 }
+                else
+                    printf("Input non valido!\n");
             }
             while (getchar() != '\n');
         }
-        while(esito_lettura != 1 || valore_inserito != 0 || valore_inserito != 1);
+        while(valore_inserito != 0 && valore_inserito != 1);
+        valore_inserito = -1;
     }
     
     printf("Digita la seconda relazione binaria.\n");
-    printf("Digita i due numeri della coppia:\n");
     
     while(fine_inser_sec_rel_bin == 1)
     {
@@ -225,7 +231,7 @@ int main(int argc, char **argv)
                 trovato = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito);
                 if(trovato == -1)
                 {
-                    printf ("Il numero inserito non è presente all'interno dell'insieme\n");
+                    printf ("Il numero inserito non e' presente all'interno dell'insieme\n");
                 }
                 else
                 {
@@ -251,7 +257,7 @@ int main(int argc, char **argv)
                 trovato = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito);
                 if(trovato == -1)
                 {
-                    printf ("Il numero inserito non è presente all'interno dell'insieme\n");
+                    printf ("Il numero inserito non e' presente all'interno dell'insieme\n");
                 }
                 else
                 {
@@ -262,14 +268,12 @@ int main(int argc, char **argv)
         }
         while(trovato == -1);
     
-        //printf("%u %u\n", testa_p->valore_uno, testa_p->valore_due);
         inserito = inserisci_in_lista_ordinata(&testa_p_due, coppia_sec_rel_bin[0], coppia_sec_rel_bin[1]);
-        //printf("%u %u\n", testa_p->valore_uno, testa_p->valore_due);
     
         if(inserito == 1)
             printf("Coppia inserita\n");
         else
-            printf("Coppia già presente all'interno della relazione binaria\n");
+            printf("Coppia gia' presente all'interno della relazione binaria\n");
         
         visita_lista(testa_p_due);
         printf("\n");
@@ -280,7 +284,7 @@ int main(int argc, char **argv)
             printf("Digita 1 per continuare l'inserimento.\n");
             esito_lettura = scanf("%d", &valore_inserito);
             
-            if(esito_lettura != 1 || valore_inserito != 0 || valore_inserito != 1)
+            if(esito_lettura != 1)
                 printf("Input non valido!\n");
             else
             {
@@ -293,10 +297,13 @@ int main(int argc, char **argv)
                 {
                     printf("Proseguimento dell'inserimento\n"); 
                 }
+                else
+                    printf("Input non valido!\n");
             }
             while (getchar() != '\n');
         }
-        while(esito_lettura != 1 || valore_inserito != 0 || valore_inserito != 1);
+        while(valore_inserito != 0 && valore_inserito != 1);
+        valore_inserito = -1;
     }
     
     /*Composizione*/
