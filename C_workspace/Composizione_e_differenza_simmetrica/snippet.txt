@@ -1,0 +1,52 @@
+        /*
+        do
+        {
+            printf("Digita 0 per terminare l'inserimento delle coppie per la prima relazione binaria.\n");
+            printf("Digita 1 per continuare l'inserimento.\n");
+            scanf()
+            
+            if(valore_inserito == 0)
+            {
+                printf("Inserimento terminato\n");
+                fine_inser_prima_rel_bin = 0;
+            }
+            else if(valore_inserito == 1)
+            {
+                printf("Proseguimento dell'inserimento\n"); 
+            }
+            else
+            {
+                printf("Valore non valido!\n");
+            }
+        }
+        while(valore_inserito != 0 || valore_inserito != 1);
+        */
+        
+    /*
+    while(contatore_coppie_relazioni_binarie < 10){
+        scanf("%d %d", &prima_relazione_binaria[contatore_coppie_relazioni_binarie], &prima_relazione_binaria[contatore_coppie_relazioni_binarie+1]);
+        contatore_coppie_relazioni_binarie += 2;
+    }
+    contatore_coppie_relazioni_binarie = 0;
+    printf("Prima relazione binaria acquisita!\n");
+    */
+    
+        /*
+    printf("Digita la seconda relazione binaria:\n");
+    printf("Digita i due numeri della coppia:\n");
+    while(contatore_coppie_relazioni_binarie < 10){
+        scanf("%d %d", &seconda_relazione_binaria[contatore_coppie_relazioni_binarie], &seconda_relazione_binaria[contatore_coppie_relazioni_binarie+1]);
+        contatore_coppie_relazioni_binarie += 2;
+    }
+    printf("Seconda relazione binaria acquisita!\n");
+    
+    printf("Prima relazione binaria:\n");
+    for(j = 0; j < 10; j += 2)
+        printf("%d,%d ", prima_relazione_binaria[j], prima_relazione_binaria[j+1]);
+    printf("\n");
+    
+    printf("Seconda relazione binaria:\n");
+    for(k = 0; k < 10; k += 2)
+        printf("%d,%d ", seconda_relazione_binaria[k], seconda_relazione_binaria[k+1]);
+    printf("\n");
+    */
