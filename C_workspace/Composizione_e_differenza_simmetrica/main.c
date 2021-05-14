@@ -63,6 +63,9 @@ int main(int argc, char **argv)
     
     elem_lista_t *testa_p = NULL;
     elem_lista_t *testa_p_due = NULL;
+    elem_lista_t *testa_p_comp = NULL;
+    elem_lista_t *elem_p;
+    elem_lista_t *elem_p_due;
     int inserito;
     int fine_inser_prima_rel_bin = 1;
     int fine_inser_sec_rel_bin = 1;
@@ -307,6 +310,26 @@ int main(int argc, char **argv)
     }
     
     /*Composizione*/
+    for(elem_p = testa_p; (elem_p != NULL); elem_p = elem_p->succ_p)
+    {
+        for(elem_p_due = testa_p_due; (elem_p_due != NULL); elem_p_due = elem_p_due->succ_p)
+        {
+            if(elem_p->valore_due == elem_p_due->valore_uno)
+            {
+                inserito = inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
+    
+                if(inserito == 1)
+                    printf("Inserimento riuscito!\n");
+                else
+                    printf("Inserimento non riuscito!\n");
+            }
+        }
+    }
+    visita_lista(testa_p_comp);
+    
+    
+    /*Composizione*/
+    /*
     while(contatore_esterno < 5){
         while(contatore_interno < 5){
             if(prima_relazione_binaria[contatore_prima_rel_bin] == seconda_relazione_binaria[contatore_seconda_rel_bin]){
@@ -328,6 +351,7 @@ int main(int argc, char **argv)
     for(a = 0; a < 50; a += 2)
         printf("%d,%d ", array_composizione[a], array_composizione[a+1]);
     printf("\n");
+    */
     
     /*Differenza simmetrica*/
     while(contatore_esterno_diff < 10){
