@@ -330,32 +330,6 @@ int main(int argc, char **argv)
     visita_lista(testa_p_comp);
     printf("\n");
     
-    
-    /*Composizione*/
-    /*
-    while(contatore_esterno < 5){
-        while(contatore_interno < 5){
-            if(prima_relazione_binaria[contatore_prima_rel_bin] == seconda_relazione_binaria[contatore_seconda_rel_bin]){
-                array_composizione[contatore_elem_coppia_comp] = prima_relazione_binaria[contatore_prima_rel_bin-1];
-                contatore_elem_coppia_comp++;
-                array_composizione[contatore_elem_coppia_comp] = seconda_relazione_binaria[contatore_seconda_rel_bin+1];
-                contatore_elem_coppia_comp++;
-            }
-            contatore_seconda_rel_bin += 2;
-            contatore_interno++;
-        }
-        contatore_esterno++;
-        contatore_interno = 0;
-        contatore_seconda_rel_bin = 0;
-        contatore_prima_rel_bin += 2;
-    }
-    
-    printf("Composizione:\n");
-    for(a = 0; a < 50; a += 2)
-        printf("%d,%d ", array_composizione[a], array_composizione[a+1]);
-    printf("\n");
-    */
-    
     /*Differenza simmetrica*/
     while(contatore_esterno_diff < 10){
         if(contatore_esterno_diff < 5){
