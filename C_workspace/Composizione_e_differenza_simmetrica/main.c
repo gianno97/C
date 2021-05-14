@@ -31,14 +31,15 @@ int main(int argc, char **argv)
     int contatore_numeri_insieme = 0;
     //int contatore_coppie_relazioni_binarie = 0;
     //int j, k;
-    int array_composizione[100] = {0};
+    //int array_composizione[100] = {0};
     int array_diff_simm[100] = {0};
-    int contatore_esterno = 0;
-    int contatore_interno = 0;
-    int contatore_prima_rel_bin = 1;
-    int contatore_seconda_rel_bin = 0;
-    int contatore_elem_coppia_comp = 0;
-    int a, b;
+    //int contatore_esterno = 0;
+    //int contatore_interno = 0;
+    //int contatore_prima_rel_bin = 1;
+    //int contatore_seconda_rel_bin = 0;
+    //int contatore_elem_coppia_comp = 0;
+    //int a, b;
+    int b;
     int contatore_esterno_diff = 0;
     int contatore_interno_diff = 0;
     int contatore_prima_rel_bin_diff_simm = 0;
@@ -317,15 +318,17 @@ int main(int argc, char **argv)
             if(elem_p->valore_due == elem_p_due->valore_uno)
             {
                 inserito = inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
-    
+                /*
                 if(inserito == 1)
                     printf("Inserimento riuscito!\n");
                 else
                     printf("Inserimento non riuscito!\n");
+                */
             }
         }
     }
     visita_lista(testa_p_comp);
+    printf("\n");
     
     
     /*Composizione*/
