@@ -65,8 +65,11 @@ int main(int argc, char **argv)
     elem_lista_t *testa_p = NULL;
     elem_lista_t *testa_p_due = NULL;
     elem_lista_t *testa_p_comp = NULL;
+    elem_lista_t *testa_p_diff = NULL;
     elem_lista_t *elem_p;
     elem_lista_t *elem_p_due;
+    elem_lista_t *elem_p_diff;
+    elem_lista_t *elem_p_diff_due;
     int inserito;
     int fine_inser_prima_rel_bin = 1;
     int fine_inser_sec_rel_bin = 1;
@@ -329,6 +332,22 @@ int main(int argc, char **argv)
     }
     visita_lista(testa_p_comp);
     printf("\n");
+    
+    /*Differenza simmetrica*/
+    for(elem_p_diff = testa_p; (elem_p_diff != NULL); elem_p_diff = elem_p_diff->succ_p)
+    {
+        for(elem_p_diff_due = testa_p_due; (elem_p_diff_due != NULL); elem_p_diff_due = elem_p_diff_due->succ_p)
+        {
+            if(elem_p_diff->valore_uno == elem_p_diff_due->valore_uno && elem_p_diff->valore_due == elem_p_diff_due->valore_due)
+            {
+                elem_p_diff_due = NULL;
+            }
+            else
+            {
+                
+            }
+        }
+    }
     
     /*Differenza simmetrica*/
     while(contatore_esterno_diff < 10){
