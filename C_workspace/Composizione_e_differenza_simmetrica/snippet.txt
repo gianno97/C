@@ -79,3 +79,62 @@
         printf("%d,%d ", array_composizione[a], array_composizione[a+1]);
     printf("\n");
     */
+    
+    
+    
+    
+    /*Differenza simmetrica*/
+    /*
+    while(contatore_esterno_diff < 10){
+        if(contatore_esterno_diff < 5){
+            while(contatore_interno_diff < 5){
+                if((prima_relazione_binaria[contatore_prima_rel_bin_diff_simm] == seconda_relazione_binaria[contatore_seconda_rel_bin_diff_simm]) && 
+                   (prima_relazione_binaria[contatore_prima_rel_bin_diff_simm+1] == seconda_relazione_binaria[contatore_seconda_rel_bin_diff_simm+1])){
+                    contatore_interno_diff = 5;
+                }
+                else{
+                    contatore_interno_diff++;
+                    contatore_seconda_rel_bin_diff_simm += 2;
+                    if(contatore_interno_diff == 5){
+                        array_diff_simm[contatore_array_diff_simm] = prima_relazione_binaria[contatore_prima_rel_bin_diff_simm];
+                        contatore_array_diff_simm++;
+                        array_diff_simm[contatore_array_diff_simm] = prima_relazione_binaria[contatore_prima_rel_bin_diff_simm+1];
+                        contatore_array_diff_simm++;
+                    }
+                }
+            }
+            contatore_prima_rel_bin_diff_simm += 2;
+            contatore_seconda_rel_bin_diff_simm = 0;
+            contatore_interno_diff = 0;
+            contatore_esterno_diff++;
+        }
+        else{
+            contatore_prima_rel_bin_diff_simm = 0;
+            while(contatore_interno_diff < 5){
+                if((seconda_relazione_binaria[contatore_seconda_rel_bin_diff_simm] == prima_relazione_binaria[contatore_prima_rel_bin_diff_simm]) && 
+                   (seconda_relazione_binaria[contatore_seconda_rel_bin_diff_simm+1] == prima_relazione_binaria[contatore_prima_rel_bin_diff_simm+1])){
+                    contatore_interno_diff = 5;
+                }
+                else{
+                    contatore_interno_diff++;
+                    contatore_prima_rel_bin_diff_simm += 2;
+                    if(contatore_interno_diff == 5){
+                        array_diff_simm[contatore_array_diff_simm] = seconda_relazione_binaria[contatore_seconda_rel_bin_diff_simm];
+                        contatore_array_diff_simm++;
+                        array_diff_simm[contatore_array_diff_simm] = seconda_relazione_binaria[contatore_seconda_rel_bin_diff_simm+1];
+                        contatore_array_diff_simm++;
+                    }
+                }
+            }
+            contatore_prima_rel_bin_diff_simm = 0;
+            contatore_seconda_rel_bin_diff_simm += 2;
+            contatore_interno_diff = 0;
+            contatore_esterno_diff++;
+        }
+    }
+    
+    printf("Differenza simmetrica:\n");
+    for(b = 0; b < 50; b += 2)
+        printf("%d,%d ", array_diff_simm[b], array_diff_simm[b+1]);
+    printf("\n");
+    */

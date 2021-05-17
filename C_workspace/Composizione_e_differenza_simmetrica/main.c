@@ -23,8 +23,8 @@ int main(int argc, char **argv)
     //int insieme_finito_num_naturali[10] = {0};
     unsigned int *insieme_finito_num_naturali;
     int grandezza_insieme;
-    int prima_relazione_binaria[10] = {0};
-    int seconda_relazione_binaria[10] = {0};
+    //int prima_relazione_binaria[10] = {0};
+    //int seconda_relazione_binaria[10] = {0};
     unsigned int numero_acquisito = -1;
     unsigned int numero_acquisito_due = -1;
     int i;
@@ -32,19 +32,19 @@ int main(int argc, char **argv)
     //int contatore_coppie_relazioni_binarie = 0;
     //int j, k;
     //int array_composizione[100] = {0};
-    int array_diff_simm[100] = {0};
+    //int array_diff_simm[100] = {0};
     //int contatore_esterno = 0;
     //int contatore_interno = 0;
     //int contatore_prima_rel_bin = 1;
     //int contatore_seconda_rel_bin = 0;
     //int contatore_elem_coppia_comp = 0;
     //int a, b;
-    int b;
-    int contatore_esterno_diff = 0;
-    int contatore_interno_diff = 0;
-    int contatore_prima_rel_bin_diff_simm = 0;
-    int contatore_seconda_rel_bin_diff_simm = 0;
-    int contatore_array_diff_simm = 0;
+    //int b;
+    //int contatore_esterno_diff = 0;
+    //int contatore_interno_diff = 0;
+    //int contatore_prima_rel_bin_diff_simm = 0;
+    //int contatore_seconda_rel_bin_diff_simm = 0;
+    //int contatore_array_diff_simm = 0;
     int esito_lettura;
     int trovato = -1;
     unsigned int coppia_prima_rel_bin[2] = {-1, -1};
@@ -71,6 +71,7 @@ int main(int argc, char **argv)
     elem_lista_t *elem_p_diff;
     elem_lista_t *elem_p_diff_due;
     int inserito;
+    //int inserito_diff;
     int fine_inser_prima_rel_bin = 1;
     int fine_inser_sec_rel_bin = 1;
     int valore_inserito = -1;
@@ -314,6 +315,7 @@ int main(int argc, char **argv)
     }
     
     /*Composizione*/
+    printf("Composizione:\n");
     for(elem_p = testa_p; (elem_p != NULL); elem_p = elem_p->succ_p)
     {
         for(elem_p_due = testa_p_due; (elem_p_due != NULL); elem_p_due = elem_p_due->succ_p)
@@ -334,6 +336,7 @@ int main(int argc, char **argv)
     printf("\n");
     
     /*Differenza simmetrica*/
+    printf("Differenza simmetrica:\n");
     for(elem_p_diff = testa_p; (elem_p_diff != NULL); elem_p_diff = elem_p_diff->succ_p)
     {
         for(elem_p_diff_due = testa_p_due; (elem_p_diff_due != NULL); elem_p_diff_due = elem_p_diff_due->succ_p)
@@ -344,63 +347,32 @@ int main(int argc, char **argv)
             }
             else
             {
-                
+                if(elem_p_diff_due->succ_p == NULL)
+                {
+                    inserito = inserisci_in_lista_ordinata(&testa_p_diff, elem_p_diff->valore_uno, elem_p_diff->valore_due);
+                }
             }
         }
     }
     
-    /*Differenza simmetrica*/
-    while(contatore_esterno_diff < 10){
-        if(contatore_esterno_diff < 5){
-            while(contatore_interno_diff < 5){
-                if((prima_relazione_binaria[contatore_prima_rel_bin_diff_simm] == seconda_relazione_binaria[contatore_seconda_rel_bin_diff_simm]) && 
-                   (prima_relazione_binaria[contatore_prima_rel_bin_diff_simm+1] == seconda_relazione_binaria[contatore_seconda_rel_bin_diff_simm+1])){
-                    contatore_interno_diff = 5;
-                }
-                else{
-                    contatore_interno_diff++;
-                    contatore_seconda_rel_bin_diff_simm += 2;
-                    if(contatore_interno_diff == 5){
-                        array_diff_simm[contatore_array_diff_simm] = prima_relazione_binaria[contatore_prima_rel_bin_diff_simm];
-                        contatore_array_diff_simm++;
-                        array_diff_simm[contatore_array_diff_simm] = prima_relazione_binaria[contatore_prima_rel_bin_diff_simm+1];
-                        contatore_array_diff_simm++;
-                    }
+    for(elem_p_diff_due = testa_p_due; (elem_p_diff_due != NULL); elem_p_diff_due = elem_p_diff_due->succ_p)
+    {
+        for(elem_p_diff = testa_p; (elem_p_diff != NULL); elem_p_diff = elem_p_diff->succ_p)
+        {
+            if(elem_p_diff->valore_uno == elem_p_diff_due->valore_uno && elem_p_diff->valore_due == elem_p_diff_due->valore_due)
+            {
+                elem_p_diff = NULL;
+            }
+            else
+            {
+                if(elem_p_diff->succ_p == NULL)
+                {
+                    inserito = inserisci_in_lista_ordinata(&testa_p_diff, elem_p_diff_due->valore_uno, elem_p_diff_due->valore_due);
                 }
             }
-            contatore_prima_rel_bin_diff_simm += 2;
-            contatore_seconda_rel_bin_diff_simm = 0;
-            contatore_interno_diff = 0;
-            contatore_esterno_diff++;
-        }
-        else{
-            contatore_prima_rel_bin_diff_simm = 0;
-            while(contatore_interno_diff < 5){
-                if((seconda_relazione_binaria[contatore_seconda_rel_bin_diff_simm] == prima_relazione_binaria[contatore_prima_rel_bin_diff_simm]) && 
-                   (seconda_relazione_binaria[contatore_seconda_rel_bin_diff_simm+1] == prima_relazione_binaria[contatore_prima_rel_bin_diff_simm+1])){
-                    contatore_interno_diff = 5;
-                }
-                else{
-                    contatore_interno_diff++;
-                    contatore_prima_rel_bin_diff_simm += 2;
-                    if(contatore_interno_diff == 5){
-                        array_diff_simm[contatore_array_diff_simm] = seconda_relazione_binaria[contatore_seconda_rel_bin_diff_simm];
-                        contatore_array_diff_simm++;
-                        array_diff_simm[contatore_array_diff_simm] = seconda_relazione_binaria[contatore_seconda_rel_bin_diff_simm+1];
-                        contatore_array_diff_simm++;
-                    }
-                }
-            }
-            contatore_prima_rel_bin_diff_simm = 0;
-            contatore_seconda_rel_bin_diff_simm += 2;
-            contatore_interno_diff = 0;
-            contatore_esterno_diff++;
         }
     }
-    
-    printf("Differenza simmetrica:\n");
-    for(b = 0; b < 50; b += 2)
-        printf("%d,%d ", array_diff_simm[b], array_diff_simm[b+1]);
+    visita_lista(testa_p_diff);
     printf("\n");
     
     return 0;
