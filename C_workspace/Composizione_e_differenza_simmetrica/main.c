@@ -27,7 +27,7 @@ int main(int argc, char **argv)
     //int seconda_relazione_binaria[10] = {0};
     unsigned int numero_acquisito = -1;
     unsigned int numero_acquisito_due = -1;
-    int i;
+    int i, j;
     int contatore_numeri_insieme = 0;
     //int contatore_coppie_relazioni_binarie = 0;
     //int j, k;
@@ -90,6 +90,18 @@ int main(int argc, char **argv)
         while (getchar() != '\n');
     }
     while(esito_lettura != 1 || grandezza_insieme < 1 || grandezza_insieme > 20);
+    
+    for(j = 0; j < grandezza_insieme; j++)
+    {
+        insieme_finito_num_naturali[j] = -1;
+    }
+    
+    printf("Insieme inizializzato:\n");
+    for(j = 0; j < grandezza_insieme; j++)
+    {
+        printf("%u ", insieme_finito_num_naturali[j]);
+    }
+    printf("\n");
     
     printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
     do
