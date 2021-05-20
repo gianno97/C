@@ -27,7 +27,8 @@ int main(int argc, char **argv)
     //int seconda_relazione_binaria[10] = {0};
     unsigned int numero_acquisito = -1;
     unsigned int numero_acquisito_due = -1;
-    int i, j;
+    int i;
+    //int j;
     int contatore_numeri_insieme = 0;
     //int contatore_coppie_relazioni_binarie = 0;
     //int j, k;
@@ -76,8 +77,8 @@ int main(int argc, char **argv)
     int fine_inser_sec_rel_bin = 1;
     int valore_inserito = -1;
     //int valore_inserito_due = -1;
-    int numero_presente;
-    
+    //int numero_presente;
+    int sentinella = 1;
     
     do
     {
@@ -91,6 +92,7 @@ int main(int argc, char **argv)
     }
     while(esito_lettura != 1 || grandezza_insieme < 1 || grandezza_insieme > 20);
     
+    /*
     for(j = 0; j < grandezza_insieme; j++)
     {
         insieme_finito_num_naturali[j] = -1;
@@ -102,6 +104,7 @@ int main(int argc, char **argv)
         printf("%u ", insieme_finito_num_naturali[j]);
     }
     printf("\n");
+    */
     
     printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
     do
@@ -120,7 +123,10 @@ int main(int argc, char **argv)
             }
             else
             {
-                numero_presente = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito);
+                //numero_presente = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito);
+                insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
+                contatore_numeri_insieme++;
+                /*
                 if(numero_presente == -1)
                 {
                     insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
@@ -128,6 +134,7 @@ int main(int argc, char **argv)
                 }
                 else
                     printf("Il numero inserito e' gia' presente all'interno dell'insieme\n");
+                */
             }
         }
     }
@@ -335,12 +342,6 @@ int main(int argc, char **argv)
             if(elem_p->valore_due == elem_p_due->valore_uno)
             {
                 inserito = inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
-                /*
-                if(inserito == 1)
-                    printf("Inserimento riuscito!\n");
-                else
-                    printf("Inserimento non riuscito!\n");
-                */
             }
         }
     }
@@ -351,11 +352,11 @@ int main(int argc, char **argv)
     printf("Differenza simmetrica:\n");
     for(elem_p_diff = testa_p; (elem_p_diff != NULL); elem_p_diff = elem_p_diff->succ_p)
     {
-        for(elem_p_diff_due = testa_p_due; (elem_p_diff_due != NULL); elem_p_diff_due = elem_p_diff_due->succ_p)
+        for(elem_p_diff_due = testa_p_due; (elem_p_diff_due != NULL) && (sentinella != 0); elem_p_diff_due = elem_p_diff_due->succ_p)
         {
             if(elem_p_diff->valore_uno == elem_p_diff_due->valore_uno && elem_p_diff->valore_due == elem_p_diff_due->valore_due)
             {
-                elem_p_diff_due = NULL;
+                sentinella = 0;
             }
             else
             {
@@ -365,15 +366,16 @@ int main(int argc, char **argv)
                 }
             }
         }
+        sentinella = 1;
     }
     
     for(elem_p_diff_due = testa_p_due; (elem_p_diff_due != NULL); elem_p_diff_due = elem_p_diff_due->succ_p)
     {
-        for(elem_p_diff = testa_p; (elem_p_diff != NULL); elem_p_diff = elem_p_diff->succ_p)
+        for(elem_p_diff = testa_p; (elem_p_diff != NULL) && (sentinella != 0); elem_p_diff = elem_p_diff->succ_p)
         {
             if(elem_p_diff->valore_uno == elem_p_diff_due->valore_uno && elem_p_diff->valore_due == elem_p_diff_due->valore_due)
             {
-                elem_p_diff = NULL;
+                sentinella = 0;
             }
             else
             {
@@ -383,6 +385,7 @@ int main(int argc, char **argv)
                 }
             }
         }
+        sentinella = 1;
     }
     visita_lista(testa_p_diff);
     printf("\n");
