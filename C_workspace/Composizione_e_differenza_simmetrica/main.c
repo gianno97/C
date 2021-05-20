@@ -7,49 +7,30 @@
 
 typedef struct elem_lista
 {
-    unsigned int valore_uno;
-    unsigned int valore_due;
+    int valore_uno;
+    int valore_due;
     struct elem_lista *succ_p;
 } elem_lista_t;
 
-int ricerca_lineare_array(unsigned int a[], int n, unsigned int valore);
+int ricerca_lineare_array(int a[], int n, int valore);
 int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
-                                unsigned int valore_uno,
-                                unsigned int valore_due);
+                                int valore_uno,
+                                int valore_due);
 void visita_lista(elem_lista_t *testa_p);
 
 int main(int argc, char **argv)
 {
-    //int insieme_finito_num_naturali[10] = {0};
-    unsigned int *insieme_finito_num_naturali;
+    int *insieme_finito_num_naturali;
     int grandezza_insieme;
-    //int prima_relazione_binaria[10] = {0};
-    //int seconda_relazione_binaria[10] = {0};
-    unsigned int numero_acquisito = -1;
-    unsigned int numero_acquisito_due = -1;
+    numero_acquisito = -1;
+    numero_acquisito_due = -1;
     int i;
     //int j;
     int contatore_numeri_insieme = 0;
-    //int contatore_coppie_relazioni_binarie = 0;
-    //int j, k;
-    //int array_composizione[100] = {0};
-    //int array_diff_simm[100] = {0};
-    //int contatore_esterno = 0;
-    //int contatore_interno = 0;
-    //int contatore_prima_rel_bin = 1;
-    //int contatore_seconda_rel_bin = 0;
-    //int contatore_elem_coppia_comp = 0;
-    //int a, b;
-    //int b;
-    //int contatore_esterno_diff = 0;
-    //int contatore_interno_diff = 0;
-    //int contatore_prima_rel_bin_diff_simm = 0;
-    //int contatore_seconda_rel_bin_diff_simm = 0;
-    //int contatore_array_diff_simm = 0;
     int esito_lettura;
     int trovato = -1;
-    unsigned int coppia_prima_rel_bin[2] = {-1, -1};
-    unsigned int coppia_sec_rel_bin[2] = {-1, -1};
+    int coppia_prima_rel_bin[2] = {-1, -1};
+    int coppia_sec_rel_bin[2] = {-1, -1};
     
     /*Dichiarazione variabili per la validazione dell'input*/
     char input[MAXINPUT] = "";
@@ -77,8 +58,9 @@ int main(int argc, char **argv)
     int fine_inser_sec_rel_bin = 1;
     int valore_inserito = -1;
     //int valore_inserito_due = -1;
-    //int numero_presente;
+    int numero_presente;
     int sentinella = 1;
+    int numero_naturale;
     
     do
     {
@@ -87,7 +69,7 @@ int main(int argc, char **argv)
         if(esito_lettura != 1 || grandezza_insieme < 1 || grandezza_insieme > 20)
             printf("Inserimento non valido\n");
         else
-            insieme_finito_num_naturali = (unsigned int*) malloc(grandezza_insieme * sizeof(unsigned int));
+            insieme_finito_num_naturali = (int*) malloc(grandezza_insieme * sizeof(int));
         while (getchar() != '\n');
     }
     while(esito_lettura != 1 || grandezza_insieme < 1 || grandezza_insieme > 20);
@@ -109,37 +91,25 @@ int main(int argc, char **argv)
     printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
     do
     {
-        scanf ("%s", input);
-        if (!isdigit(input[contatore_str_input]))
-        {
+        esito_lettura = scanf("%d", &numero_naturale);
+        if(esito_lettura != 1 || numero_naturale < 0 || numero_naturale >= INT_MAX)
             printf("Inserimento non valido\n");
-        }
-        else 
+        else
         {
-            numero_acquisito = strtoul(input, NULL, 0);
-            if(numero_acquisito < 0 || numero_acquisito >= ULONG_MAX)
+            numero_presente = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_naturale);
+            //insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
+            //contatore_numeri_insieme++;
+            if(numero_presente == -1)
             {
-                printf ("L'input inserito e' un numero ma non e' valido\n");
+                insieme_finito_num_naturali[contatore_numeri_insieme] = numero_naturale;
+                contatore_numeri_insieme++;
             }
             else
-            {
-                //numero_presente = ricerca_lineare_array(insieme_finito_num_naturali, grandezza_insieme, numero_acquisito);
-                insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
-                contatore_numeri_insieme++;
-                /*
-                if(numero_presente == -1)
-                {
-                    insieme_finito_num_naturali[contatore_numeri_insieme] = numero_acquisito;
-                    contatore_numeri_insieme++;
-                }
-                else
-                    printf("Il numero inserito e' gia' presente all'interno dell'insieme\n");
-                */
-            }
+                printf("Il numero inserito e' gia' presente all'interno dell'insieme\n");
         }
+        while (getchar() != '\n');
     }
-    while(numero_acquisito < 0 || numero_acquisito >= ULONG_MAX || numero_acquisito == -1 || (contatore_numeri_insieme < grandezza_insieme));
-    //numero_acquisito = 0;
+    while(esito_lettura != 1 || numero_naturale < 0 || numero_naturale >= INT_MAX || (contatore_numeri_insieme < grandezza_insieme));
     
     printf("Insieme acquisito da tastiera:\n");
     for(i = 0; i < grandezza_insieme; i++)
@@ -341,7 +311,7 @@ int main(int argc, char **argv)
         {
             if(elem_p->valore_due == elem_p_due->valore_uno)
             {
-                inserito = inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
+                inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
             }
         }
     }
@@ -362,7 +332,7 @@ int main(int argc, char **argv)
             {
                 if(elem_p_diff_due->succ_p == NULL)
                 {
-                    inserito = inserisci_in_lista_ordinata(&testa_p_diff, elem_p_diff->valore_uno, elem_p_diff->valore_due);
+                    inserisci_in_lista_ordinata(&testa_p_diff, elem_p_diff->valore_uno, elem_p_diff->valore_due);
                 }
             }
         }
@@ -381,7 +351,7 @@ int main(int argc, char **argv)
             {
                 if(elem_p_diff->succ_p == NULL)
                 {
-                    inserito = inserisci_in_lista_ordinata(&testa_p_diff, elem_p_diff_due->valore_uno, elem_p_diff_due->valore_due);
+                    inserisci_in_lista_ordinata(&testa_p_diff, elem_p_diff_due->valore_uno, elem_p_diff_due->valore_due);
                 }
             }
         }
