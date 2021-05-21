@@ -10,11 +10,19 @@ typedef struct elem_lista
     struct elem_lista *succ_p;
 } elem_lista_t;
 
-int ricerca_lineare_array(int a[], int n, int valore);
+void visita_lista(elem_lista_t *testa_p);
+int ricerca_lineare_array(int a[],
+                          int n,
+                          int valore);
 int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
                                 int valore_uno,
                                 int valore_due);
-void visita_lista(elem_lista_t *testa_p);
+void composizione(elem_lista_t *testa_p,
+                  elem_lista_t *testa_p_due,
+                  elem_lista_t **testa_p_comp);
+void differenza_simmetrica(elem_lista_t *testa_p,
+                           elem_lista_t *testa_p_due,
+                           elem_lista_t **testa_p_diff);
 
 int main(int argc, char **argv)
 {
@@ -31,16 +39,11 @@ int main(int argc, char **argv)
     elem_lista_t *testa_p_due = NULL;
     elem_lista_t *testa_p_comp = NULL;
     elem_lista_t *testa_p_diff = NULL;
-    elem_lista_t *elem_p;
-    elem_lista_t *elem_p_due;
-    elem_lista_t *elem_p_diff;
-    elem_lista_t *elem_p_diff_due;
     int inserito;
     int fine_inser_prima_rel_bin = 1;
     int fine_inser_sec_rel_bin = 1;
     int valore_inserito = -1;
     int numero_presente;
-    int sentinella = 1;
     int numero_naturale;
     int numero_coppia;
     
@@ -57,22 +60,14 @@ int main(int argc, char **argv)
     while(esito_lettura != 1 || grandezza_insieme < 1 || grandezza_insieme > 20);
     
     for(j = 0; j < grandezza_insieme; j++)
-    {
         insieme_finito_num_naturali[j] = -1;
-    }
-    
-    printf("Insieme inizializzato:\n");
-    for(j = 0; j < grandezza_insieme; j++)
-    {
-        printf("%d ", insieme_finito_num_naturali[j]);
-    }
-    printf("\n");
     
     printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
     do
     {
         esito_lettura = scanf("%d", &numero_naturale);
-        if(esito_lettura != 1 || numero_naturale < 0 || numero_naturale >= INT_MAX)
+        //printf("%d\n", INT_MAX);
+        if(esito_lettura != 1 || numero_naturale < 0)
             printf("Inserimento non valido\n");
         else
         {
@@ -87,7 +82,7 @@ int main(int argc, char **argv)
         }
         while (getchar() != '\n');
     }
-    while(esito_lettura != 1 || numero_naturale < 0 || numero_naturale >= INT_MAX || (contatore_numeri_insieme < grandezza_insieme));
+    while(esito_lettura != 1 || numero_naturale < 0 || (contatore_numeri_insieme < grandezza_insieme));
     
     printf("Insieme acquisito da tastiera:\n");
     for(i = 0; i < grandezza_insieme; i++)
@@ -119,6 +114,7 @@ int main(int argc, char **argv)
                     trovato = 0;
                 }
             }
+            while (getchar() != '\n');
         }
         while(trovato == -1);
     
@@ -144,6 +140,7 @@ int main(int argc, char **argv)
                     trovato = 0;
                 }
             }
+            while (getchar() != '\n');
         }
         while(trovato == -1);
     
@@ -208,6 +205,7 @@ int main(int argc, char **argv)
                     trovato = 0;
                 }
             }
+            while (getchar() != '\n');
         }
         while(trovato == -1);
     
@@ -233,6 +231,7 @@ int main(int argc, char **argv)
                     trovato = 0;
                 }
             }
+            while (getchar() != '\n');
         }
         while(trovato == -1);
     
@@ -275,36 +274,34 @@ int main(int argc, char **argv)
     
     /*Composizione*/
     printf("Composizione:\n");
-    for(elem_p = testa_p; (elem_p != NULL); elem_p = elem_p->succ_p)
-    {
-        for(elem_p_due = testa_p_due; (elem_p_due != NULL); elem_p_due = elem_p_due->succ_p)
-        {
-            if(elem_p->valore_due == elem_p_due->valore_uno)
-            {
-                inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
-            }
-        }
-    }
+    composizione(testa_p, testa_p_due, &testa_p_comp);
     visita_lista(testa_p_comp);
     printf("\n");
     
     /*Differenza simmetrica*/
     printf("Differenza simmetrica:\n");
+    differenza_simmetrica(testa_p, testa_p_due, &testa_p_diff);
+    visita_lista(testa_p_diff);
+    printf("\n");
+    
+    return 0;
+}
+
+void differenza_simmetrica(elem_lista_t *testa_p, elem_lista_t *testa_p_due, elem_lista_t **testa_p_diff)
+{
+    elem_lista_t *elem_p_diff,
+                 *elem_p_diff_due;
+    int sentinella = 1;
+    
     for(elem_p_diff = testa_p; (elem_p_diff != NULL); elem_p_diff = elem_p_diff->succ_p)
     {
         for(elem_p_diff_due = testa_p_due; (elem_p_diff_due != NULL) && (sentinella != 0); elem_p_diff_due = elem_p_diff_due->succ_p)
         {
             if(elem_p_diff->valore_uno == elem_p_diff_due->valore_uno && elem_p_diff->valore_due == elem_p_diff_due->valore_due)
-            {
                 sentinella = 0;
-            }
             else
-            {
                 if(elem_p_diff_due->succ_p == NULL)
-                {
-                    inserisci_in_lista_ordinata(&testa_p_diff, elem_p_diff->valore_uno, elem_p_diff->valore_due);
-                }
-            }
+                    inserisci_in_lista_ordinata(testa_p_diff, elem_p_diff->valore_uno, elem_p_diff->valore_due);
         }
         sentinella = 1;
     }
@@ -314,23 +311,24 @@ int main(int argc, char **argv)
         for(elem_p_diff = testa_p; (elem_p_diff != NULL) && (sentinella != 0); elem_p_diff = elem_p_diff->succ_p)
         {
             if(elem_p_diff->valore_uno == elem_p_diff_due->valore_uno && elem_p_diff->valore_due == elem_p_diff_due->valore_due)
-            {
                 sentinella = 0;
-            }
             else
-            {
                 if(elem_p_diff->succ_p == NULL)
-                {
-                    inserisci_in_lista_ordinata(&testa_p_diff, elem_p_diff_due->valore_uno, elem_p_diff_due->valore_due);
-                }
-            }
+                    inserisci_in_lista_ordinata(testa_p_diff, elem_p_diff_due->valore_uno, elem_p_diff_due->valore_due);
         }
         sentinella = 1;
     }
-    visita_lista(testa_p_diff);
-    printf("\n");
+}
+
+void composizione(elem_lista_t *testa_p, elem_lista_t *testa_p_due, elem_lista_t **testa_p_comp)
+{
+    elem_lista_t *elem_p,
+                 *elem_p_due;
     
-    return 0;
+    for(elem_p = testa_p; (elem_p != NULL); elem_p = elem_p->succ_p)
+        for(elem_p_due = testa_p_due; (elem_p_due != NULL); elem_p_due = elem_p_due->succ_p)
+            if(elem_p->valore_due == elem_p_due->valore_uno)
+                inserisci_in_lista_ordinata(testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
 }
 
 int ricerca_lineare_array(int a[], int n, int valore)
