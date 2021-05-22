@@ -100,6 +100,8 @@ int main(int argc, char **argv)
         printf("Digita il secondo numero della coppia:\n");
         acquisizione_coppia(insieme_finito_num_naturali, grandezza_insieme, coppia_prima_rel_bin);
         inserito = inserisci_in_lista_ordinata(&testa_p, coppia_prima_rel_bin[0], coppia_prima_rel_bin[1]);
+        coppia_prima_rel_bin[0] = -1;
+        coppia_prima_rel_bin[1] = -1;
         if(inserito == 1)
             printf("Coppia inserita\n");
         else
@@ -144,6 +146,8 @@ int main(int argc, char **argv)
         printf("Digita il secondo numero della coppia:\n");
         acquisizione_coppia(insieme_finito_num_naturali, grandezza_insieme, coppia_sec_rel_bin);
         inserito = inserisci_in_lista_ordinata(&testa_p_due, coppia_sec_rel_bin[0], coppia_sec_rel_bin[1]);
+        coppia_sec_rel_bin[0] = -1;
+        coppia_sec_rel_bin[1] = -1;
         if(inserito == 1)
             printf("Coppia inserita\n");
         else
@@ -228,8 +232,6 @@ void acquisizione_coppia(int *insieme_finito_num_naturali, int grandezza_insieme
                     printf("Secondo numero acquisito\n");
                     coppia_rel_bin[1] = numero_coppia;
                     trovato = 0;
-                    coppia_rel_bin[0] = -1;
-                    coppia_rel_bin[1] = -1;
                 }
             }
         }
