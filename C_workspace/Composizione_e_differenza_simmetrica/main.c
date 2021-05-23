@@ -26,6 +26,8 @@ void differenza_simmetrica(elem_lista_t *testa_p,
 void acquisizione_coppia(int *insieme_finito_num_naturali,
                          int grandezza_insieme,
                          int coppia_rel_bin[]);
+void composizione_ricorsiva(elem_lista_t *testa_p,
+                            elem_lista_t *testa_p_due);
 
 int main(int argc, char **argv)
 {
@@ -40,7 +42,7 @@ int main(int argc, char **argv)
     int coppia_sec_rel_bin[2] = {-1, -1};
     elem_lista_t *testa_p = NULL;
     elem_lista_t *testa_p_due = NULL;
-    elem_lista_t *testa_p_comp = NULL;
+    //elem_lista_t *testa_p_comp = NULL;
     elem_lista_t *testa_p_diff = NULL;
     int inserito;
     int fine_inser_prima_rel_bin = 1;
@@ -186,8 +188,9 @@ int main(int argc, char **argv)
     
     /*Composizione*/
     printf("Composizione:\n");
-    composizione(testa_p, testa_p_due, &testa_p_comp);
-    visita_lista(testa_p_comp);
+    //composizione(testa_p, testa_p_due, &testa_p_comp);
+    composizione_ricorsiva(testa_p, testa_p_due);
+    //visita_lista(testa_p_comp);
     printf("\n");
     
     /*Differenza simmetrica*/
@@ -271,6 +274,28 @@ void differenza_simmetrica(elem_lista_t *testa_p, elem_lista_t *testa_p_due, ele
         }
         sentinella = 1;
     }
+}
+
+void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
+{
+    elem_lista_t *elem_p,
+                 *elem_p_due;
+    elem_lista_t *testa_p_comp = NULL;
+    
+    elem_p = testa_p;
+    elem_p_due = testa_p_due;
+    
+    if(elem_p_due->succ_p != NULL)
+    {
+        if(elem_p->valore_due == elem_p_due->valore_uno)
+            inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
+        else
+            composizione_ricorsiva(elem_p, elem_p_due->succ_p);
+    }
+    else
+        composizione_ricorsiva(elem_p->succ_p, elem_p_due);
+    
+    visita_lista(testa_p_comp);
 }
 
 void composizione(elem_lista_t *testa_p, elem_lista_t *testa_p_due, elem_lista_t **testa_p_comp)
