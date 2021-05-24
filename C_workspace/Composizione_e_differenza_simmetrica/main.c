@@ -26,8 +26,8 @@ void differenza_simmetrica(elem_lista_t *testa_p,
 void acquisizione_coppia(int *insieme_finito_num_naturali,
                          int grandezza_insieme,
                          int coppia_rel_bin[]);
-void composizione_ricorsiva(elem_lista_t **testa_p,
-                            elem_lista_t **testa_p_due);
+void composizione_ricorsiva(elem_lista_t *testa_p,
+                            elem_lista_t *testa_p_due);
 int conta_elem_lista(elem_lista_t *testa_p);
 
 int main(int argc, char **argv)
@@ -190,7 +190,7 @@ int main(int argc, char **argv)
     /*Composizione*/
     printf("Composizione:\n");
     //composizione(testa_p, testa_p_due, &testa_p_comp);
-    composizione_ricorsiva(&testa_p, &testa_p_due);
+    composizione_ricorsiva(testa_p, testa_p_due);
     //visita_lista(testa_p_comp);
     printf("\n");
     
@@ -277,15 +277,16 @@ void differenza_simmetrica(elem_lista_t *testa_p, elem_lista_t *testa_p_due, ele
     }
 }
 
-void composizione_ricorsiva(elem_lista_t **testa_p, elem_lista_t **testa_p_due)
+void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
 {
     elem_lista_t *elem_p,
                  *elem_p_due;
     elem_lista_t *testa_p_comp = NULL;
     
-    elem_p = *testa_p;
-    elem_p_due = *testa_p_due;
+    elem_p = testa_p;
+    elem_p_due = testa_p_due;
     
+    /*
     if(elem_p_due->succ_p != NULL)
     {
         if(elem_p->valore_due == elem_p_due->valore_uno)
@@ -298,17 +299,42 @@ void composizione_ricorsiva(elem_lista_t **testa_p, elem_lista_t **testa_p_due)
     }
     else
         composizione_ricorsiva(&(elem_p->succ_p), &elem_p_due);
+    */
+    printf("%d\n", conta_elem_lista(elem_p));
+    printf("%d\n", conta_elem_lista(elem_p_due));
     
-    
-    
-    if((conta_elem_lista(testa_p) == 1) && (conta_elem_lista(testa_p_due) == 1))
+    if((conta_elem_lista(elem_p)) == 1 && (conta_elem_lista(elem_p_due) == 1))
     {
         if(elem_p->valore_due == elem_p_due->valore_uno)
             inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
     }
+    else if((conta_elem_lista(elem_p)) == 1 && (conta_elem_lista(elem_p_due) > 1))
+    {
+        if(elem_p->valore_due == elem_p_due->valore_uno)
+        {
+            if(conta_elem_lista(elem_p_due) == 1)
+                inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
+            else
+                if(elem_p_due->succ_p != NULL)
+                    composizione_ricorsiva(elem_p, elem_p_due->succ_p);
+        }
+    }
+    else if((conta_elem_lista(elem_p_due)) == 1 && (conta_elem_lista(elem_p) > 1))
+    {
+        if(elem_p->valore_due == elem_p_due->valore_uno)
+        {
+            if(conta_elem_lista(elem_p) == 1)
+                inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
+            else
+                if(elem_p->succ_p != NULL)
+                    composizione_ricorsiva(elem_p->succ_p, elem_p_due);
+        }
+    }
     else
+    {
         
-    
+    }
+
     visita_lista(testa_p_comp);
 }
 
