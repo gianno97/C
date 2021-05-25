@@ -301,8 +301,8 @@ void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
     else
         composizione_ricorsiva(&(elem_p->succ_p), &elem_p_due);
     */
-    printf("%d\n", conta_elem_lista(elem_p));
-    printf("%d\n", conta_elem_lista(elem_p_due));
+    //printf("%d\n", conta_elem_lista(elem_p));
+    //printf("%d\n", conta_elem_lista(elem_p_due));
     
     /*
     if((conta_elem_lista(elem_p)) == 1 && (conta_elem_lista(elem_p_due) == 1))
@@ -311,27 +311,30 @@ void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
             inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
     }
     */
-    if((conta_elem_lista(elem_p)) >= 1 && (conta_elem_lista(elem_p_due)) >= 1)
+    if(elem_p->valore_due == elem_p_due->valore_uno)
     {
-        if(elem_p->valore_due == elem_p_due->valore_uno)
-        {
-            inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
-            if(elem_p_due->succ_p != NULL)
-                composizione_ricorsiva(elem_p, elem_p_due->succ_p);
-            else if(elem_p->succ_p != NULL)
-            {
-                composizione_ricorsiva(elem_p->succ_p, elem_p_due->prec_p_lista);
-            }
-        }
+        inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
+        if((elem_p_due->succ_p != NULL) && (elem_p->prec_p_lista == NULL))
+            composizione_ricorsiva(elem_p, elem_p_due->succ_p);
+        else if((elem_p->succ_p != NULL) && (elem_p_due->succ_p == NULL))
+            composizione_ricorsiva(elem_p->succ_p, elem_p_due->prec_p_lista);
+        else if(elem_p_due->prec_p_lista != NULL)
+            composizione_ricorsiva(elem_p, elem_p_due->prec_p_lista);
         else
-        {
             if(elem_p_due->succ_p != NULL)
                 composizione_ricorsiva(elem_p, elem_p_due->succ_p);
-            else if(elem_p->succ_p != NULL)
-            {
-                composizione_ricorsiva(elem_p->succ_p, elem_p_due->prec_p_lista);
-            }
-        }
+    }
+    else
+    {
+        if((elem_p_due->succ_p != NULL) && (elem_p->prec_p_lista == NULL))
+            composizione_ricorsiva(elem_p, elem_p_due->succ_p);
+        else if((elem_p->succ_p != NULL) && (elem_p_due->succ_p == NULL))
+            composizione_ricorsiva(elem_p->succ_p, elem_p_due->prec_p_lista);
+        else if(elem_p_due->prec_p_lista != NULL)
+            composizione_ricorsiva(elem_p, elem_p_due->prec_p_lista);
+        else
+            if(elem_p_due->succ_p != NULL)
+                composizione_ricorsiva(elem_p, elem_p_due->succ_p);
     }
     /*
     else if((conta_elem_lista(elem_p)) == 1 && (conta_elem_lista(elem_p_due) > 1))
