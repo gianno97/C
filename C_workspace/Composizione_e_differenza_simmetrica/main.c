@@ -8,6 +8,7 @@ typedef struct elem_lista
     int valore_uno;
     int valore_due;
     struct elem_lista *succ_p;
+    struct elem_lista *prec_p_lista;
 } elem_lista_t;
 
 void visita_lista(elem_lista_t *testa_p);
@@ -319,8 +320,7 @@ void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
                 composizione_ricorsiva(elem_p, elem_p_due->succ_p);
             else if(elem_p->succ_p != NULL)
             {
-                elem_p_due = testa_p_due;
-                composizione_ricorsiva(elem_p->succ_p, elem_p_due);
+                composizione_ricorsiva(elem_p->succ_p, elem_p_due->prec_p_lista);
             }
         }
         else
@@ -329,8 +329,7 @@ void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
                 composizione_ricorsiva(elem_p, elem_p_due->succ_p);
             else if(elem_p->succ_p != NULL)
             {
-                elem_p_due = testa_p_due;
-                composizione_ricorsiva(elem_p->succ_p, elem_p_due);
+                composizione_ricorsiva(elem_p->succ_p, elem_p_due->prec_p_lista);
             }
         }
     }
@@ -412,7 +411,10 @@ int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
         if(corr_p == *testa_p)
             *testa_p = nuovo_p;
         else
+        {
             prec_p->succ_p = nuovo_p;
+            nuovo_p->prec_p_lista = prec_p;
+        }
     }
     return(inserito);
 }
