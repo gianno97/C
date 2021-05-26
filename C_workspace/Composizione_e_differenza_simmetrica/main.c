@@ -324,6 +324,15 @@ void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
     }
     else
     {
+        if(elem_p_due->succ_p != NULL)
+            composizione_ricorsiva(elem_p, elem_p_due->succ_p);
+        else
+            if(elem_p_due->prec_p_lista == NULL)
+                composizione_ricorsiva(elem_p->succ_p, elem_p_due);
+            else
+                composizione_ricorsiva(elem_p, elem_p_due->prec_p_lista);
+    }
+    
         /*
         if((elem_p_due->succ_p != NULL) && (elem_p->prec_p_lista == NULL))
             composizione_ricorsiva(elem_p, elem_p_due->succ_p);
@@ -335,7 +344,11 @@ void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
             if(elem_p_due->succ_p != NULL)
                 composizione_ricorsiva(elem_p, elem_p_due->succ_p);
         */
-    }
+    
+    
+    
+    
+    
     /*
     else if((conta_elem_lista(elem_p)) == 1 && (conta_elem_lista(elem_p_due) > 1))
     {
