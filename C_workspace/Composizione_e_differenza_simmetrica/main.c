@@ -287,6 +287,26 @@ void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
     elem_p = testa_p;
     elem_p_due = testa_p_due;
     
+    if(elem_p->succ_p != testa_p)
+    {
+        if(elem_p->valore_due == elem_p_due->valore_uno)
+        {
+            inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
+            if(elem_p_due->succ_p == testa_p_due)
+                composizione_ricorsiva(elem_p->succ_p, elem_p_due->succ_p);
+            else
+                composizione_ricorsiva(elem_p, elem_p_due->succ_p);
+        }
+        else
+        {
+            if(elem_p_due->succ_p == testa_p_due)
+                composizione_ricorsiva(elem_p->succ_p, elem_p_due->succ_p);
+            else
+                composizione_ricorsiva(elem_p, elem_p_due->succ_p);
+        }
+    }
+    
+    
     /*
     if(elem_p_due->succ_p != NULL)
     {
@@ -311,6 +331,7 @@ void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
             inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
     }
     */
+    /*
     if(elem_p->valore_due == elem_p_due->valore_uno)
     {
         inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
@@ -332,6 +353,7 @@ void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
             else
                 composizione_ricorsiva(elem_p, elem_p_due->prec_p_lista);
     }
+    */
     
         /*
         if((elem_p_due->succ_p != NULL) && (elem_p->prec_p_lista == NULL))
@@ -402,6 +424,68 @@ int ricerca_lineare_array(int a[], int n, int valore)
     return ((i < n)?i:-1);
 }
 
+int inserisci_in_lista_circolare_vuota(elem_lista_t *testa_p,
+                                       int valore_uno,
+                                       int valore_due)
+{
+    int inserito;
+    elem_lista_t *nuovo_p;
+    
+    if(testa_p != NULL)
+        inserito = 0;
+    else
+    {
+        inserito = 1;
+        nuovo_p = (elem_lista_t *)malloc(sizeof(elem_lista_t));
+        nuovo_p->valore_uno = valore_uno;
+        nuovo_p->valore_due = valore_due;
+        testa_p = nuovo_p;
+        nuovo_p->succ_p = testa_p;
+    }
+    return inserito;
+}
+
+int inserisci_in_lista_circolare(elem_lista_t *testa_p,
+                                 int valore_uno,
+                                 int valore_due)
+{
+    int inserito = 1;
+    elem_lista_t *corr_p,
+                 *nuovo_p;
+    
+    if(testa_p == NULL)
+    {
+        inserisci_in_lista_circolare_vuota(testa_p, valore_uno, valore_due);
+        inserito = 0;
+    }
+    else
+    {
+        if((testa_p->valore_uno == valore_uno) && (testa_p->valore_due == valore_due))
+            inserito = 0;
+        else
+        {
+            corr_p = testa_p->succ_p;
+            while(corr_p != testa_p)
+            {
+                if((corr_p->valore_uno == valore_uno) && (corr_p->valore_due == valore_due))
+                    inserito = 0;
+                corr_p = corr_p->succ_p;
+            }
+        }
+    }
+    
+    if(inserito == 1)
+    {
+        nuovo_p = (elem_lista_t *)malloc(sizeof(elem_lista_t));
+        nuovo_p->valore_uno = valore_uno;
+        nuovo_p->valore_due = valore_due;
+        nuovo_p->succ_p = testa_p->succ_p;
+        testa_p->succ_p = nuovo_p;
+        testa_p = nuovo_p;
+    }
+    return inserito;
+}
+
 int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
                                 int valore_uno,
                                 int valore_due)
@@ -412,7 +496,7 @@ int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
                  *nuovo_p;
     
     for(corr_p = prec_p = *testa_p;
-        (corr_p != NULL);
+        ((corr_p != NULL) && (corr_p != *testa_p));
         prec_p = corr_p, corr_p = corr_p->succ_p)
         {
             if((corr_p->valore_uno == valore_uno) && (corr_p->valore_due == valore_due))
@@ -423,7 +507,7 @@ int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
         nuovo_p = (elem_lista_t *)malloc(sizeof(elem_lista_t));
         nuovo_p->valore_uno = valore_uno;
         nuovo_p->valore_due = valore_due;
-        nuovo_p->succ_p = corr_p;
+        nuovo_p->succ_p = *testa_p;
         if(corr_p == *testa_p)
             *testa_p = nuovo_p;
         else
