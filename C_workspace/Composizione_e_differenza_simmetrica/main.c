@@ -30,6 +30,13 @@ void acquisizione_coppia(int *insieme_finito_num_naturali,
 void composizione_ricorsiva(elem_lista_t *testa_p,
                             elem_lista_t *testa_p_due);
 int conta_elem_lista(elem_lista_t *testa_p);
+int inserisci_in_lista_circolare(elem_lista_t *testa_p,
+                                 int valore_uno,
+                                 int valore_due);
+int inserisci_in_lista_circolare_vuota(elem_lista_t *testa_p,
+                                       int valore_uno,
+                                       int valore_due);
+void stampa_lista_circolare(elem_lista_t *testa_p);
 
 int main(int argc, char **argv)
 {
@@ -45,7 +52,7 @@ int main(int argc, char **argv)
     elem_lista_t *testa_p = NULL;
     elem_lista_t *testa_p_due = NULL;
     //elem_lista_t *testa_p_comp = NULL;
-    elem_lista_t *testa_p_diff = NULL;
+    //elem_lista_t *testa_p_diff = NULL;
     int inserito;
     int fine_inser_prima_rel_bin = 1;
     int fine_inser_sec_rel_bin = 1;
@@ -103,7 +110,12 @@ int main(int argc, char **argv)
         acquisizione_coppia(insieme_finito_num_naturali, grandezza_insieme, coppia_prima_rel_bin);
         printf("Digita il secondo numero della coppia:\n");
         acquisizione_coppia(insieme_finito_num_naturali, grandezza_insieme, coppia_prima_rel_bin);
-        inserito = inserisci_in_lista_ordinata(&testa_p, coppia_prima_rel_bin[0], coppia_prima_rel_bin[1]);
+        //inserito = inserisci_in_lista_ordinata(&testa_p, coppia_prima_rel_bin[0], coppia_prima_rel_bin[1]);
+        if(testa_p == NULL)
+            inserito = inserisci_in_lista_circolare_vuota(testa_p, coppia_prima_rel_bin[0], coppia_prima_rel_bin[1]);
+        else
+            inserito = inserisci_in_lista_circolare(testa_p, coppia_prima_rel_bin[0], coppia_prima_rel_bin[1]);
+        
         coppia_prima_rel_bin[0] = -1;
         coppia_prima_rel_bin[1] = -1;
         if(inserito == 1)
@@ -111,7 +123,8 @@ int main(int argc, char **argv)
         else
             printf("Coppia gia' presente all'interno della relazione binaria\n");
         
-        visita_lista(testa_p);
+        //visita_lista(testa_p);
+        //stampa_lista_circolare(testa_p);
         printf("\n");
         
         do
@@ -149,7 +162,13 @@ int main(int argc, char **argv)
         acquisizione_coppia(insieme_finito_num_naturali, grandezza_insieme, coppia_sec_rel_bin);
         printf("Digita il secondo numero della coppia:\n");
         acquisizione_coppia(insieme_finito_num_naturali, grandezza_insieme, coppia_sec_rel_bin);
-        inserito = inserisci_in_lista_ordinata(&testa_p_due, coppia_sec_rel_bin[0], coppia_sec_rel_bin[1]);
+        //inserito = inserisci_in_lista_ordinata(&testa_p_due, coppia_sec_rel_bin[0], coppia_sec_rel_bin[1]);
+        
+        if(testa_p_due == NULL)
+            inserito = inserisci_in_lista_circolare_vuota(testa_p_due, coppia_sec_rel_bin[0], coppia_sec_rel_bin[1]);
+        else
+            inserito = inserisci_in_lista_circolare(testa_p_due, coppia_sec_rel_bin[0], coppia_sec_rel_bin[1]);
+        
         coppia_sec_rel_bin[0] = -1;
         coppia_sec_rel_bin[1] = -1;
         if(inserito == 1)
@@ -157,7 +176,8 @@ int main(int argc, char **argv)
         else
             printf("Coppia gia' presente all'interno della relazione binaria\n");
         
-        visita_lista(testa_p_due);
+        //visita_lista(testa_p_due);
+        //stampa_lista_circolare(testa_p_due);
         printf("\n");
         
         do
@@ -191,14 +211,14 @@ int main(int argc, char **argv)
     /*Composizione*/
     printf("Composizione:\n");
     //composizione(testa_p, testa_p_due, &testa_p_comp);
-    composizione_ricorsiva(testa_p, testa_p_due);
+    //composizione_ricorsiva(testa_p, testa_p_due);
     //visita_lista(testa_p_comp);
     printf("\n");
     
     /*Differenza simmetrica*/
     printf("Differenza simmetrica:\n");
-    differenza_simmetrica(testa_p, testa_p_due, &testa_p_diff);
-    visita_lista(testa_p_diff);
+    //differenza_simmetrica(testa_p, testa_p_due, &testa_p_diff);
+    //visita_lista(testa_p_diff);
     printf("\n");
     
     return 0;
@@ -305,102 +325,6 @@ void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
                 composizione_ricorsiva(elem_p, elem_p_due->succ_p);
         }
     }
-    
-    
-    /*
-    if(elem_p_due->succ_p != NULL)
-    {
-        if(elem_p->valore_due == elem_p_due->valore_uno)
-        {
-            inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
-            //visita_lista(testa_p_comp);
-        }
-        else
-            composizione_ricorsiva(&elem_p, &(elem_p_due->succ_p));
-    }
-    else
-        composizione_ricorsiva(&(elem_p->succ_p), &elem_p_due);
-    */
-    //printf("%d\n", conta_elem_lista(elem_p));
-    //printf("%d\n", conta_elem_lista(elem_p_due));
-    
-    /*
-    if((conta_elem_lista(elem_p)) == 1 && (conta_elem_lista(elem_p_due) == 1))
-    {
-        if(elem_p->valore_due == elem_p_due->valore_uno)
-            inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
-    }
-    */
-    /*
-    if(elem_p->valore_due == elem_p_due->valore_uno)
-    {
-        inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
-        if(elem_p_due->succ_p != NULL)
-            composizione_ricorsiva(elem_p, elem_p_due->succ_p);
-        else
-            if(elem_p_due->prec_p_lista == NULL)
-                composizione_ricorsiva(elem_p->succ_p, elem_p_due);
-            else
-                composizione_ricorsiva(elem_p, elem_p_due->prec_p_lista);
-    }
-    else
-    {
-        if(elem_p_due->succ_p != NULL)
-            composizione_ricorsiva(elem_p, elem_p_due->succ_p);
-        else
-            if(elem_p_due->prec_p_lista == NULL)
-                composizione_ricorsiva(elem_p->succ_p, elem_p_due);
-            else
-                composizione_ricorsiva(elem_p, elem_p_due->prec_p_lista);
-    }
-    */
-    
-        /*
-        if((elem_p_due->succ_p != NULL) && (elem_p->prec_p_lista == NULL))
-            composizione_ricorsiva(elem_p, elem_p_due->succ_p);
-        else if((elem_p->succ_p != NULL) && (elem_p_due->succ_p == NULL))
-            composizione_ricorsiva(elem_p->succ_p, elem_p_due->prec_p_lista);
-        else if(elem_p_due->prec_p_lista != NULL)
-            composizione_ricorsiva(elem_p, elem_p_due->prec_p_lista);
-        else
-            if(elem_p_due->succ_p != NULL)
-                composizione_ricorsiva(elem_p, elem_p_due->succ_p);
-        */
-    
-    
-    
-    
-    
-    /*
-    else if((conta_elem_lista(elem_p)) == 1 && (conta_elem_lista(elem_p_due) > 1))
-    {
-        if(elem_p->valore_due == elem_p_due->valore_uno)
-        {
-            inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
-            if(elem_p_due->succ_p != NULL)
-                composizione_ricorsiva(elem_p, elem_p_due->succ_p);
-        }
-        else
-        {
-            if(elem_p_due->succ_p != NULL)
-                composizione_ricorsiva(elem_p, elem_p_due->succ_p);
-        }
-    }
-    else if((conta_elem_lista(elem_p_due)) == 1 && (conta_elem_lista(elem_p) > 1))
-    {
-        if(elem_p->valore_due == elem_p_due->valore_uno)
-        {
-            inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
-            if(elem_p->succ_p != NULL)
-                composizione_ricorsiva(elem_p->succ_p, elem_p_due);
-        }
-        else
-        {
-            if(elem_p->succ_p != NULL)
-                composizione_ricorsiva(elem_p->succ_p, elem_p_due);
-        }
-    }
-    */
     visita_lista(testa_p_comp);
 }
 
@@ -453,27 +377,15 @@ int inserisci_in_lista_circolare(elem_lista_t *testa_p,
     elem_lista_t *corr_p,
                  *nuovo_p;
     
-    if(testa_p == NULL)
-    {
-        inserisci_in_lista_circolare_vuota(testa_p, valore_uno, valore_due);
-        inserito = 0;
-    }
-    else
-    {
-        if((testa_p->valore_uno == valore_uno) && (testa_p->valore_due == valore_due))
-            inserito = 0;
-        else
-        {
-            corr_p = testa_p->succ_p;
-            while(corr_p != testa_p)
-            {
-                if((corr_p->valore_uno == valore_uno) && (corr_p->valore_due == valore_due))
-                    inserito = 0;
-                corr_p = corr_p->succ_p;
-            }
-        }
-    }
+    //corr_p = *testa_p;
     
+    corr_p = testa_p->succ_p;
+    while(corr_p != testa_p)
+    {
+        if((corr_p->valore_uno == valore_uno) && (corr_p->valore_due == valore_due))
+            inserito = 0;
+        corr_p = corr_p->succ_p;
+    }
     if(inserito == 1)
     {
         nuovo_p = (elem_lista_t *)malloc(sizeof(elem_lista_t));
@@ -540,4 +452,22 @@ void visita_lista(elem_lista_t *testa_p)
         (elem_p != NULL);
         elem_p = elem_p->succ_p)
         printf("%d,%d ", elem_p->valore_uno, elem_p->valore_due);
+}
+
+void stampa_lista_circolare(elem_lista_t *testa_p)
+{
+    elem_lista_t *elem_p;
+    
+    if(testa_p == NULL)
+        printf("La lista e' vuota");
+    else
+    {
+        elem_p = testa_p->succ_p;
+        do
+        {
+            printf("%d,%d ", elem_p->valore_uno, elem_p->valore_due);
+            elem_p = elem_p->succ_p;
+        }
+        while(elem_p != testa_p);
+    }
 }
