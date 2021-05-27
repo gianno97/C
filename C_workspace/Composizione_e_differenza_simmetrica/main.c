@@ -30,10 +30,10 @@ void acquisizione_coppia(int *insieme_finito_num_naturali,
 void composizione_ricorsiva(elem_lista_t *testa_p,
                             elem_lista_t *testa_p_due);
 int conta_elem_lista(elem_lista_t *testa_p);
-int inserisci_in_lista_circolare(elem_lista_t *testa_p,
+int inserisci_in_lista_circolare(elem_lista_t **testa_p,
                                  int valore_uno,
                                  int valore_due);
-int inserisci_in_lista_circolare_vuota(elem_lista_t *testa_p,
+int inserisci_in_lista_circolare_vuota(elem_lista_t **testa_p,
                                        int valore_uno,
                                        int valore_due);
 void stampa_lista_circolare(elem_lista_t *testa_p);
@@ -112,9 +112,9 @@ int main(int argc, char **argv)
         acquisizione_coppia(insieme_finito_num_naturali, grandezza_insieme, coppia_prima_rel_bin);
         //inserito = inserisci_in_lista_ordinata(&testa_p, coppia_prima_rel_bin[0], coppia_prima_rel_bin[1]);
         if(testa_p == NULL)
-            inserito = inserisci_in_lista_circolare_vuota(testa_p, coppia_prima_rel_bin[0], coppia_prima_rel_bin[1]);
+            inserito = inserisci_in_lista_circolare_vuota(&testa_p, coppia_prima_rel_bin[0], coppia_prima_rel_bin[1]);
         else
-            inserito = inserisci_in_lista_circolare(testa_p, coppia_prima_rel_bin[0], coppia_prima_rel_bin[1]);
+            inserito = inserisci_in_lista_circolare(&testa_p, coppia_prima_rel_bin[0], coppia_prima_rel_bin[1]);
         
         coppia_prima_rel_bin[0] = -1;
         coppia_prima_rel_bin[1] = -1;
@@ -124,7 +124,7 @@ int main(int argc, char **argv)
             printf("Coppia gia' presente all'interno della relazione binaria\n");
         
         //visita_lista(testa_p);
-        //stampa_lista_circolare(testa_p);
+        stampa_lista_circolare(testa_p);
         printf("\n");
         
         do
@@ -165,9 +165,9 @@ int main(int argc, char **argv)
         //inserito = inserisci_in_lista_ordinata(&testa_p_due, coppia_sec_rel_bin[0], coppia_sec_rel_bin[1]);
         
         if(testa_p_due == NULL)
-            inserito = inserisci_in_lista_circolare_vuota(testa_p_due, coppia_sec_rel_bin[0], coppia_sec_rel_bin[1]);
+            inserito = inserisci_in_lista_circolare_vuota(&testa_p_due, coppia_sec_rel_bin[0], coppia_sec_rel_bin[1]);
         else
-            inserito = inserisci_in_lista_circolare(testa_p_due, coppia_sec_rel_bin[0], coppia_sec_rel_bin[1]);
+            inserito = inserisci_in_lista_circolare(&testa_p_due, coppia_sec_rel_bin[0], coppia_sec_rel_bin[1]);
         
         coppia_sec_rel_bin[0] = -1;
         coppia_sec_rel_bin[1] = -1;
@@ -177,7 +177,7 @@ int main(int argc, char **argv)
             printf("Coppia gia' presente all'interno della relazione binaria\n");
         
         //visita_lista(testa_p_due);
-        //stampa_lista_circolare(testa_p_due);
+        stampa_lista_circolare(testa_p_due);
         printf("\n");
         
         do
@@ -348,14 +348,14 @@ int ricerca_lineare_array(int a[], int n, int valore)
     return ((i < n)?i:-1);
 }
 
-int inserisci_in_lista_circolare_vuota(elem_lista_t *testa_p,
+int inserisci_in_lista_circolare_vuota(elem_lista_t **testa_p,
                                        int valore_uno,
                                        int valore_due)
 {
     int inserito;
     elem_lista_t *nuovo_p;
     
-    if(testa_p != NULL)
+    if(*testa_p != NULL)
         inserito = 0;
     else
     {
@@ -363,24 +363,26 @@ int inserisci_in_lista_circolare_vuota(elem_lista_t *testa_p,
         nuovo_p = (elem_lista_t *)malloc(sizeof(elem_lista_t));
         nuovo_p->valore_uno = valore_uno;
         nuovo_p->valore_due = valore_due;
-        testa_p = nuovo_p;
-        nuovo_p->succ_p = testa_p;
+        *testa_p = nuovo_p;
+        nuovo_p->succ_p = *testa_p;
     }
     return inserito;
 }
 
-int inserisci_in_lista_circolare(elem_lista_t *testa_p,
+int inserisci_in_lista_circolare(elem_lista_t **testa_p,
                                  int valore_uno,
                                  int valore_due)
 {
     int inserito = 1;
     elem_lista_t *corr_p,
-                 *nuovo_p;
+                 *nuovo_p,
+                 *testa_lista;
     
     //corr_p = *testa_p;
+    testa_lista = *testa_p;
     
-    corr_p = testa_p->succ_p;
-    while(corr_p != testa_p)
+    corr_p = testa_lista->succ_p;
+    while(corr_p != testa_lista)
     {
         if((corr_p->valore_uno == valore_uno) && (corr_p->valore_due == valore_due))
             inserito = 0;
@@ -391,9 +393,9 @@ int inserisci_in_lista_circolare(elem_lista_t *testa_p,
         nuovo_p = (elem_lista_t *)malloc(sizeof(elem_lista_t));
         nuovo_p->valore_uno = valore_uno;
         nuovo_p->valore_due = valore_due;
-        nuovo_p->succ_p = testa_p->succ_p;
-        testa_p->succ_p = nuovo_p;
-        testa_p = nuovo_p;
+        nuovo_p->succ_p = testa_lista->succ_p;
+        testa_lista->succ_p = nuovo_p;
+        testa_lista = nuovo_p;
     }
     return inserito;
 }
