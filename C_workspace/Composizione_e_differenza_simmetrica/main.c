@@ -211,7 +211,7 @@ int main(int argc, char **argv)
     /*Composizione*/
     printf("Composizione:\n");
     //composizione(testa_p, testa_p_due, &testa_p_comp);
-    //composizione_ricorsiva(testa_p, testa_p_due);
+    composizione_ricorsiva(testa_p, testa_p_due);
     //visita_lista(testa_p_comp);
     printf("\n");
     
@@ -378,9 +378,18 @@ int inserisci_in_lista_circolare(elem_lista_t **testa_p,
                  *nuovo_p,
                  *testa_lista;
     
-    //corr_p = *testa_p;
     testa_lista = *testa_p;
     
+    corr_p = testa_lista;
+    do
+    {
+        if((corr_p->valore_uno == valore_uno) && (corr_p->valore_due == valore_due))
+            inserito = 0;
+        corr_p = corr_p->succ_p;
+    }
+    while(corr_p != testa_lista);
+    
+    /*
     corr_p = testa_lista->succ_p;
     while(corr_p != testa_lista)
     {
@@ -388,6 +397,7 @@ int inserisci_in_lista_circolare(elem_lista_t **testa_p,
             inserito = 0;
         corr_p = corr_p->succ_p;
     }
+    */
     if(inserito == 1)
     {
         nuovo_p = (elem_lista_t *)malloc(sizeof(elem_lista_t));
@@ -464,7 +474,7 @@ void stampa_lista_circolare(elem_lista_t *testa_p)
         printf("La lista e' vuota");
     else
     {
-        elem_p = testa_p->succ_p;
+        elem_p = testa_p;
         do
         {
             printf("%d,%d ", elem_p->valore_uno, elem_p->valore_due);
