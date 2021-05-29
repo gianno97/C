@@ -300,19 +300,17 @@ void differenza_simmetrica(elem_lista_t *testa_p, elem_lista_t *testa_p_due, ele
 
 void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
 {
-    elem_lista_t *elem_p,
-                 *elem_p_due,
-                 *corr_p,
-                 *corr_p_due;
     elem_lista_t *testa_p_comp = NULL;
+    elem_lista_t *elem_p = testa_p->succ_p;
+    elem_lista_t *elem_p_due = testa_p_due->succ_p;
     
-    elem_p = testa_p;
-    corr_p = testa_p;
-    elem_p = corr_p->succ_p;
+    //elem_p = testa_p;
+    //corr_p = testa_p;
+    //elem_p = corr_p->succ_p;
     
-    elem_p_due = testa_p_due;
-    corr_p_due = testa_p_due;
-    elem_p_due = corr_p_due->succ_p;
+    //elem_p_due = testa_p_due;
+    //corr_p_due = testa_p_due;
+    //elem_p_due = corr_p_due->succ_p;
     
     //elem_p_due = elem_p_due->succ_p;
     
@@ -322,12 +320,18 @@ void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
         {
             inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
             if(elem_p_due != testa_p_due)
-                composizione_ricorsiva(elem_p, elem_p_due->succ_p);
+            {
+                elem_p_due = elem_p_due->succ_p;
+                composizione_ricorsiva(elem_p, elem_p_due);
+            }
         }
         else
         {
             if(elem_p_due != testa_p_due)
-                composizione_ricorsiva(elem_p, elem_p_due->succ_p);
+            {
+                elem_p_due = elem_p_due->succ_p;
+                composizione_ricorsiva(elem_p, elem_p_due);
+            }
         }
     }
     else
@@ -336,16 +340,30 @@ void composizione_ricorsiva(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
         {
             inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
             if(elem_p_due != testa_p_due)
-                composizione_ricorsiva(elem_p, elem_p_due->succ_p);
+            {
+                elem_p_due = elem_p_due->succ_p;
+                composizione_ricorsiva(elem_p, elem_p_due);
+            }
             else
-                composizione_ricorsiva(elem_p->succ_p, elem_p_due->succ_p);
+            {
+                elem_p = elem_p->succ_p;
+                elem_p_due = elem_p_due->succ_p;
+                composizione_ricorsiva(elem_p, elem_p_due);
+            }
         }
         else
         {
             if(elem_p_due != testa_p_due)
-                composizione_ricorsiva(elem_p, elem_p_due->succ_p);
+            {
+                elem_p_due = elem_p_due->succ_p;
+                composizione_ricorsiva(elem_p, elem_p_due);
+            }
             else
-                composizione_ricorsiva(elem_p->succ_p, elem_p_due->succ_p);
+            {
+                elem_p = elem_p->succ_p;
+                elem_p_due = elem_p_due->succ_p;
+                composizione_ricorsiva(elem_p, elem_p_due);
+            }
         }
     }
     /*
