@@ -13,7 +13,6 @@ typedef struct elem_lista
 void acquisizione_relazione_binaria(int *insieme_finito_num_naturali,
                                     int grandezza_insieme,
                                     elem_lista_t *testa_p,
-                                    char stringa_relazioni_binarie[],
                                     char stringa_relazione_binaria[]);
 void visita_lista(elem_lista_t *testa_p);
 int acquisizione_insieme(int *insieme_finito_num_naturali);
@@ -35,6 +34,7 @@ void composizione_ricorsiva(elem_lista_t *elem_p,
 int main(int argc, char **argv)
 {
     int *insieme_finito_num_naturali;
+    int grandezza_insieme;
     int esito_lettura;
     int coppia_prima_rel_bin[2] = {-1, -1};
     int coppia_sec_rel_bin[2] = {-1, -1};
@@ -44,14 +44,29 @@ int main(int argc, char **argv)
     int fine_inser_prima_rel_bin = 1;
     int fine_inser_sec_rel_bin = 1;
     int valore_inserito = -1;
-    char stringa_relazioni_binarie[] = {"Digita due relazioni binarie sull'insieme acquisito da tastiera.\n"};
-    char stringa_prima_relazione_binaria[] = {"Digita la prima relazione binaria.\n"};
+    char stringa_prima_relazione_binaria[] = {"Digita due relazioni binarie sull'insieme acquisito da tastiera.\n"
+                                              "Digita la prima relazione binaria.\n"};
     char stringa_seconda_relazione_binaria[] = {"Digita la seconda relazione binaria.\n"};
     
-    /*Composizione*/
-    composizione_ricorsiva(testa_p, testa_p_due, testa_p_due);
-    /*Differenza simmetrica*/
-    differenza_simmetrica(testa_p, testa_p_due);
+    grandezza_insieme = acquisizione_insieme(insieme_finito_num_naturali);
+    if(grandezza_insieme == 0)
+        printf("Insieme vuoto");
+    else
+    {
+        acquisizione_relazione_binaria(insieme_finito_num_naturali,
+                                       grandezza_insieme,
+                                       testa_p,
+                                       stringa_prima_relazione_binaria);
+        acquisizione_relazione_binaria(insieme_finito_num_naturali,
+                                       grandezza_insieme,
+                                       testa_p_due,
+                                       stringa_seconda_relazione_binaria);
+        /*Composizione*/
+        composizione_ricorsiva(testa_p, testa_p_due, testa_p_due);
+        /*Differenza simmetrica*/
+        differenza_simmetrica(testa_p, testa_p_due);
+    }
+
     
     return 0;
 }
@@ -59,7 +74,6 @@ int main(int argc, char **argv)
 void acquisizione_relazione_binaria(int *insieme_finito_num_naturali,
                                     int grandezza_insieme,
                                     elem_lista_t *testa_p,
-                                    char stringa_relazioni_binarie[],
                                     char stringa_relazione_binaria[])
 {
     int fine_inser_rel_bin = 1;
