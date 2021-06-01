@@ -33,17 +33,10 @@ void composizione_ricorsiva(elem_lista_t *elem_p,
 
 int main(int argc, char **argv)
 {
-    int *insieme_finito_num_naturali;
+    int *insieme_finito_num_naturali = NULL;
     int grandezza_insieme;
-    int esito_lettura;
-    int coppia_prima_rel_bin[2] = {-1, -1};
-    int coppia_sec_rel_bin[2] = {-1, -1};
     elem_lista_t *testa_p = NULL;
     elem_lista_t *testa_p_due = NULL;
-    int inserito;
-    int fine_inser_prima_rel_bin = 1;
-    int fine_inser_sec_rel_bin = 1;
-    int valore_inserito = -1;
     char stringa_prima_relazione_binaria[] = {"Digita due relazioni binarie sull'insieme acquisito da tastiera.\n"
                                               "Digita la prima relazione binaria.\n"};
     char stringa_seconda_relazione_binaria[] = {"Digita la seconda relazione binaria.\n"};
@@ -66,8 +59,6 @@ int main(int argc, char **argv)
         /*Differenza simmetrica*/
         differenza_simmetrica(testa_p, testa_p_due);
     }
-
-    
     return 0;
 }
 
