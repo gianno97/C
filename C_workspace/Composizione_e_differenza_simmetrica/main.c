@@ -10,12 +10,12 @@ typedef struct elem_lista
     struct elem_lista *succ_p;
 } elem_lista_t;
 
-void acquisizione_relazione_binaria(int *insieme_finito_num_naturali,
+void acquisizione_relazione_binaria(int **insieme_finito_num_naturali,
                                     int grandezza_insieme,
-                                    elem_lista_t *testa_p,
+                                    elem_lista_t **testa_p,
                                     char stringa_relazione_binaria[]);
 void visita_lista(elem_lista_t *testa_p);
-int acquisizione_insieme(int *insieme_finito_num_naturali);
+int acquisizione_insieme(int **insieme_finito_num_naturali);
 int ricerca_lineare_array(int a[],
                           int n,
                           int valore);
@@ -24,7 +24,7 @@ int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
                                 int valore_due);
 void differenza_simmetrica(elem_lista_t *testa_p,
                            elem_lista_t *testa_p_due);
-void acquisizione_coppia(int *insieme_finito_num_naturali,
+void acquisizione_coppia(int **insieme_num_naturali,
                          int grandezza_insieme,
                          int coppia_rel_bin[]);
 void composizione_ricorsiva(elem_lista_t *elem_p,
@@ -33,7 +33,7 @@ void composizione_ricorsiva(elem_lista_t *elem_p,
 
 int main(int argc, char **argv)
 {
-    int *insieme_finito_num_naturali = NULL;
+    int *insieme_num_naturali = NULL;
     int grandezza_insieme;
     elem_lista_t *testa_p = NULL;
     elem_lista_t *testa_p_due = NULL;
@@ -41,45 +41,47 @@ int main(int argc, char **argv)
                                               "Digita la prima relazione binaria.\n"};
     char stringa_seconda_relazione_binaria[] = {"Digita la seconda relazione binaria.\n"};
     
-    grandezza_insieme = acquisizione_insieme(insieme_finito_num_naturali);
+    grandezza_insieme = acquisizione_insieme(&insieme_num_naturali);
     if(grandezza_insieme == 0)
         printf("Insieme vuoto");
     else
     {
-        acquisizione_relazione_binaria(insieme_finito_num_naturali,
+        acquisizione_relazione_binaria(&insieme_num_naturali,
                                        grandezza_insieme,
-                                       testa_p,
+                                       &testa_p,
                                        stringa_prima_relazione_binaria);
-        acquisizione_relazione_binaria(insieme_finito_num_naturali,
+        acquisizione_relazione_binaria(&insieme_num_naturali,
                                        grandezza_insieme,
-                                       testa_p_due,
+                                       &testa_p_due,
                                        stringa_seconda_relazione_binaria);
-        /*Composizione*/
         composizione_ricorsiva(testa_p, testa_p_due, testa_p_due);
-        /*Differenza simmetrica*/
         differenza_simmetrica(testa_p, testa_p_due);
     }
     return 0;
 }
 
-void acquisizione_relazione_binaria(int *insieme_finito_num_naturali,
+void acquisizione_relazione_binaria(int **insieme_num_naturali,
                                     int grandezza_insieme,
-                                    elem_lista_t *testa_p,
+                                    elem_lista_t **testa_p,
                                     char stringa_relazione_binaria[])
 {
+    elem_lista_t *elem_p = NULL;
     int fine_inser_rel_bin = 1;
     int coppia_rel_bin[2] = {-1, -1};
     int inserito,
         esito_lettura;
     int valore_inserito = -1;
+    int *insieme_finito_num_naturali;
+    insieme_finito_num_naturali = *insieme_num_naturali;
     
+    printf("%s", stringa_relazione_binaria);
     while(fine_inser_rel_bin == 1)
     {
         printf("Digita il primo numero della coppia:\n");
-        acquisizione_coppia(insieme_finito_num_naturali, grandezza_insieme, coppia_rel_bin);
+        acquisizione_coppia(&insieme_finito_num_naturali, grandezza_insieme, coppia_rel_bin);
         printf("Digita il secondo numero della coppia:\n");
-        acquisizione_coppia(insieme_finito_num_naturali, grandezza_insieme, coppia_rel_bin);
-        inserito = inserisci_in_lista_ordinata(&testa_p, coppia_rel_bin[0], coppia_rel_bin[1]);
+        acquisizione_coppia(&insieme_finito_num_naturali, grandezza_insieme, coppia_rel_bin);
+        inserito = inserisci_in_lista_ordinata(&elem_p, coppia_rel_bin[0], coppia_rel_bin[1]);
         coppia_rel_bin[0] = -1;
         coppia_rel_bin[1] = -1;
         if(inserito == 1)
@@ -87,7 +89,7 @@ void acquisizione_relazione_binaria(int *insieme_finito_num_naturali,
         else
             printf("Coppia gia' presente all'interno della relazione binaria\n");
         
-        visita_lista(testa_p);
+        visita_lista(elem_p);
         printf("\n");
         
         do
@@ -117,9 +119,10 @@ void acquisizione_relazione_binaria(int *insieme_finito_num_naturali,
         while(valore_inserito != 0 && valore_inserito != 1);
         valore_inserito = -1;
     }
+    *testa_p = elem_p;
 }
 
-int acquisizione_insieme(int *insieme_finito_num_naturali)
+int acquisizione_insieme(int **insieme_num_naturali)
 {
     int esito_lettura,
         grandezza_insieme,
@@ -128,6 +131,7 @@ int acquisizione_insieme(int *insieme_finito_num_naturali)
         i,
         j;
     int contatore_numeri_insieme = 0;
+    int *insieme_finito_num_naturali;
         
     do
     {
@@ -172,14 +176,17 @@ int acquisizione_insieme(int *insieme_finito_num_naturali)
             printf("%d ", insieme_finito_num_naturali[i]);
         printf("\n");
     }
+    *insieme_num_naturali = insieme_finito_num_naturali;
     return grandezza_insieme;
 }
 
-void acquisizione_coppia(int *insieme_finito_num_naturali, int grandezza_insieme, int coppia_rel_bin[])
+void acquisizione_coppia(int **insieme_num_naturali, int grandezza_insieme, int coppia_rel_bin[])
 {
     int esito_lettura,
         numero_coppia;
     int trovato = -1;
+    int *insieme_finito_num_naturali;
+    insieme_finito_num_naturali = *insieme_num_naturali;
         
     do
     {
@@ -259,7 +266,7 @@ void composizione_ricorsiva(elem_lista_t *elem_p,
 {
     elem_lista_t *testa_p_comp = NULL;
     
-    printf("Composizione:\n");
+    //printf("Composizione:\n");
     if(elem_p != NULL)
     {
         if(elem_p->valore_due == elem_p_due->valore_uno)
@@ -285,7 +292,6 @@ void composizione_ricorsiva(elem_lista_t *elem_p,
         }
     }
     visita_lista(testa_p_comp);
-    printf("\n");
 }
 
 int ricerca_lineare_array(int a[], int n, int valore)
