@@ -43,7 +43,7 @@ int main(int argc, char **argv)
     
     grandezza_insieme = acquisizione_insieme(&insieme_num_naturali);
     if(grandezza_insieme == 0)
-        printf("Insieme vuoto");
+        printf("Insieme vuoto\n");
     else
     {
         acquisizione_relazione_binaria(&insieme_num_naturali,
@@ -124,32 +124,36 @@ void acquisizione_relazione_binaria(int **insieme_num_naturali,
 
 int acquisizione_insieme(int **insieme_num_naturali)
 {
-    int esito_lettura,
-        grandezza_insieme,
-        numero_naturale,
+    int numero_naturale,
         numero_presente,
         i,
         j;
+    int esito_lettura = 0;
+    int grandezza_insieme = -1;
     int contatore_numeri_insieme = 0;
     int *insieme_finito_num_naturali;
         
     do
     {
-        printf("Digita la grandezza dell'insieme(1 <= grandezza <= 20):\n");
+        printf("Digita la grandezza dell'insieme(>= 0):\n");
         esito_lettura = scanf("%d", &grandezza_insieme);
-        if(esito_lettura != 1 || grandezza_insieme < 1 || grandezza_insieme > 20)
+        if(esito_lettura != 1 || grandezza_insieme < 0)
+        {
             printf("Inserimento non valido\n");
+            printf("%d\n%d\n", esito_lettura, grandezza_insieme);
+        }
         else
             insieme_finito_num_naturali = (int*) malloc(grandezza_insieme * sizeof(int));
         while (getchar() != '\n');
     }
-    while(esito_lettura != 1 || grandezza_insieme < 1 || grandezza_insieme > 20);
+    while(esito_lettura != 1 || grandezza_insieme < 0);
     
     if(grandezza_insieme != 0)
     {
         for(j = 0; j < grandezza_insieme; j++)
             insieme_finito_num_naturali[j] = -1;
-    
+
+        printf("%d\n%d\n", esito_lettura, grandezza_insieme);
         printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
         do
         {
