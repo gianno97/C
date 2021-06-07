@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
-#include <ctype.h>
+//#include <limits.h>
+//#include <ctype.h>
 
 typedef struct elem_lista
 {
@@ -29,14 +29,16 @@ void acquisizione_coppia(int **insieme_num_naturali,
                          int coppia_rel_bin[]);
 void composizione_ricorsiva(elem_lista_t *elem_p,
                             elem_lista_t *elem_p_due,
-                            elem_lista_t *testa_p_due);
+                            elem_lista_t *testa_p_due,
+                            elem_lista_t **testa_p_comp);
 
-int main(int argc, char **argv)
+int main(void)
 {
     int *insieme_num_naturali = NULL;
     int grandezza_insieme;
     elem_lista_t *testa_p = NULL;
     elem_lista_t *testa_p_due = NULL;
+    elem_lista_t *testa_p_comp = NULL;
     char stringa_prima_relazione_binaria[] = {"Digita due relazioni binarie sull'insieme acquisito da tastiera.\n"
                                               "Digita la prima relazione binaria.\n"};
     char stringa_seconda_relazione_binaria[] = {"Digita la seconda relazione binaria.\n"};
@@ -54,10 +56,10 @@ int main(int argc, char **argv)
                                        grandezza_insieme,
                                        &testa_p_due,
                                        stringa_seconda_relazione_binaria);
-        composizione_ricorsiva(testa_p, testa_p_due, testa_p_due);
+        composizione_ricorsiva(testa_p, testa_p_due, testa_p_due, &testa_p_comp);
         differenza_simmetrica(testa_p, testa_p_due);
     }
-    return 0;
+    return (0);
 }
 
 void acquisizione_relazione_binaria(int **insieme_num_naturali,
@@ -131,17 +133,14 @@ int acquisizione_insieme(int **insieme_num_naturali)
     int esito_lettura = 0;
     int grandezza_insieme = -1;
     int contatore_numeri_insieme = 0;
-    int *insieme_finito_num_naturali;
+    int *insieme_finito_num_naturali = NULL;
         
     do
     {
         printf("Digita la grandezza dell'insieme(>= 0):\n");
         esito_lettura = scanf("%d", &grandezza_insieme);
         if(esito_lettura != 1 || grandezza_insieme < 0)
-        {
             printf("Inserimento non valido\n");
-            printf("%d\n%d\n", esito_lettura, grandezza_insieme);
-        }
         else
             insieme_finito_num_naturali = (int*) malloc(grandezza_insieme * sizeof(int));
         while (getchar() != '\n');
@@ -153,7 +152,6 @@ int acquisizione_insieme(int **insieme_num_naturali)
         for(j = 0; j < grandezza_insieme; j++)
             insieme_finito_num_naturali[j] = -1;
 
-        printf("%d\n%d\n", esito_lettura, grandezza_insieme);
         printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
         do
         {
@@ -179,8 +177,8 @@ int acquisizione_insieme(int **insieme_num_naturali)
         for(i = 0; i < grandezza_insieme; i++)
             printf("%d ", insieme_finito_num_naturali[i]);
         printf("\n");
+	*insieme_num_naturali = insieme_finito_num_naturali;
     }
-    *insieme_num_naturali = insieme_finito_num_naturali;
     return grandezza_insieme;
 }
 
@@ -266,36 +264,39 @@ void differenza_simmetrica(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
 
 void composizione_ricorsiva(elem_lista_t *elem_p,
                             elem_lista_t *elem_p_due,
-                            elem_lista_t *testa_p_due)
+                            elem_lista_t *testa_p_due,
+                            elem_lista_t **testa_p_comp)
 {
-    elem_lista_t *testa_p_comp = NULL;
-    
-    //printf("Composizione:\n");
     if(elem_p != NULL)
     {
         if(elem_p->valore_due == elem_p_due->valore_uno)
         {
-            inserisci_in_lista_ordinata(&testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
+            inserisci_in_lista_ordinata(testa_p_comp, elem_p->valore_uno, elem_p_due->valore_due);
             if(elem_p_due->succ_p != NULL)
-                composizione_ricorsiva(elem_p, elem_p_due->succ_p, testa_p_due);
+                composizione_ricorsiva(elem_p, elem_p_due->succ_p, testa_p_due, testa_p_comp);
             else
             {
                 elem_p_due = testa_p_due;
-                composizione_ricorsiva(elem_p->succ_p, elem_p_due, testa_p_due);
+                composizione_ricorsiva(elem_p->succ_p, elem_p_due, testa_p_due, testa_p_comp);
             }
         }
         else
         {
             if(elem_p_due->succ_p != NULL)
-                composizione_ricorsiva(elem_p, elem_p_due->succ_p, testa_p_due);
+                composizione_ricorsiva(elem_p, elem_p_due->succ_p, testa_p_due, testa_p_comp);
             else
             {
                 elem_p_due = testa_p_due;
-                composizione_ricorsiva(elem_p->succ_p, elem_p_due, testa_p_due);
+                composizione_ricorsiva(elem_p->succ_p, elem_p_due, testa_p_due, testa_p_comp);
             }
         }
     }
-    visita_lista(testa_p_comp);
+    if(elem_p == NULL && elem_p_due == testa_p_due)
+    {
+        printf("Composizione:\n");
+        visita_lista(*testa_p_comp);
+        printf("\n");
+    }
 }
 
 int ricerca_lineare_array(int a[], int n, int valore)
