@@ -14,7 +14,7 @@ void acquisizione_relazione_binaria(int **insieme_finito_num_naturali,
                                     int grandezza_insieme,
                                     elem_lista_t **testa_p,
                                     char stringa_relazione_binaria[]);
-void visita_lista(elem_lista_t *testa_p);
+void stampa_lista(elem_lista_t *testa_p);
 int acquisizione_insieme(int **insieme_finito_num_naturali);
 int ricerca_lineare_array(int a[],
                           int n,
@@ -91,7 +91,7 @@ void acquisizione_relazione_binaria(int **insieme_num_naturali,
         else
             printf("Coppia gia' presente all'interno della relazione binaria\n");
         
-        visita_lista(elem_p);
+        stampa_lista(elem_p);
         printf("\n");
         
         do
@@ -174,10 +174,16 @@ int acquisizione_insieme(int **insieme_num_naturali)
         while(esito_lettura != 1 || numero_naturale < 0 || (contatore_numeri_insieme < grandezza_insieme));
     
         printf("Insieme acquisito da tastiera:\n");
+        printf("{");
         for(i = 0; i < grandezza_insieme; i++)
-            printf("%d ", insieme_finito_num_naturali[i]);
+        {
+            if(i != (grandezza_insieme - 1))
+                printf("%d,", insieme_finito_num_naturali[i]);
+            else
+                printf("%d}", insieme_finito_num_naturali[i]);
+        }
         printf("\n");
-	*insieme_num_naturali = insieme_finito_num_naturali;
+    *insieme_num_naturali = insieme_finito_num_naturali;
     }
     return grandezza_insieme;
 }
@@ -258,7 +264,7 @@ void differenza_simmetrica(elem_lista_t *testa_p, elem_lista_t *testa_p_due)
         }
         sentinella = 1;
     }
-    visita_lista(testa_p_diff);
+    stampa_lista(testa_p_diff);
     printf("\n");
 }
 
@@ -291,10 +297,10 @@ void composizione_ricorsiva(elem_lista_t *elem_p,
             }
         }
     }
-    if(elem_p == NULL && elem_p_due == testa_p_due)
+    else
     {
         printf("Composizione:\n");
-        visita_lista(*testa_p_comp);
+        stampa_lista(*testa_p_comp);
         printf("\n");
     }
 }
@@ -338,12 +344,21 @@ int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
     return(inserito);
 }
 
-void visita_lista(elem_lista_t *testa_p)
+void stampa_lista(elem_lista_t *testa_p)
 {
     elem_lista_t *elem_p;
     
-    for(elem_p = testa_p;
-        (elem_p != NULL);
-        elem_p = elem_p->succ_p)
-        printf("%d,%d ", elem_p->valore_uno, elem_p->valore_due);
+    if(testa_p != NULL)
+    {
+        printf("{");
+        for(elem_p = testa_p;
+            (elem_p != NULL);
+            elem_p = elem_p->succ_p)
+            {
+                if(elem_p->succ_p != NULL)
+                    printf("(%d,%d),", elem_p->valore_uno, elem_p->valore_due);
+                else
+                    printf("(%d,%d)}", elem_p->valore_uno, elem_p->valore_due);
+            }
+    }
 }
