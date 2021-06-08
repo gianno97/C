@@ -45,7 +45,7 @@ int main(void)
     
     grandezza_insieme = acquisizione_insieme(&insieme_num_naturali);
     if(grandezza_insieme == 0)
-        printf("Insieme vuoto\n");
+        printf("Insieme vuoto:\n{}\n");
     else
     {
         acquisizione_relazione_binaria(&insieme_num_naturali,
