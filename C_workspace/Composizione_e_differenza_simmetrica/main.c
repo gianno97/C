@@ -47,8 +47,14 @@ void composizione_ricorsiva(elem_lista_t *elem_p,
                             elem_lista_t *testa_p_due,
                             elem_lista_t **testa_p_comp);
 
+/******************************/
+/* definizione delle funzioni */
+/******************************/
+
+/* definizione della funzione main */
 int main(void)
 {
+    /* dichiarazione delle variabili locali alla funzione */
     int *insieme_num_naturali = NULL;
     int grandezza_insieme;
     elem_lista_t *testa_p = NULL;
