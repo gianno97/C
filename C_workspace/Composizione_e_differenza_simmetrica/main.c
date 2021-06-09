@@ -74,22 +74,22 @@ int main(void)
         printf("Insieme vuoto: {}\n");
     else
     {
-        /* acquisire prima relazione binaria */
+        /* acquisire la prima relazione binaria */
         acquisizione_relazione_binaria(&insieme_num_naturali,
                                        grandezza_insieme,
                                        &testa_p,
                                        stringa_prima_relazione_binaria);
-        /* acquisire seconda relazione binaria */
+        /* acquisire la seconda relazione binaria */
         acquisizione_relazione_binaria(&insieme_num_naturali,
                                        grandezza_insieme,
                                        &testa_p_due,
                                        stringa_seconda_relazione_binaria);
-        /* calcolare composizione delle due relazioni binarie */
+        /* calcolare la composizione delle due relazioni binarie */
         composizione_ricorsiva(testa_p,
                                testa_p_due,
                                testa_p_due,
                                &testa_p_comp);
-        /* calcolare differenza simmetrica delle due relazioni binarie */
+        /* calcolare la differenza simmetrica delle due relazioni binarie */
         differenza_simmetrica(testa_p,
                               testa_p_due);
     }
@@ -102,39 +102,46 @@ void acquisizione_relazione_binaria(int          **insieme_num_naturali,
                                     elem_lista_t **testa_p,
                                     char           stringa_relazione_binaria[])
 {
+    /* dichiarazione delle variabili locali alla funzione */
     elem_lista_t *elem_p = NULL;
     int           fine_inser_rel_bin = 1;
     int           coppia_rel_bin[2] = {-1, -1};
     int           inserito,
                   esito_lettura;
     int           valore_inserito = -1;
-    int          *insieme_finito_num_naturali;
+    int          *insieme_finito_num_naturali = *insieme_num_naturali;
     
-    insieme_finito_num_naturali = *insieme_num_naturali;
-    
+    /* stampare la stringa */
     printf("%s",
            stringa_relazione_binaria);
+    /* acquisire la relazione binaria */
     while(fine_inser_rel_bin == 1)
     {
         printf("Digita il primo numero della coppia:\n");
+        /* acquisire il primo numero della coppia */
         acquisizione_coppia(&insieme_finito_num_naturali,
                             grandezza_insieme,
                             coppia_rel_bin);
         printf("Digita il secondo numero della coppia:\n");
+        /* acquisire il secondo numero della coppia */
         acquisizione_coppia(&insieme_finito_num_naturali,
                             grandezza_insieme,
                             coppia_rel_bin);
+        /* inserire la coppia all'interno della relazione binaria */
         inserito = inserisci_in_lista_ordinata(&elem_p,
                                                coppia_rel_bin[0],
                                                coppia_rel_bin[1]);
         coppia_rel_bin[0] = -1;
         coppia_rel_bin[1] = -1;
+        /* controllare che la coppia non sia già presente all'interno della relazione binaria */
         if(inserito == 1)
             printf("Coppia inserita\n");
         else
             printf("Coppia gia' presente all'interno della relazione binaria\n");
+        /* stampare la relazione binaria */
         stampa_lista(elem_p);
         printf("\n");
+        /* proseguire o terminare l'inserimento delle coppie per la relazione binaria */
         do
         {
             printf("Digita 0 per terminare l'inserimento delle coppie per la relazione binaria.\n");
@@ -161,12 +168,14 @@ void acquisizione_relazione_binaria(int          **insieme_num_naturali,
         while(valore_inserito != 0 && valore_inserito != 1);
         valore_inserito = -1;
     }
+    /* assegnare l'indirizzo della lista contenente la relazione binaria alla variabile presente nella funzione main */
     *testa_p = elem_p;
 }
 
 /* definizione della funzione per acquisire l'insieme finito di numeri naturali */
 int acquisizione_insieme(int **insieme_num_naturali)
 {
+    /* dichiarazione delle variabili locali alla funzione */
     int  numero_naturale,
          numero_presente,
          i,
@@ -176,6 +185,7 @@ int acquisizione_insieme(int **insieme_num_naturali)
     int  contatore_numeri_insieme = 0;
     int *insieme_finito_num_naturali = NULL;
     
+    /* acquisire la grandezza dell'insieme e allocare dinamicamente l'insieme */
     do
     {
         printf("Digita la grandezza dell'insieme(>= 0):\n");
@@ -189,13 +199,16 @@ int acquisizione_insieme(int **insieme_num_naturali)
     }
     while(esito_lettura != 1 || grandezza_insieme < 0);
     
+    /* controllare che la grandezza dell'insieme sia diversa da 0 */
     if(grandezza_insieme != 0)
     {
+        /* inizializzare i numeri dell'insieme a -1 */
         for(j = 0;
             (j < grandezza_insieme);
             j++)
             insieme_finito_num_naturali[j] = -1;
 
+        /* acquisire i numeri dell'insieme */
         printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
         do
         {
@@ -205,11 +218,13 @@ int acquisizione_insieme(int **insieme_num_naturali)
                 printf("Inserimento non valido\n");
             else
             {
+                /* controllare che il numero non sia già presente all'interno dell'insieme */
                 numero_presente = ricerca_lineare_array(insieme_finito_num_naturali,
                                                         grandezza_insieme,
                                                         numero_naturale);
                 if(numero_presente == -1)
                 {
+                    /* inserire all'interno dell'insieme il numero acquisito */
                     insieme_finito_num_naturali[contatore_numeri_insieme] = numero_naturale;
                     contatore_numeri_insieme++;
                 }
@@ -220,6 +235,7 @@ int acquisizione_insieme(int **insieme_num_naturali)
         }
         while(esito_lettura != 1 || numero_naturale < 0 || (contatore_numeri_insieme < grandezza_insieme));
     
+        /* stampare l'insieme */
         printf("Insieme acquisito da tastiera:\n");
         printf("{");
         for(i = 0;
@@ -234,6 +250,7 @@ int acquisizione_insieme(int **insieme_num_naturali)
                        insieme_finito_num_naturali[i]);
         }
         printf("\n");
+    /* assegnare l'indirizzo del puntatore contenente l'insieme alla variabile presente nella funzione main */
     *insieme_num_naturali = insieme_finito_num_naturali;
     }
     return(grandezza_insieme);
@@ -244,13 +261,16 @@ void acquisizione_coppia(int **insieme_num_naturali,
                          int   grandezza_insieme,
                          int   coppia_rel_bin[])
 {
+    /* dichiarazione delle variabili locali alla funzione */
     int  esito_lettura,
          numero_coppia;
     int  trovato = -1;
     int *insieme_finito_num_naturali;
     
+    /* assegnare l'indirizzo del puntatore contenente l'insieme alla variabile locale */
     insieme_finito_num_naturali = *insieme_num_naturali;
     
+    /* acquisire le coppie della relazione binaria */
     do
     {
         esito_lettura = scanf("%d",
@@ -259,6 +279,8 @@ void acquisizione_coppia(int **insieme_num_naturali,
             printf("Inserimento non valido\n");
         else 
         {
+            /* controllare che sia stato inserito da tastiera un numero che è presente */
+            /* all'interno dell'insieme precedentemente acquisito */
             trovato = ricerca_lineare_array(insieme_finito_num_naturali,
                                             grandezza_insieme,
                                             numero_coppia);
@@ -289,12 +311,15 @@ void acquisizione_coppia(int **insieme_num_naturali,
 void differenza_simmetrica(elem_lista_t *testa_p,
                            elem_lista_t *testa_p_due)
 {
+    /* dichiarazione delle variabili locali alla funzione */
     elem_lista_t *elem_p_diff,
                  *elem_p_diff_due;
     int           sentinella = 1;
     elem_lista_t *testa_p_diff = NULL;
     
+    /* calcolare la differenza simmetrica tra le due relazioni binarie */
     printf("Differenza simmetrica:\n");
+    /* controllare tutti gli elementi della prima relazione binaria rispetto alla seconda*/
     for(elem_p_diff = testa_p;
         (elem_p_diff != NULL);
         elem_p_diff = elem_p_diff->succ_p)
@@ -314,6 +339,7 @@ void differenza_simmetrica(elem_lista_t *testa_p,
         sentinella = 1;
     }
     
+    /* controllare tutti gli elementi della seconda relazione binaria rispetto alla prima */
     for(elem_p_diff_due = testa_p_due;
         (elem_p_diff_due != NULL);
         elem_p_diff_due = elem_p_diff_due->succ_p)
@@ -332,6 +358,7 @@ void differenza_simmetrica(elem_lista_t *testa_p,
         }
         sentinella = 1;
     }
+    /* stampare la differenza simmetrica */
     stampa_lista(testa_p_diff);
     printf("\n");
 }
@@ -342,6 +369,7 @@ void composizione_ricorsiva(elem_lista_t  *elem_p,
                             elem_lista_t  *testa_p_due,
                             elem_lista_t **testa_p_comp)
 {
+    /* calcolare la composizione tra le due relazioni binarie */
     if(elem_p != NULL)
     {
         if(elem_p->valore_due == elem_p_due->valore_uno)
@@ -382,6 +410,7 @@ void composizione_ricorsiva(elem_lista_t  *elem_p,
     }
     else
     {
+        /* stampare la composizione */
         printf("Composizione:\n");
         stampa_lista(*testa_p_comp);
         printf("\n");
@@ -393,8 +422,10 @@ int ricerca_lineare_array(int a[],
                           int n,
                           int valore)
 {
+    /* dichiarazione delle variabili locali alla funzione */
     int i;
     
+    /* ricercare il valore all'interno dell'insieme */
     for(i = 0;
         ((i < n) && (a[i] != valore));
         i++);
@@ -408,11 +439,13 @@ int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
                                 int            valore_uno,
                                 int            valore_due)
 {
+    /* dichiarazione delle variabili locali alla funzione */
     int           inserito = 1;
     elem_lista_t *corr_p,
                  *prec_p,
                  *nuovo_p;
     
+    /* controllare che la coppia di valori non sia già presente nella lista */
     for(corr_p = prec_p = *testa_p;
         (corr_p != NULL);
         prec_p = corr_p, corr_p = corr_p->succ_p)
@@ -422,6 +455,7 @@ int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
         }
     if(inserito == 1)
     {
+        /* inserire la nuova coppia all'interno della lista */
         nuovo_p = (elem_lista_t *)malloc(sizeof(elem_lista_t));
         nuovo_p->valore_uno = valore_uno;
         nuovo_p->valore_due = valore_due;
@@ -437,8 +471,10 @@ int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
 /* definizione della funzione per stampare la lista */
 void stampa_lista(elem_lista_t *testa_p)
 {
+    /* dichiarazione delle variabili locali alla funzione */
     elem_lista_t *elem_p;
     
+    /* stampare la lista */
     if(testa_p != NULL)
     {
         printf("{");
