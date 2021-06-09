@@ -1,14 +1,29 @@
+/*********************************************************/
+/* programma per il calcolo della composizione e
+   della differenza simmetrica tra due relazioni binarie */
+/*********************************************************/
+
+/*****************************/
+/* inclusione delle librerie */
+/*****************************/
+
 #include <stdio.h>
 #include <stdlib.h>
-//#include <limits.h>
-//#include <ctype.h>
+
+/*************************************************/
+/* definizione della variabile di tipo struttura */
+/*************************************************/
 
 typedef struct elem_lista
 {
-    int valore_uno;
-    int valore_due;
+    int               valore_uno;
+    int               valore_due;
     struct elem_lista *succ_p;
 } elem_lista_t;
+
+/********************************/
+/* dichiarazione delle funzioni */
+/********************************/
 
 void acquisizione_relazione_binaria(int **insieme_finito_num_naturali,
                                     int grandezza_insieme,
