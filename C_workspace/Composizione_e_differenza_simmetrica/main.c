@@ -305,14 +305,14 @@ void acquisizione_coppia(int **insieme_num_naturali,    /* input: insieme finito
 }
 
 /* definizione della funzione per calcolare la differenza simmetrica tra le due relazioni binarie */
-void differenza_simmetrica(elem_lista_t *testa_p,
-                           elem_lista_t *testa_p_due)
+void differenza_simmetrica(elem_lista_t *testa_p,       /* input: prima relazione binaria */
+                           elem_lista_t *testa_p_due)   /* input: seconda relazione binaria */
 {
     /* dichiarazione delle variabili locali alla funzione */
-    elem_lista_t *elem_p_diff,
-                 *elem_p_diff_due;
-    int           sentinella = 1;
-    elem_lista_t *testa_p_diff = NULL;
+    elem_lista_t *elem_p_diff,          /* input: prima relazione binaria */
+                 *elem_p_diff_due;      /* input: seconda relazione binaria */
+    int           sentinella = 1;       /* input: variabile per l'uscita dal ciclo for */
+    elem_lista_t *testa_p_diff = NULL;  /* output: differenza simmetrica */
     
     /* calcolare la differenza simmetrica tra le due relazioni binarie */
     printf("Differenza simmetrica:\n");
@@ -361,10 +361,10 @@ void differenza_simmetrica(elem_lista_t *testa_p,
 }
 
 /* definizione della funzione per calcolare la composizione tra le due relazioni binarie */
-void composizione_ricorsiva(elem_lista_t  *elem_p,
-                            elem_lista_t  *elem_p_due,
-                            elem_lista_t  *testa_p_due,
-                            elem_lista_t **testa_p_comp)
+void composizione_ricorsiva(elem_lista_t  *elem_p,          /* input: prima relazione binaria */
+                            elem_lista_t  *elem_p_due,      /* input: seconda relazione binaria */
+                            elem_lista_t  *testa_p_due,     /* input: seconda relazione binaria */
+                            elem_lista_t **testa_p_comp)    /* output: composizione */
 {
     /* calcolare la composizione tra le due relazioni binarie */
     if(elem_p != NULL)
@@ -415,12 +415,12 @@ void composizione_ricorsiva(elem_lista_t  *elem_p,
 }
 
 /* definizione della funzione per la ricerca di un valore all'interno dell'insieme finito di numeri naturali */
-int ricerca_lineare_array(int a[],
-                          int n,
-                          int valore)
+int ricerca_lineare_array(int a[],      /* input: insieme finito numeri naturali */
+                          int n,        /* input: cardinalità insieme */
+                          int valore)   /* input: numero da cercare */
 {
     /* dichiarazione delle variabili locali alla funzione */
-    int i;
+    int i;  /* output: indice per la ricerca nell'insieme */
     
     /* ricercare il valore all'interno dell'insieme */
     for(i = 0;
@@ -432,15 +432,15 @@ int ricerca_lineare_array(int a[],
 }
 
 /* definizione della funzione per l'inserimento dei valori all'interno della lista */
-int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
-                                int            valore_uno,
-                                int            valore_due)
+int inserisci_in_lista_ordinata(elem_lista_t **testa_p,     /* output: lista di coppie di valori */
+                                int            valore_uno,  /* input: primo valore della coppia */
+                                int            valore_due)  /* input: secondo valore della coppia*/
 {
     /* dichiarazione delle variabili locali alla funzione */
-    int           inserito = 1;
-    elem_lista_t *corr_p,
-                 *prec_p,
-                 *nuovo_p;
+    int           inserito = 1; /* output: esito dell'inserimento nella lista */
+    elem_lista_t *corr_p,       /* input: variabile per scorrere la lista */
+                 *prec_p,       /* input: variabile per scorrere la lista */
+                 *nuovo_p;      /* input: variabile per la creazione di un nuovo elemento della lista */
     
     /* controllare che la coppia di valori non sia già presente nella lista */
     for(corr_p = prec_p = *testa_p;
@@ -466,10 +466,10 @@ int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
 }
 
 /* definizione della funzione per stampare la lista */
-void stampa_lista(elem_lista_t *testa_p)
+void stampa_lista(elem_lista_t *testa_p)    /* input: lista da stampare */
 {
     /* dichiarazione delle variabili locali alla funzione */
-    elem_lista_t *elem_p;
+    elem_lista_t *elem_p;   /* input: lista da stampare */
     
     /* stampare la lista */
     if(testa_p != NULL)
