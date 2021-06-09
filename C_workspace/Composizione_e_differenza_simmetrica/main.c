@@ -97,19 +97,19 @@ int main(void)
 }
 
 /* definizione della funzione per acquisire le due relazioni binarie */
-void acquisizione_relazione_binaria(int          **insieme_num_naturali,
-                                    int            grandezza_insieme,
-                                    elem_lista_t **testa_p,
-                                    char           stringa_relazione_binaria[])
+void acquisizione_relazione_binaria(int          **insieme_num_naturali,        /* input: insieme finito numeri naturali */
+                                    int            grandezza_insieme,           /* input: cardinalità insieme */
+                                    elem_lista_t **testa_p,                     /* output: relazione binaria */
+                                    char           stringa_relazione_binaria[]) /* input: stringa da stampare */
 {
     /* dichiarazione delle variabili locali alla funzione */
-    elem_lista_t *elem_p = NULL;
-    int           fine_inser_rel_bin = 1;
-    int           coppia_rel_bin[2] = {-1, -1};
-    int           inserito,
-                  esito_lettura;
-    int           valore_inserito = -1;
-    int          *insieme_finito_num_naturali = *insieme_num_naturali;
+    elem_lista_t *elem_p = NULL;                                        /* output: relazione binaria */
+    int           fine_inser_rel_bin = 1;                               /* input: operazione scelta dall'utente */
+    int           coppia_rel_bin[2] = {-1, -1};                         /* input: coppia relazione binaria */
+    int           inserito,                                             /* lavoro: esito inserimento coppia */
+                  esito_lettura;                                        /* lavoro: esito della scanf */
+    int           valore_inserito = -1;                                 /* input: valore inserito dall'utente */
+    int          *insieme_finito_num_naturali = *insieme_num_naturali;  /* input: insieme finito numeri naturali */
     
     /* stampare la stringa */
     printf("%s",
@@ -173,17 +173,17 @@ void acquisizione_relazione_binaria(int          **insieme_num_naturali,
 }
 
 /* definizione della funzione per acquisire l'insieme finito di numeri naturali */
-int acquisizione_insieme(int **insieme_num_naturali)
+int acquisizione_insieme(int **insieme_num_naturali) /* output: insieme finito numeri naturali*/
 {
     /* dichiarazione delle variabili locali alla funzione */
-    int  numero_naturale,
-         numero_presente,
-         i,
-         j;
-    int  esito_lettura = 0;
-    int  grandezza_insieme = -1;
-    int  contatore_numeri_insieme = 0;
-    int *insieme_finito_num_naturali = NULL;
+    int  numero_naturale,                       /* input: numero inserito dall'utente */
+         numero_presente,                       /* lavoro: esito ricerca nell'insieme */
+         i,                                     /* lavoro: indice per stampare l'insieme */
+         j;                                     /* lavoro: indice per inizializzare l'insieme */
+    int  esito_lettura = 0;                     /* lavoro: esito della scanf */
+    int  grandezza_insieme = -1;                /* input: cardinalità dell'insieme */
+    int  contatore_numeri_insieme = 0;          /* input: contatore cardinalità dell'insieme */
+    int *insieme_finito_num_naturali = NULL;    /* output: insieme finito numeri naturali*/
     
     /* acquisire la grandezza dell'insieme e allocare dinamicamente l'insieme */
     do
@@ -257,18 +257,15 @@ int acquisizione_insieme(int **insieme_num_naturali)
 }
 
 /* definizione della funzione per acquisire le coppie delle due relazioni binarie */
-void acquisizione_coppia(int **insieme_num_naturali,
-                         int   grandezza_insieme,
-                         int   coppia_rel_bin[])
+void acquisizione_coppia(int **insieme_num_naturali,    /* input: insieme finito numeri naturali */
+                         int   grandezza_insieme,       /* input: cardinalità dell'insieme */
+                         int   coppia_rel_bin[])        /* output: coppia relazione binaria */
 {
     /* dichiarazione delle variabili locali alla funzione */
-    int  esito_lettura,
-         numero_coppia;
-    int  trovato = -1;
-    int *insieme_finito_num_naturali;
-    
-    /* assegnare l'indirizzo del puntatore contenente l'insieme alla variabile locale */
-    insieme_finito_num_naturali = *insieme_num_naturali;
+    int  esito_lettura,                                         /* lavoro: esito della scanf */
+         numero_coppia;                                         /* input: numero inserito dall'utente */
+    int  trovato = -1;                                          /* lavoro: esito ricerca nell'insieme */
+    int *insieme_finito_num_naturali = *insieme_num_naturali;   /* input: insieme finito numeri naturali */
     
     /* acquisire le coppie della relazione binaria */
     do
