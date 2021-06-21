@@ -367,7 +367,14 @@ void composizione_ricorsiva(elem_lista_t  *elem_p,          /* input: prima rela
                             elem_lista_t **testa_p_comp)    /* output: composizione */
 {
     /* calcolare la composizione tra le due relazioni binarie */
-    if(elem_p != NULL)
+    if(elem_p == NULL)
+    {
+        /* stampare la composizione */
+        printf("Composizione:\n");
+        stampa_lista(*testa_p_comp);
+        printf("\n");
+    }
+    else
     {
         if(elem_p->valore_due == elem_p_due->valore_uno)
         {
@@ -404,13 +411,6 @@ void composizione_ricorsiva(elem_lista_t  *elem_p,          /* input: prima rela
                                        testa_p_comp);
             }
         }
-    }
-    else
-    {
-        /* stampare la composizione */
-        printf("Composizione:\n");
-        stampa_lista(*testa_p_comp);
-        printf("\n");
     }
 }
 
@@ -489,4 +489,6 @@ void stampa_lista(elem_lista_t *testa_p)    /* input: lista da stampare */
                            elem_p->valore_due);
             }
     }
+    else
+        printf("{}");
 }
