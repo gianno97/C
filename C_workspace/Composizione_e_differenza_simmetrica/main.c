@@ -56,7 +56,7 @@ int main(void)
 {
     /* dichiarazione delle variabili locali alla funzione */
     int             *insieme_num_naturali = NULL;   /* input/output: insieme finito numeri naturali */
-    int              grandezza_insieme;             /* input: cardinalità insieme */
+    int              cardinalita_insieme;           /* input: cardinalità insieme */
     elem_lista_t    *testa_p = NULL;                /* input/output: prima relazione binaria */
     elem_lista_t    *testa_p_due = NULL;            /* input/output: seconda relazione binaria */
     elem_lista_t    *testa_p_comp = NULL;           /* output: composizione delle due relazioni binarie */
@@ -67,21 +67,21 @@ int main(void)
     char             stringa_seconda_relazione_binaria[] = {"Digita la seconda relazione binaria.\n"};
     
     /* acquisire l'insieme finito di numeri naturali */
-    grandezza_insieme = acquisizione_insieme(&insieme_num_naturali);
+    cardinalita_insieme = acquisizione_insieme(&insieme_num_naturali);
     /* controllare se l'insieme è uguale a 0 */
-    if(grandezza_insieme == 0)
+    if(cardinalita_insieme == 0)
         /* stampare messaggio a schermo */
         printf("Insieme vuoto: {}\n");
     else
     {
         /* acquisire la prima relazione binaria */
         acquisizione_relazione_binaria(&insieme_num_naturali,
-                                       grandezza_insieme,
+                                       cardinalita_insieme,
                                        &testa_p,
                                        stringa_prima_relazione_binaria);
         /* acquisire la seconda relazione binaria */
         acquisizione_relazione_binaria(&insieme_num_naturali,
-                                       grandezza_insieme,
+                                       cardinalita_insieme,
                                        &testa_p_due,
                                        stringa_seconda_relazione_binaria);
         /* calcolare la composizione delle due relazioni binarie */
@@ -98,7 +98,7 @@ int main(void)
 
 /* definizione della funzione per acquisire le due relazioni binarie */
 void acquisizione_relazione_binaria(int          **insieme_num_naturali,        /* input: insieme finito numeri naturali */
-                                    int            grandezza_insieme,           /* input: cardinalità insieme */
+                                    int            cardinalita_insieme,         /* input: cardinalità insieme */
                                     elem_lista_t **testa_p,                     /* output: relazione binaria */
                                     char           stringa_relazione_binaria[]) /* input: stringa da stampare */
 {
@@ -120,12 +120,12 @@ void acquisizione_relazione_binaria(int          **insieme_num_naturali,        
         printf("Digita il primo numero della coppia:\n");
         /* acquisire il primo numero della coppia */
         acquisizione_coppia(&insieme_finito_num_naturali,
-                            grandezza_insieme,
+                            cardinalita_insieme,
                             coppia_rel_bin);
         printf("Digita il secondo numero della coppia:\n");
         /* acquisire il secondo numero della coppia */
         acquisizione_coppia(&insieme_finito_num_naturali,
-                            grandezza_insieme,
+                            cardinalita_insieme,
                             coppia_rel_bin);
         /* inserire la coppia all'interno della relazione binaria */
         inserito = inserisci_in_lista_ordinata(&elem_p,
@@ -181,35 +181,35 @@ int acquisizione_insieme(int **insieme_num_naturali) /* output: insieme finito n
          i,                                     /* lavoro: indice per stampare l'insieme */
          j;                                     /* lavoro: indice per inizializzare l'insieme */
     int  esito_lettura = 0;                     /* lavoro: esito della scanf */
-    int  grandezza_insieme = -1;                /* input: cardinalità dell'insieme */
+    int  cardinalita_insieme = -1;              /* input: cardinalità dell'insieme */
     int  contatore_numeri_insieme = 0;          /* input: contatore cardinalità dell'insieme */
     int *insieme_finito_num_naturali = NULL;    /* output: insieme finito numeri naturali*/
     
     /* acquisire la grandezza dell'insieme e allocare dinamicamente l'insieme */
     do
     {
-        printf("Digita la grandezza dell'insieme(>= 0):\n");
+        printf("Digita la cardinalita' dell'insieme(>= 0):\n");
         esito_lettura = scanf("%d",
-                              &grandezza_insieme);
-        if(esito_lettura != 1 || grandezza_insieme < 0)
+                              &cardinalita_insieme);
+        if(esito_lettura != 1 || cardinalita_insieme < 0)
             printf("Inserimento non valido\n");
         else
-            insieme_finito_num_naturali = (int*) malloc(grandezza_insieme * sizeof(int));
+            insieme_finito_num_naturali = (int*) malloc(cardinalita_insieme * sizeof(int));
         while (getchar() != '\n');
     }
-    while(esito_lettura != 1 || grandezza_insieme < 0);
+    while(esito_lettura != 1 || cardinalita_insieme < 0);
     
     /* controllare che la grandezza dell'insieme sia diversa da 0 */
-    if(grandezza_insieme != 0)
+    if(cardinalita_insieme != 0)
     {
         /* inizializzare i numeri dell'insieme a -1 */
         for(j = 0;
-            (j < grandezza_insieme);
+            (j < cardinalita_insieme);
             j++)
             insieme_finito_num_naturali[j] = -1;
 
         /* acquisire i numeri dell'insieme */
-        printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali{0, 1, 2, 3, 4...}:\n");
+        printf("Digita uno alla volta i numeri di un insieme finito di numeri naturali:\n");
         do
         {
             esito_lettura = scanf("%d",
@@ -220,7 +220,7 @@ int acquisizione_insieme(int **insieme_num_naturali) /* output: insieme finito n
             {
                 /* controllare che il numero non sia già presente all'interno dell'insieme */
                 numero_presente = ricerca_lineare_array(insieme_finito_num_naturali,
-                                                        grandezza_insieme,
+                                                        cardinalita_insieme,
                                                         numero_naturale);
                 if(numero_presente == -1)
                 {
@@ -233,16 +233,16 @@ int acquisizione_insieme(int **insieme_num_naturali) /* output: insieme finito n
             }
             while (getchar() != '\n');
         }
-        while(esito_lettura != 1 || numero_naturale < 0 || (contatore_numeri_insieme < grandezza_insieme));
+        while(esito_lettura != 1 || numero_naturale < 0 || (contatore_numeri_insieme < cardinalita_insieme));
     
         /* stampare l'insieme */
         printf("Insieme acquisito da tastiera:\n");
         printf("{");
         for(i = 0;
-            (i < grandezza_insieme);
+            (i < cardinalita_insieme);
             i++)
         {
-            if(i != (grandezza_insieme - 1))
+            if(i != (cardinalita_insieme - 1))
                 printf("%d,",
                        insieme_finito_num_naturali[i]);
             else
@@ -253,12 +253,12 @@ int acquisizione_insieme(int **insieme_num_naturali) /* output: insieme finito n
     /* assegnare l'indirizzo del puntatore contenente l'insieme alla variabile presente nella funzione main */
     *insieme_num_naturali = insieme_finito_num_naturali;
     }
-    return(grandezza_insieme);
+    return(cardinalita_insieme);
 }
 
 /* definizione della funzione per acquisire le coppie delle due relazioni binarie */
 void acquisizione_coppia(int **insieme_num_naturali,    /* input: insieme finito numeri naturali */
-                         int   grandezza_insieme,       /* input: cardinalità dell'insieme */
+                         int   cardinalita_insieme,     /* input: cardinalità dell'insieme */
                          int   coppia_rel_bin[])        /* output: coppia relazione binaria */
 {
     /* dichiarazione delle variabili locali alla funzione */
@@ -279,7 +279,7 @@ void acquisizione_coppia(int **insieme_num_naturali,    /* input: insieme finito
             /* controllare che sia stato inserito da tastiera un numero che è presente */
             /* all'interno dell'insieme precedentemente acquisito */
             trovato = ricerca_lineare_array(insieme_finito_num_naturali,
-                                            grandezza_insieme,
+                                            cardinalita_insieme,
                                             numero_coppia);
             if(trovato == -1)
                 printf ("Il numero inserito non e' presente all'interno dell'insieme\n");
