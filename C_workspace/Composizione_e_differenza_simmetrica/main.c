@@ -316,7 +316,7 @@ void differenza_simmetrica(elem_lista_t *testa_p,       /* input: prima relazion
     
     /* calcolare la differenza simmetrica tra le due relazioni binarie */
     printf("Differenza simmetrica:\n");
-    /* controllare tutti gli elementi della prima relazione binaria rispetto alla seconda*/
+    /* controllare tutti gli elementi della prima relazione binaria rispetto alla seconda */
     for(elem_p_diff = testa_p;
         (elem_p_diff != NULL);
         elem_p_diff = elem_p_diff->succ_p)

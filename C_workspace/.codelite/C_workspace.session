@@ -5,15 +5,15 @@
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="E:\Storage_E\C\C_workspace\Composizione_e_differenza_simmetrica\main.c" Name="FileName"/>
-      <int Value="90" Name="FirstVisibleLine"/>
-      <int Value="96" Name="CurrentLine"/>
+      <int Value="171" Name="FirstVisibleLine"/>
+      <int Value="173" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="E:\Storage_E\C\C_workspace\Composizione_e_differenza_simmetrica\snippet.txt" Name="FileName"/>
       <int Value="386" Name="FirstVisibleLine"/>
-      <int Value="414" Name="CurrentLine"/>
+      <int Value="415" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
