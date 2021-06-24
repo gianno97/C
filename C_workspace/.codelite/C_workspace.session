@@ -5,8 +5,8 @@
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="E:\Storage_E\C\C_workspace\Composizione_e_differenza_simmetrica\main.c" Name="FileName"/>
-      <int Value="171" Name="FirstVisibleLine"/>
-      <int Value="173" Name="CurrentLine"/>
+      <int Value="461" Name="FirstVisibleLine"/>
+      <int Value="466" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
