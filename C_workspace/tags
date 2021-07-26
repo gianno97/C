@@ -1,0 +1,1 @@
+main	E:\Storage_E\C\C_workspace\Parse_graph_from_file\main.c	/^int main(int argc, char **argv)$/;"	function	line:3	signature:(int argc, char **argv)	returns:int 

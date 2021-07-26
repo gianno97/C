@@ -1,8 +1,8 @@
 .PHONY: clean All
 
 All:
-	@echo "----------Building project:[ Composizione_e_differenza_simmetrica - Debug ]----------"
-	@cd "Composizione_e_differenza_simmetrica" && "$(MAKE)" -f  "Composizione_e_differenza_simmetrica.mk"
+	@echo "----------Building project:[ Parse_graph_from_file - Debug ]----------"
+	@cd "Parse_graph_from_file" && "$(MAKE)" -f  "Parse_graph_from_file.mk"
 clean:
-	@echo "----------Cleaning project:[ Composizione_e_differenza_simmetrica - Debug ]----------"
-	@cd "Composizione_e_differenza_simmetrica" && "$(MAKE)" -f  "Composizione_e_differenza_simmetrica.mk" clean
+	@echo "----------Cleaning project:[ Parse_graph_from_file - Debug ]----------"
+	@cd "Parse_graph_from_file" && "$(MAKE)" -f  "Parse_graph_from_file.mk" clean

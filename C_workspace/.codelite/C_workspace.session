@@ -4,16 +4,23 @@
   <wxString Value="E:\Storage_E\C\C_workspace\C_workspace.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="E:\Storage_E\C\C_workspace\Composizione_e_differenza_simmetrica\main.c" Name="FileName"/>
-      <int Value="461" Name="FirstVisibleLine"/>
-      <int Value="466" Name="CurrentLine"/>
+      <wxString Value="E:\Storage_E\C\C_workspace\stazioni\main.c" Name="FileName"/>
+      <int Value="5" Name="FirstVisibleLine"/>
+      <int Value="6" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="E:\Storage_E\C\C_workspace\Composizione_e_differenza_simmetrica\snippet.txt" Name="FileName"/>
-      <int Value="386" Name="FirstVisibleLine"/>
-      <int Value="415" Name="CurrentLine"/>
+      <wxString Value="E:\Storage_E\C\C_workspace\stazioni\libreria.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="4" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\Storage_E\C\C_workspace\stazioni\libreria.c" Name="FileName"/>
+      <int Value="14" Name="FirstVisibleLine"/>
+      <int Value="15" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

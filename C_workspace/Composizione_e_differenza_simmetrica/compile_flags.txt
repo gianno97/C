@@ -7,4 +7,4 @@
 -IC:\TDM-GCC-64\x86_64-w64-mingw32\include
 -IE:\Storage_E\C\C_workspace\Composizione_e_differenza_simmetrica
 -target
-x86_64-pc-windows-gnu
+x86_64-w64-mingw32

@@ -36,7 +36,11 @@
     <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
   </VirtualDirectory>
   <VirtualDirectory Name="Progetto_ppl">
-    <Project Name="Composizione_e_differenza_simmetrica" Path="Composizione_e_differenza_simmetrica/Composizione_e_differenza_simmetrica.project" Active="Yes"/>
+    <Project Name="Composizione_e_differenza_simmetrica" Path="Composizione_e_differenza_simmetrica/Composizione_e_differenza_simmetrica.project" Active="No"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="Progetto_algoritmi_prop_ins_laurea">
+    <Project Name="Prop_ins_laurea" Path="Prop_ins_laurea/Prop_ins_laurea.project" Active="No"/>
+    <Project Name="Parse_graph_from_file" Path="Parse_graph_from_file/Parse_graph_from_file.project" Active="Yes"/>
   </VirtualDirectory>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
@@ -73,6 +77,9 @@
       <Project Name="Implementazione_albero_rb_alternativa" ConfigName="Debug"/>
       <Project Name="Funzioni_varie" ConfigName="Debug"/>
       <Project Name="Composizione_e_differenza_simmetrica" ConfigName="Debug"/>
+      <Project Name="Propedeuticità_insegnamenti_laurea" ConfigName="Debug"/>
+      <Project Name="Prop_ins_laurea" ConfigName="Debug"/>
+      <Project Name="Parse_graph_from_file" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
@@ -108,6 +115,9 @@
       <Project Name="Implementazione_albero_rb_alternativa" ConfigName="Release"/>
       <Project Name="Funzioni_varie" ConfigName="Release"/>
       <Project Name="Composizione_e_differenza_simmetrica" ConfigName="Release"/>
+      <Project Name="Propedeuticità_insegnamenti_laurea" ConfigName="Release"/>
+      <Project Name="Prop_ins_laurea" ConfigName="Release"/>
+      <Project Name="Parse_graph_from_file" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
