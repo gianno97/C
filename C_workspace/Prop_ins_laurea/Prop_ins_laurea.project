@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="graph.txt"/>
     <File Name="main.c"/>
   </VirtualDirectory>
 </CodeLite_Project>

@@ -39,8 +39,8 @@
     <Project Name="Composizione_e_differenza_simmetrica" Path="Composizione_e_differenza_simmetrica/Composizione_e_differenza_simmetrica.project" Active="No"/>
   </VirtualDirectory>
   <VirtualDirectory Name="Progetto_algoritmi_prop_ins_laurea">
-    <Project Name="Prop_ins_laurea" Path="Prop_ins_laurea/Prop_ins_laurea.project" Active="No"/>
-    <Project Name="Parse_graph_from_file" Path="Parse_graph_from_file/Parse_graph_from_file.project" Active="Yes"/>
+    <Project Name="Prop_ins_laurea" Path="Prop_ins_laurea/Prop_ins_laurea.project" Active="Yes"/>
+    <Project Name="Parse_graph_from_file" Path="Parse_graph_from_file/Parse_graph_from_file.project" Active="No"/>
   </VirtualDirectory>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">

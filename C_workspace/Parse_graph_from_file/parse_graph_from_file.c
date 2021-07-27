@@ -58,19 +58,21 @@ int main(int argc, char **argv){
     vertice_grafo_t *grafo_p, *vertice_p;
     arco_grafo_t *arco_p;
     FILE *INFILE;
-    char *fname;
+    //char *fname;
     
+    /*
     if(argc < 2) {
         printf("USAGE: parse_graph_from_file <file> \n");
         exit(-1);
     }
+    */
     
-    fname = argv[1];
-    if (!(INFILE = fopen(fname,"r"))) {
-        printf("ERROR: error opening input file %s\n",fname);
+    //fname = argv[1];
+    if (!(INFILE = fopen("graph.txt","r"))) {
+        printf("ERROR: error opening input file %s\n", "graph.txt");
         exit(-1);
     }
-    printf("Reading input file %s and loading data...\n", fname);
+    printf("Reading input file %s and loading data...\n", "graph.txt");
     grafo_p = acquisisci_grafo(&n,INFILE);
     printf("... done.\n******************\n");
     printf("Graph with %d vertices\n",n);
@@ -113,14 +115,14 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
         arco_p = NULL;
         for (i=0; i<nV; i++) {
             fscanf(fin, "%d %d\n", &src, &dest);
-            /*printf("src = %d, dest = %d\n",src, dest);*/
+            printf("src = %d, dest = %d\n",src, dest);
             vertice_p = cerca_in_lista(grafo_p,src); /*cerca nella lista primaria il vertice con label src*/
-            /*if (vertice_p!=NULL)
-                printf("found vertex %d\n",vertice_p->valore);*/
+            if (vertice_p!=NULL)
+                printf("found vertex %d\n",vertice_p->valore);
             nuovoa_p = malloc(sizeof(arco_grafo_t));
             nuovoa_p->vertice_adiac_p = cerca_in_lista(grafo_p,dest); /*cerca nella lista primaria il vertice con label dest*/
-            /*if (nuovoa_p->vertice_adiac_p!=NULL)
-                printf("found vertex %d\n",nuovoa_p->vertice_adiac_p->valore);*/
+            if (nuovoa_p->vertice_adiac_p!=NULL)
+                printf("found vertex %d\n",nuovoa_p->vertice_adiac_p->valore);
             nuovoa_p->arco_succ_p = arco_p;
             arco_p = nuovoa_p;
             vertice_p->lista_archi_p = arco_p;

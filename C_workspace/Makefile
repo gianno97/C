@@ -1,8 +1,8 @@
 .PHONY: clean All
 
 All:
-	@echo "----------Building project:[ Parse_graph_from_file - Debug ]----------"
-	@cd "Parse_graph_from_file" && "$(MAKE)" -f  "Parse_graph_from_file.mk"
+	@echo "----------Building project:[ Prop_ins_laurea - Debug ]----------"
+	@cd "Prop_ins_laurea" && "$(MAKE)" -f  "Prop_ins_laurea.mk"
 clean:
-	@echo "----------Cleaning project:[ Parse_graph_from_file - Debug ]----------"
-	@cd "Parse_graph_from_file" && "$(MAKE)" -f  "Parse_graph_from_file.mk" clean
+	@echo "----------Cleaning project:[ Prop_ins_laurea - Debug ]----------"
+	@cd "Prop_ins_laurea" && "$(MAKE)" -f  "Prop_ins_laurea.mk" clean
