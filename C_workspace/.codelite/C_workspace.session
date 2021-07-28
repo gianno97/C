@@ -1,26 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="E:\Storage_E\C\C_workspace\C_workspace.workspace">
-  <int Value="0" Name="m_selectedTab"/>
+  <int Value="5" Name="m_selectedTab"/>
   <wxString Value="E:\Storage_E\C\C_workspace\C_workspace.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="E:\Storage_E\C\C_workspace\Prop_ins_laurea\main.c" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="9" Name="CurrentLine"/>
+      <int Value="72" Name="FirstVisibleLine"/>
+      <int Value="105" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="E:\Storage_E\C\C_workspace\Parse_graph_from_file\parse_graph_from_file.c" Name="FileName"/>
-      <int Value="24" Name="FirstVisibleLine"/>
-      <int Value="47" Name="CurrentLine"/>
+      <wxString Value="E:\Storage_E\C\C_workspace\Prop_ins_laurea\graph.txt" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\Storage_E\C\C_workspace\Progetto_algoritmi_CPU\main.c" Name="FileName"/>
+      <int Value="114" Name="FirstVisibleLine"/>
+      <int Value="1" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\Storage_E\C\C_workspace\Progetto_algoritmi_CPU\file_CPU.txt" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="E:\Storage_E\C\C_workspace\Parse_graph_from_file\graph.txt" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="19" Name="CurrentLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\Storage_E\C\C_workspace\Parse_graph_from_file\parse_graph_from_file.c" Name="FileName"/>
+      <int Value="84" Name="FirstVisibleLine"/>
+      <int Value="108" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -636,5 +657,5 @@
       <int Value="0" Name="origin"/>
     </SerializedObject>
   </SerializedObject>
-  <wxString Value="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.inc;*.mm;*.m;*.xrc;*.plist;*.txt" Name="m_findInFilesMask"/>
+  <wxString Value="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.inc;*.mm;*.m;*.xrc;*.xml;*.json;*.sql;*.txt;*.plist;CMakeLists.txt;*.rc;*.iss" Name="m_findInFilesMask"/>
 </Session>

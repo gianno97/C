@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /*data structures declarations*/
 
@@ -33,7 +34,8 @@ typedef struct elem_lista {
 
 arco_grafo_t *acquisisci_lista(vertice_grafo_t *grafo_p);
 vertice_grafo_t *acquisisci_grafo(int *n, FILE *fp);
-vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p, int valore);
+vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p,
+                                char nome[3]);
 vertice_grafo_t *avvia_ord_top_grafo(vertice_grafo_t *grafo_p);
 void ordina_top_grafo(vertice_grafo_t *vertice_p,
                       vertice_grafo_t **testa_p);
@@ -55,9 +57,9 @@ int main(int argc, char **argv)
     printf("Graph with %d vertices\n",n);
     /* stampa liste primaria e secondaria */
     for (vertice_p = grafo_p;(vertice_p!=NULL);vertice_p = vertice_p->vertice_succ_p){
-        printf("Adjacency list of vertex %d:\n",vertice_p->valore);
+        printf("Adjacency list of vertex %s:\n",vertice_p->nome);
         for (arco_p = vertice_p->lista_archi_p; (arco_p!= NULL); arco_p = arco_p->arco_succ_p)
-            printf("%d ,",arco_p->vertice_adiac_p->valore);
+            printf("%s ,",arco_p->vertice_adiac_p->nome);
         printf("\n");
     }
     
@@ -67,37 +69,80 @@ int main(int argc, char **argv)
 }
 
 vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
-    int n, nV, i, src, dest;
-    vertice_grafo_t *nuovov_p, *grafo_p, *vertice_p;
+    int n, nV, i;
+    //int src, dest;
+    vertice_grafo_t *nuovov_p, *grafo_p, *vertice_p, *elem_p;
     arco_grafo_t *arco_p, *nuovoa_p;
+    char nom[3];
+    char nome[3];
+    char source[3];
+    char destination[3];
 
     grafo_p = NULL;
     arco_p = NULL;
     fscanf(fin,"%d\n",&n);
     *nvg = n;
     printf("Nr. of nodes = %d\n",*nvg);
+    
     /* costruiamo prima la lista primaria, senza liste secondarie */
-    for (i=n; i>0; i--) {
-        nuovov_p = (vertice_grafo_t *)malloc(sizeof(vertice_grafo_t));
-        nuovov_p->valore = i;
-        nuovov_p->lista_archi_p = NULL;
-        nuovov_p->vertice_succ_p = grafo_p;
-        grafo_p = nuovov_p;
+    fscanf(fin, "%s\n", nom);
+    nuovov_p = (vertice_grafo_t *)malloc(sizeof(vertice_grafo_t));
+    strcpy(nuovov_p->nome, nom);
+    nuovov_p->lista_archi_p = NULL;
+    nuovov_p->vertice_succ_p = grafo_p;
+    grafo_p = nuovov_p;
+    
+    elem_p = grafo_p;
+    while(!feof(fin)){
+        fscanf(fin, "%s\n", nom);
+        elem_p = cerca_in_lista(grafo_p, nom);
+        printf("ECCOMI: %s  %s\n", nom, elem_p->nome);
+        if(elem_p->nome != nom)
+        {
+            nuovov_p = (vertice_grafo_t *)malloc(sizeof(vertice_grafo_t));
+            strcpy(nuovov_p->nome, nom);
+            nuovov_p->lista_archi_p = NULL;
+            nuovov_p->vertice_succ_p = grafo_p;
+            grafo_p = nuovov_p;
+        }
     }
     
+    /*
     vertice_p = grafo_p;
     while (fscanf(fin, "%d", &nV) != EOF) {
         arco_p = NULL;
         for (i=0; i<nV; i++) {
             fscanf(fin, "%d %d\n", &src, &dest);
             printf("src = %d, dest = %d\n",src, dest);
-            vertice_p = cerca_in_lista(grafo_p,src); /*cerca nella lista primaria il vertice con label src*/
+            vertice_p = cerca_in_lista(grafo_p,src);
             if (vertice_p!=NULL)
                 printf("found vertex %d\n",vertice_p->valore);
             nuovoa_p = malloc(sizeof(arco_grafo_t));
-            nuovoa_p->vertice_adiac_p = cerca_in_lista(grafo_p,dest); /*cerca nella lista primaria il vertice con label dest*/
+            nuovoa_p->vertice_adiac_p = cerca_in_lista(grafo_p,dest);
             if (nuovoa_p->vertice_adiac_p!=NULL)
                 printf("found vertex %d\n",nuovoa_p->vertice_adiac_p->valore);
+            nuovoa_p->arco_succ_p = arco_p;
+            arco_p = nuovoa_p;
+            vertice_p->lista_archi_p = arco_p;
+        }
+        vertice_p = vertice_p->vertice_succ_p;
+    }
+    fclose(fin);
+    */
+    
+    vertice_p = grafo_p;
+    while (fscanf(fin, "%s%d", nome, &nV) != EOF) {
+        arco_p = NULL;
+        for (i=0; i<nV; i++) {
+            fscanf(fin, "%s %s\n", source, destination);
+            printf("source = %s, destination = %s\n", source, destination);
+            vertice_p = cerca_in_lista(grafo_p, source); /*cerca nella lista primaria il vertice con label src*/
+            if (vertice_p!=NULL)
+                printf("found vertex %s\n", vertice_p->nome);
+            nuovoa_p = malloc(sizeof(arco_grafo_t));
+            nuovoa_p->vertice_adiac_p = cerca_in_lista(grafo_p, destination); /*cerca nella lista primaria il vertice con label dest*/
+            if (nuovoa_p->vertice_adiac_p!=NULL)
+                printf("found vertex %s\n",nuovoa_p->vertice_adiac_p->nome);
             nuovoa_p->arco_succ_p = arco_p;
             arco_p = nuovoa_p;
             vertice_p->lista_archi_p = arco_p;
@@ -110,11 +155,11 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
 }
 
 vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p,
-                             int valore)
+                                char nome[3])
 {
     vertice_grafo_t *elem_p;
     for (elem_p = testa_p;
-         ((elem_p != NULL) && (elem_p->valore != valore));
+         ((elem_p != NULL) && (strcmp(elem_p->nome, nome) != 0));
          elem_p = elem_p->vertice_succ_p);
     return(elem_p);
 }
