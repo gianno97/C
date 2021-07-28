@@ -8,12 +8,14 @@ typedef enum {bianco, grigio, nero} colore_t;
 
 typedef struct vertice_grafo
 {
-    int valore;
-    char nome[3];
+    int                   valore;
+    char                  nome[3];
     struct vertice_grafo *vertice_succ_p;
-    struct arco_grafo *lista_archi_p;
-    colore_t colore;
-    int distanza, inizio, fine;
+    struct arco_grafo    *lista_archi_p;
+    colore_t              colore;
+    int                   distanza,
+                          inizio,
+                          fine;
     struct vertice_grafo *padre_p;
 } vertice_grafo_t;
 
@@ -23,8 +25,9 @@ typedef struct arco_grafo
     struct arco_grafo    *arco_succ_p;
 } arco_grafo_t;
 
-typedef struct elem_lista {
-    vertice_grafo_t *valore;
+typedef struct elem_lista
+{
+    char               nome[3];
     struct elem_lista *succ_p;
 } elem_lista_t;
 
@@ -32,13 +35,16 @@ typedef struct elem_lista {
 * function declarations
 */
 
-arco_grafo_t *acquisisci_lista(vertice_grafo_t *grafo_p);
+arco_grafo_t    *acquisisci_lista(vertice_grafo_t *grafo_p);
 vertice_grafo_t *acquisisci_grafo(int *n, FILE *fp);
 vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p,
                                 char nome[3]);
 vertice_grafo_t *avvia_ord_top_grafo(vertice_grafo_t *grafo_p);
 void ordina_top_grafo(vertice_grafo_t *vertice_p,
                       vertice_grafo_t **testa_p);
+int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
+                                char            nome[3]);
+void stampa_lista(elem_lista_t *testa_p);
 
 int main(int argc, char **argv)
 {
@@ -69,29 +75,56 @@ int main(int argc, char **argv)
 }
 
 vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
-    int n, nV, i;
+    int              n,
+                     nV,
+                     i,
+                     inserito;
     //int src, dest;
-    vertice_grafo_t *nuovov_p, *grafo_p, *vertice_p, *elem_p;
-    arco_grafo_t *arco_p, *nuovoa_p;
-    char nom[3];
-    char nome[3];
-    char source[3];
-    char destination[3];
+    vertice_grafo_t *nuovov_p,
+                    *grafo_p,
+                    *vertice_p,
+                    *elem_p;
+    arco_grafo_t    *arco_p,
+                    *nuovoa_p;
+    elem_lista_t    *testa_p;
+    char             nom[3];
+    char             nome[3];
+    char             source[3];
+    char             destination[3];
 
     grafo_p = NULL;
     arco_p = NULL;
+    testa_p = NULL;
     fscanf(fin,"%d\n",&n);
     *nvg = n;
     printf("Nr. of nodes = %d\n",*nvg);
     
+    /* costruiamo prima la lista dei vertici */
+    //fscanf(fin, "%s\n", nom);
+    //inserisci_in_lista_ordinata(&testa_p, nom);
+    
+    while(!feof(fin))
+    {
+        fscanf(fin, "%s\n", nom);
+        inserito = inserisci_in_lista_ordinata(&testa_p, nom);
+        
+        if(inserito == 1)
+            printf("Elemento inserito!\n");
+        else
+            printf("Elemento non inserito!\n");
+    }
+    
     /* costruiamo prima la lista primaria, senza liste secondarie */
+    /*
     fscanf(fin, "%s\n", nom);
     nuovov_p = (vertice_grafo_t *)malloc(sizeof(vertice_grafo_t));
     strcpy(nuovov_p->nome, nom);
     nuovov_p->lista_archi_p = NULL;
     nuovov_p->vertice_succ_p = grafo_p;
     grafo_p = nuovov_p;
+    */
     
+    /*
     elem_p = grafo_p;
     while(!feof(fin)){
         fscanf(fin, "%s\n", nom);
@@ -106,6 +139,7 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
             grafo_p = nuovov_p;
         }
     }
+    */
     
     /*
     vertice_p = grafo_p;
@@ -130,17 +164,24 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
     fclose(fin);
     */
     
+    /*
     vertice_p = grafo_p;
     while (fscanf(fin, "%s%d", nome, &nV) != EOF) {
         arco_p = NULL;
         for (i=0; i<nV; i++) {
             fscanf(fin, "%s %s\n", source, destination);
             printf("source = %s, destination = %s\n", source, destination);
-            vertice_p = cerca_in_lista(grafo_p, source); /*cerca nella lista primaria il vertice con label src*/
+            */
+            /*cerca nella lista primaria il vertice con label src*/
+            /*
+            vertice_p = cerca_in_lista(grafo_p, source);
             if (vertice_p!=NULL)
                 printf("found vertex %s\n", vertice_p->nome);
             nuovoa_p = malloc(sizeof(arco_grafo_t));
-            nuovoa_p->vertice_adiac_p = cerca_in_lista(grafo_p, destination); /*cerca nella lista primaria il vertice con label dest*/
+            */
+            /*cerca nella lista primaria il vertice con label dest*/
+            /*
+            nuovoa_p->vertice_adiac_p = cerca_in_lista(grafo_p, destination);
             if (nuovoa_p->vertice_adiac_p!=NULL)
                 printf("found vertex %s\n",nuovoa_p->vertice_adiac_p->nome);
             nuovoa_p->arco_succ_p = arco_p;
@@ -150,6 +191,7 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
         vertice_p = vertice_p->vertice_succ_p;
     }
     fclose(fin);
+    */
 
     return(grafo_p);
 }
@@ -203,4 +245,41 @@ void ordina_top_grafo(vertice_grafo_t *vertice_p,
     nuovo_elem_p->lista_archi_p = vertice_p->lista_archi_p;
     nuovo_elem_p->vertice_succ_p = *testa_p;
     *testa_p = nuovo_elem_p;
+}
+
+int inserisci_in_lista_ordinata(elem_lista_t **testa_p,
+                                char            nome[3])
+{
+    int           inserito;
+    elem_lista_t *corr_p,
+                 *prec_p,
+                 *nuovo_p;
+
+    for (corr_p = prec_p = *testa_p;
+         ((corr_p != NULL) && (strcmp(corr_p->nome, nome) != 0));
+         prec_p = corr_p, corr_p = corr_p->succ_p);
+    if ((corr_p != NULL) && (strcmp(corr_p->nome, nome) == 0))
+        inserito = 0;
+    else
+    {
+        inserito = 1;
+        nuovo_p = (elem_lista_t *)malloc(sizeof(elem_lista_t));
+        strcpy(nuovo_p->nome, nome);
+        nuovo_p->succ_p = corr_p;
+        if (corr_p == *testa_p)
+            *testa_p = nuovo_p;
+        else
+            prec_p->succ_p = nuovo_p;
+    }
+    return(inserito);
+}
+
+void stampa_lista(elem_lista_t *testa_p)
+{
+    elem_lista_t *elem_p;
+
+    for (elem_p = testa_p;
+         (elem_p != NULL);
+         elem_p = elem_p->succ_p)
+        printf("%s\n", elem_p->nome);
 }
