@@ -1,1 +1,281 @@
-main	E:\Storage_E\C\C_workspace\Parse_graph_from_file\main.c	/^int main(int argc, char **argv)$/;"	function	line:3	signature:(int argc, char **argv)	returns:int 
+_FLOAT_H___	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define _FLOAT_H___$/;"	macro	line:29
+FLT_RADIX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_RADIX$/;"	macro	line:32
+FLT_RADIX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_RADIX	__FLT_RADIX__$/;"	macro	line:33
+FLT_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_MANT_DIG$/;"	macro	line:36
+DBL_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DBL_MANT_DIG$/;"	macro	line:37
+LDBL_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef LDBL_MANT_DIG$/;"	macro	line:38
+FLT_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_MANT_DIG	__FLT_MANT_DIG__$/;"	macro	line:39
+DBL_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DBL_MANT_DIG	__DBL_MANT_DIG__$/;"	macro	line:40
+LDBL_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define LDBL_MANT_DIG	__LDBL_MANT_DIG__$/;"	macro	line:41
+FLT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_DIG$/;"	macro	line:50
+DBL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DBL_DIG$/;"	macro	line:51
+LDBL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef LDBL_DIG$/;"	macro	line:52
+FLT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_DIG		__FLT_DIG__$/;"	macro	line:53
+DBL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DBL_DIG		__DBL_DIG__$/;"	macro	line:54
+LDBL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define LDBL_DIG	__LDBL_DIG__$/;"	macro	line:55
+FLT_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_MIN_EXP$/;"	macro	line:58
+DBL_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DBL_MIN_EXP$/;"	macro	line:59
+LDBL_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef LDBL_MIN_EXP$/;"	macro	line:60
+FLT_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_MIN_EXP	__FLT_MIN_EXP__$/;"	macro	line:61
+DBL_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DBL_MIN_EXP	__DBL_MIN_EXP__$/;"	macro	line:62
+LDBL_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define LDBL_MIN_EXP	__LDBL_MIN_EXP__$/;"	macro	line:63
+FLT_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_MIN_10_EXP$/;"	macro	line:70
+DBL_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DBL_MIN_10_EXP$/;"	macro	line:71
+LDBL_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef LDBL_MIN_10_EXP$/;"	macro	line:72
+FLT_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_MIN_10_EXP	__FLT_MIN_10_EXP__$/;"	macro	line:73
+DBL_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DBL_MIN_10_EXP	__DBL_MIN_10_EXP__$/;"	macro	line:74
+LDBL_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define LDBL_MIN_10_EXP	__LDBL_MIN_10_EXP__$/;"	macro	line:75
+FLT_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_MAX_EXP$/;"	macro	line:78
+DBL_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DBL_MAX_EXP$/;"	macro	line:79
+LDBL_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef LDBL_MAX_EXP$/;"	macro	line:80
+FLT_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_MAX_EXP	__FLT_MAX_EXP__$/;"	macro	line:81
+DBL_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DBL_MAX_EXP	__DBL_MAX_EXP__$/;"	macro	line:82
+LDBL_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define LDBL_MAX_EXP	__LDBL_MAX_EXP__$/;"	macro	line:83
+FLT_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_MAX_10_EXP$/;"	macro	line:90
+DBL_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DBL_MAX_10_EXP$/;"	macro	line:91
+LDBL_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef LDBL_MAX_10_EXP$/;"	macro	line:92
+FLT_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_MAX_10_EXP	__FLT_MAX_10_EXP__$/;"	macro	line:93
+DBL_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DBL_MAX_10_EXP	__DBL_MAX_10_EXP__$/;"	macro	line:94
+LDBL_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define LDBL_MAX_10_EXP	__LDBL_MAX_10_EXP__$/;"	macro	line:95
+FLT_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_MAX$/;"	macro	line:101
+DBL_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DBL_MAX$/;"	macro	line:102
+LDBL_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef LDBL_MAX$/;"	macro	line:103
+FLT_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_MAX		__FLT_MAX__$/;"	macro	line:104
+DBL_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DBL_MAX		__DBL_MAX__$/;"	macro	line:105
+LDBL_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define LDBL_MAX	__LDBL_MAX__$/;"	macro	line:106
+FLT_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_EPSILON$/;"	macro	line:110
+DBL_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DBL_EPSILON$/;"	macro	line:111
+LDBL_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef LDBL_EPSILON$/;"	macro	line:112
+FLT_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_EPSILON	__FLT_EPSILON__$/;"	macro	line:113
+DBL_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DBL_EPSILON	__DBL_EPSILON__$/;"	macro	line:114
+LDBL_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define LDBL_EPSILON	__LDBL_EPSILON__$/;"	macro	line:115
+FLT_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_MIN$/;"	macro	line:118
+DBL_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DBL_MIN$/;"	macro	line:119
+LDBL_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef LDBL_MIN$/;"	macro	line:120
+FLT_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_MIN		__FLT_MIN__$/;"	macro	line:121
+DBL_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DBL_MIN		__DBL_MIN__$/;"	macro	line:122
+LDBL_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define LDBL_MIN	__LDBL_MIN__$/;"	macro	line:123
+FLT_ROUNDS	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_ROUNDS$/;"	macro	line:127
+FLT_ROUNDS	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_ROUNDS 1$/;"	macro	line:128
+FLT_EVAL_METHOD	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_EVAL_METHOD$/;"	macro	line:193
+FLT_EVAL_METHOD	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_EVAL_METHOD __FLT_EVAL_METHOD_TS_18661_3__$/;"	macro	line:195
+FLT_EVAL_METHOD	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_EVAL_METHOD	__FLT_EVAL_METHOD__$/;"	macro	line:197
+DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DECIMAL_DIG$/;"	macro	line:208
+DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DECIMAL_DIG	__DECIMAL_DIG__$/;"	macro	line:209
+FLT_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_DECIMAL_DIG$/;"	macro	line:216
+DBL_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DBL_DECIMAL_DIG$/;"	macro	line:217
+LDBL_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef LDBL_DECIMAL_DIG$/;"	macro	line:218
+FLT_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_DECIMAL_DIG		__FLT_DECIMAL_DIG__$/;"	macro	line:219
+DBL_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DBL_DECIMAL_DIG		__DBL_DECIMAL_DIG__$/;"	macro	line:220
+LDBL_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define LDBL_DECIMAL_DIG	__LDBL_DECIMAL_DIG__$/;"	macro	line:221
+FLT_HAS_SUBNORM	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_HAS_SUBNORM$/;"	macro	line:224
+DBL_HAS_SUBNORM	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DBL_HAS_SUBNORM$/;"	macro	line:225
+LDBL_HAS_SUBNORM	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef LDBL_HAS_SUBNORM$/;"	macro	line:226
+FLT_HAS_SUBNORM	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_HAS_SUBNORM		__FLT_HAS_DENORM__$/;"	macro	line:227
+DBL_HAS_SUBNORM	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DBL_HAS_SUBNORM		__DBL_HAS_DENORM__$/;"	macro	line:228
+LDBL_HAS_SUBNORM	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define LDBL_HAS_SUBNORM	__LDBL_HAS_DENORM__$/;"	macro	line:229
+FLT_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT_TRUE_MIN$/;"	macro	line:232
+DBL_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DBL_TRUE_MIN$/;"	macro	line:233
+LDBL_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef LDBL_TRUE_MIN$/;"	macro	line:234
+FLT_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT_TRUE_MIN	__FLT_DENORM_MIN__$/;"	macro	line:235
+DBL_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DBL_TRUE_MIN	__DBL_DENORM_MIN__$/;"	macro	line:236
+LDBL_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define LDBL_TRUE_MIN	__LDBL_DENORM_MIN__$/;"	macro	line:237
+CR_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define CR_DECIMAL_DIG	__UINTMAX_MAX__$/;"	macro	line:245
+FLT16_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT16_MANT_DIG$/;"	macro	line:253
+FLT16_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT16_MANT_DIG		__FLT16_MANT_DIG__$/;"	macro	line:254
+FLT16_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT16_DIG$/;"	macro	line:255
+FLT16_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT16_DIG		__FLT16_DIG__$/;"	macro	line:256
+FLT16_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT16_MIN_EXP$/;"	macro	line:257
+FLT16_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT16_MIN_EXP		__FLT16_MIN_EXP__$/;"	macro	line:258
+FLT16_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT16_MIN_10_EXP$/;"	macro	line:259
+FLT16_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT16_MIN_10_EXP	__FLT16_MIN_10_EXP__$/;"	macro	line:260
+FLT16_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT16_MAX_EXP$/;"	macro	line:261
+FLT16_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT16_MAX_EXP		__FLT16_MAX_EXP__$/;"	macro	line:262
+FLT16_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT16_MAX_10_EXP$/;"	macro	line:263
+FLT16_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT16_MAX_10_EXP	__FLT16_MAX_10_EXP__$/;"	macro	line:264
+FLT16_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT16_MAX$/;"	macro	line:265
+FLT16_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT16_MAX		__FLT16_MAX__$/;"	macro	line:266
+FLT16_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT16_EPSILON$/;"	macro	line:267
+FLT16_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT16_EPSILON		__FLT16_EPSILON__$/;"	macro	line:268
+FLT16_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT16_MIN$/;"	macro	line:269
+FLT16_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT16_MIN		__FLT16_MIN__$/;"	macro	line:270
+FLT16_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT16_DECIMAL_DIG$/;"	macro	line:271
+FLT16_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT16_DECIMAL_DIG	__FLT16_DECIMAL_DIG__$/;"	macro	line:272
+FLT16_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT16_TRUE_MIN$/;"	macro	line:273
+FLT16_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT16_TRUE_MIN		__FLT16_DENORM_MIN__$/;"	macro	line:274
+FLT32_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32_MANT_DIG$/;"	macro	line:278
+FLT32_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32_MANT_DIG		__FLT32_MANT_DIG__$/;"	macro	line:279
+FLT32_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32_DIG$/;"	macro	line:280
+FLT32_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32_DIG		__FLT32_DIG__$/;"	macro	line:281
+FLT32_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32_MIN_EXP$/;"	macro	line:282
+FLT32_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32_MIN_EXP		__FLT32_MIN_EXP__$/;"	macro	line:283
+FLT32_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32_MIN_10_EXP$/;"	macro	line:284
+FLT32_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32_MIN_10_EXP	__FLT32_MIN_10_EXP__$/;"	macro	line:285
+FLT32_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32_MAX_EXP$/;"	macro	line:286
+FLT32_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32_MAX_EXP		__FLT32_MAX_EXP__$/;"	macro	line:287
+FLT32_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32_MAX_10_EXP$/;"	macro	line:288
+FLT32_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32_MAX_10_EXP	__FLT32_MAX_10_EXP__$/;"	macro	line:289
+FLT32_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32_MAX$/;"	macro	line:290
+FLT32_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32_MAX		__FLT32_MAX__$/;"	macro	line:291
+FLT32_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32_EPSILON$/;"	macro	line:292
+FLT32_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32_EPSILON		__FLT32_EPSILON__$/;"	macro	line:293
+FLT32_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32_MIN$/;"	macro	line:294
+FLT32_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32_MIN		__FLT32_MIN__$/;"	macro	line:295
+FLT32_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32_DECIMAL_DIG$/;"	macro	line:296
+FLT32_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32_DECIMAL_DIG	__FLT32_DECIMAL_DIG__$/;"	macro	line:297
+FLT32_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32_TRUE_MIN$/;"	macro	line:298
+FLT32_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32_TRUE_MIN		__FLT32_DENORM_MIN__$/;"	macro	line:299
+FLT64_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64_MANT_DIG$/;"	macro	line:303
+FLT64_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64_MANT_DIG		__FLT64_MANT_DIG__$/;"	macro	line:304
+FLT64_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64_DIG$/;"	macro	line:305
+FLT64_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64_DIG		__FLT64_DIG__$/;"	macro	line:306
+FLT64_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64_MIN_EXP$/;"	macro	line:307
+FLT64_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64_MIN_EXP		__FLT64_MIN_EXP__$/;"	macro	line:308
+FLT64_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64_MIN_10_EXP$/;"	macro	line:309
+FLT64_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64_MIN_10_EXP	__FLT64_MIN_10_EXP__$/;"	macro	line:310
+FLT64_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64_MAX_EXP$/;"	macro	line:311
+FLT64_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64_MAX_EXP		__FLT64_MAX_EXP__$/;"	macro	line:312
+FLT64_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64_MAX_10_EXP$/;"	macro	line:313
+FLT64_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64_MAX_10_EXP	__FLT64_MAX_10_EXP__$/;"	macro	line:314
+FLT64_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64_MAX$/;"	macro	line:315
+FLT64_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64_MAX		__FLT64_MAX__$/;"	macro	line:316
+FLT64_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64_EPSILON$/;"	macro	line:317
+FLT64_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64_EPSILON		__FLT64_EPSILON__$/;"	macro	line:318
+FLT64_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64_MIN$/;"	macro	line:319
+FLT64_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64_MIN		__FLT64_MIN__$/;"	macro	line:320
+FLT64_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64_DECIMAL_DIG$/;"	macro	line:321
+FLT64_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64_DECIMAL_DIG	__FLT64_DECIMAL_DIG__$/;"	macro	line:322
+FLT64_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64_TRUE_MIN$/;"	macro	line:323
+FLT64_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64_TRUE_MIN		__FLT64_DENORM_MIN__$/;"	macro	line:324
+FLT128_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128_MANT_DIG$/;"	macro	line:328
+FLT128_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128_MANT_DIG		__FLT128_MANT_DIG__$/;"	macro	line:329
+FLT128_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128_DIG$/;"	macro	line:330
+FLT128_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128_DIG		__FLT128_DIG__$/;"	macro	line:331
+FLT128_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128_MIN_EXP$/;"	macro	line:332
+FLT128_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128_MIN_EXP		__FLT128_MIN_EXP__$/;"	macro	line:333
+FLT128_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128_MIN_10_EXP$/;"	macro	line:334
+FLT128_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128_MIN_10_EXP	__FLT128_MIN_10_EXP__$/;"	macro	line:335
+FLT128_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128_MAX_EXP$/;"	macro	line:336
+FLT128_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128_MAX_EXP		__FLT128_MAX_EXP__$/;"	macro	line:337
+FLT128_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128_MAX_10_EXP$/;"	macro	line:338
+FLT128_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128_MAX_10_EXP	__FLT128_MAX_10_EXP__$/;"	macro	line:339
+FLT128_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128_MAX$/;"	macro	line:340
+FLT128_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128_MAX		__FLT128_MAX__$/;"	macro	line:341
+FLT128_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128_EPSILON$/;"	macro	line:342
+FLT128_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128_EPSILON		__FLT128_EPSILON__$/;"	macro	line:343
+FLT128_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128_MIN$/;"	macro	line:344
+FLT128_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128_MIN		__FLT128_MIN__$/;"	macro	line:345
+FLT128_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128_DECIMAL_DIG$/;"	macro	line:346
+FLT128_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128_DECIMAL_DIG	__FLT128_DECIMAL_DIG__$/;"	macro	line:347
+FLT128_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128_TRUE_MIN$/;"	macro	line:348
+FLT128_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128_TRUE_MIN		__FLT128_DENORM_MIN__$/;"	macro	line:349
+FLT32X_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32X_MANT_DIG$/;"	macro	line:353
+FLT32X_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32X_MANT_DIG		__FLT32X_MANT_DIG__$/;"	macro	line:354
+FLT32X_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32X_DIG$/;"	macro	line:355
+FLT32X_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32X_DIG		__FLT32X_DIG__$/;"	macro	line:356
+FLT32X_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32X_MIN_EXP$/;"	macro	line:357
+FLT32X_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32X_MIN_EXP		__FLT32X_MIN_EXP__$/;"	macro	line:358
+FLT32X_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32X_MIN_10_EXP$/;"	macro	line:359
+FLT32X_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32X_MIN_10_EXP	__FLT32X_MIN_10_EXP__$/;"	macro	line:360
+FLT32X_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32X_MAX_EXP$/;"	macro	line:361
+FLT32X_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32X_MAX_EXP		__FLT32X_MAX_EXP__$/;"	macro	line:362
+FLT32X_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32X_MAX_10_EXP$/;"	macro	line:363
+FLT32X_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32X_MAX_10_EXP	__FLT32X_MAX_10_EXP__$/;"	macro	line:364
+FLT32X_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32X_MAX$/;"	macro	line:365
+FLT32X_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32X_MAX		__FLT32X_MAX__$/;"	macro	line:366
+FLT32X_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32X_EPSILON$/;"	macro	line:367
+FLT32X_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32X_EPSILON		__FLT32X_EPSILON__$/;"	macro	line:368
+FLT32X_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32X_MIN$/;"	macro	line:369
+FLT32X_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32X_MIN		__FLT32X_MIN__$/;"	macro	line:370
+FLT32X_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32X_DECIMAL_DIG$/;"	macro	line:371
+FLT32X_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32X_DECIMAL_DIG	__FLT32X_DECIMAL_DIG__$/;"	macro	line:372
+FLT32X_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT32X_TRUE_MIN$/;"	macro	line:373
+FLT32X_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT32X_TRUE_MIN		__FLT32X_DENORM_MIN__$/;"	macro	line:374
+FLT64X_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64X_MANT_DIG$/;"	macro	line:378
+FLT64X_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64X_MANT_DIG		__FLT64X_MANT_DIG__$/;"	macro	line:379
+FLT64X_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64X_DIG$/;"	macro	line:380
+FLT64X_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64X_DIG		__FLT64X_DIG__$/;"	macro	line:381
+FLT64X_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64X_MIN_EXP$/;"	macro	line:382
+FLT64X_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64X_MIN_EXP		__FLT64X_MIN_EXP__$/;"	macro	line:383
+FLT64X_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64X_MIN_10_EXP$/;"	macro	line:384
+FLT64X_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64X_MIN_10_EXP	__FLT64X_MIN_10_EXP__$/;"	macro	line:385
+FLT64X_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64X_MAX_EXP$/;"	macro	line:386
+FLT64X_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64X_MAX_EXP		__FLT64X_MAX_EXP__$/;"	macro	line:387
+FLT64X_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64X_MAX_10_EXP$/;"	macro	line:388
+FLT64X_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64X_MAX_10_EXP	__FLT64X_MAX_10_EXP__$/;"	macro	line:389
+FLT64X_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64X_MAX$/;"	macro	line:390
+FLT64X_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64X_MAX		__FLT64X_MAX__$/;"	macro	line:391
+FLT64X_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64X_EPSILON$/;"	macro	line:392
+FLT64X_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64X_EPSILON		__FLT64X_EPSILON__$/;"	macro	line:393
+FLT64X_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64X_MIN$/;"	macro	line:394
+FLT64X_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64X_MIN		__FLT64X_MIN__$/;"	macro	line:395
+FLT64X_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64X_DECIMAL_DIG$/;"	macro	line:396
+FLT64X_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64X_DECIMAL_DIG	__FLT64X_DECIMAL_DIG__$/;"	macro	line:397
+FLT64X_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT64X_TRUE_MIN$/;"	macro	line:398
+FLT64X_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT64X_TRUE_MIN		__FLT64X_DENORM_MIN__$/;"	macro	line:399
+FLT128X_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128X_MANT_DIG$/;"	macro	line:403
+FLT128X_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128X_MANT_DIG	__FLT128X_MANT_DIG__$/;"	macro	line:404
+FLT128X_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128X_DIG$/;"	macro	line:405
+FLT128X_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128X_DIG		__FLT128X_DIG__$/;"	macro	line:406
+FLT128X_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128X_MIN_EXP$/;"	macro	line:407
+FLT128X_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128X_MIN_EXP		__FLT128X_MIN_EXP__$/;"	macro	line:408
+FLT128X_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128X_MIN_10_EXP$/;"	macro	line:409
+FLT128X_MIN_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128X_MIN_10_EXP	__FLT128X_MIN_10_EXP__$/;"	macro	line:410
+FLT128X_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128X_MAX_EXP$/;"	macro	line:411
+FLT128X_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128X_MAX_EXP		__FLT128X_MAX_EXP__$/;"	macro	line:412
+FLT128X_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128X_MAX_10_EXP$/;"	macro	line:413
+FLT128X_MAX_10_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128X_MAX_10_EXP	__FLT128X_MAX_10_EXP__$/;"	macro	line:414
+FLT128X_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128X_MAX$/;"	macro	line:415
+FLT128X_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128X_MAX		__FLT128X_MAX__$/;"	macro	line:416
+FLT128X_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128X_EPSILON$/;"	macro	line:417
+FLT128X_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128X_EPSILON		__FLT128X_EPSILON__$/;"	macro	line:418
+FLT128X_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128X_MIN$/;"	macro	line:419
+FLT128X_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128X_MIN		__FLT128X_MIN__$/;"	macro	line:420
+FLT128X_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128X_DECIMAL_DIG$/;"	macro	line:421
+FLT128X_DECIMAL_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128X_DECIMAL_DIG	__FLT128X_DECIMAL_DIG__$/;"	macro	line:422
+FLT128X_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef FLT128X_TRUE_MIN$/;"	macro	line:423
+FLT128X_TRUE_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define FLT128X_TRUE_MIN	__FLT128X_DENORM_MIN__$/;"	macro	line:424
+DEC32_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC32_MANT_DIG$/;"	macro	line:434
+DEC64_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC64_MANT_DIG$/;"	macro	line:435
+DEC128_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC128_MANT_DIG$/;"	macro	line:436
+DEC32_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC32_MANT_DIG	__DEC32_MANT_DIG__$/;"	macro	line:437
+DEC64_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC64_MANT_DIG	__DEC64_MANT_DIG__$/;"	macro	line:438
+DEC128_MANT_DIG	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC128_MANT_DIG	__DEC128_MANT_DIG__$/;"	macro	line:439
+DEC32_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC32_MIN_EXP$/;"	macro	line:442
+DEC64_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC64_MIN_EXP$/;"	macro	line:443
+DEC128_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC128_MIN_EXP$/;"	macro	line:444
+DEC32_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC32_MIN_EXP	__DEC32_MIN_EXP__$/;"	macro	line:445
+DEC64_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC64_MIN_EXP	__DEC64_MIN_EXP__$/;"	macro	line:446
+DEC128_MIN_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC128_MIN_EXP	__DEC128_MIN_EXP__$/;"	macro	line:447
+DEC32_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC32_MAX_EXP$/;"	macro	line:450
+DEC64_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC64_MAX_EXP$/;"	macro	line:451
+DEC128_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC128_MAX_EXP$/;"	macro	line:452
+DEC32_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC32_MAX_EXP	__DEC32_MAX_EXP__$/;"	macro	line:453
+DEC64_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC64_MAX_EXP	__DEC64_MAX_EXP__$/;"	macro	line:454
+DEC128_MAX_EXP	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC128_MAX_EXP	__DEC128_MAX_EXP__$/;"	macro	line:455
+DEC32_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC32_MAX$/;"	macro	line:459
+DEC64_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC64_MAX$/;"	macro	line:460
+DEC128_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC128_MAX$/;"	macro	line:461
+DEC32_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC32_MAX   __DEC32_MAX__$/;"	macro	line:462
+DEC64_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC64_MAX   __DEC64_MAX__$/;"	macro	line:463
+DEC128_MAX	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC128_MAX  __DEC128_MAX__$/;"	macro	line:464
+DEC32_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC32_EPSILON$/;"	macro	line:468
+DEC64_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC64_EPSILON$/;"	macro	line:469
+DEC128_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC128_EPSILON$/;"	macro	line:470
+DEC32_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC32_EPSILON	__DEC32_EPSILON__$/;"	macro	line:471
+DEC64_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC64_EPSILON	__DEC64_EPSILON__$/;"	macro	line:472
+DEC128_EPSILON	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC128_EPSILON	__DEC128_EPSILON__$/;"	macro	line:473
+DEC32_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC32_MIN$/;"	macro	line:476
+DEC64_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC64_MIN$/;"	macro	line:477
+DEC128_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC128_MIN$/;"	macro	line:478
+DEC32_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC32_MIN	__DEC32_MIN__$/;"	macro	line:479
+DEC64_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC64_MIN	__DEC64_MIN__$/;"	macro	line:480
+DEC128_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC128_MIN	__DEC128_MIN__$/;"	macro	line:481
+DEC32_SUBNORMAL_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC32_SUBNORMAL_MIN$/;"	macro	line:484
+DEC64_SUBNORMAL_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC64_SUBNORMAL_MIN$/;"	macro	line:485
+DEC128_SUBNORMAL_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC128_SUBNORMAL_MIN$/;"	macro	line:486
+DEC32_SUBNORMAL_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC32_SUBNORMAL_MIN       __DEC32_SUBNORMAL_MIN__$/;"	macro	line:487
+DEC64_SUBNORMAL_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC64_SUBNORMAL_MIN       __DEC64_SUBNORMAL_MIN__$/;"	macro	line:488
+DEC128_SUBNORMAL_MIN	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC128_SUBNORMAL_MIN      __DEC128_SUBNORMAL_MIN__$/;"	macro	line:489
+DEC_EVAL_METHOD	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#undef DEC_EVAL_METHOD$/;"	macro	line:502
+DEC_EVAL_METHOD	C:\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\9.2.0\include\float.h	/^#define DEC_EVAL_METHOD	__DEC_EVAL_METHOD__$/;"	macro	line:503

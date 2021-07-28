@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /*data structures declarations*/
 
@@ -36,7 +37,7 @@ typedef struct elem_lista
 */
 
 arco_grafo_t    *acquisisci_lista(vertice_grafo_t *grafo_p);
-vertice_grafo_t *acquisisci_grafo(int *n, FILE *fp);
+void *acquisisci_grafo(int *n, FILE *fp);
 vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p,
                                 char nome[3]);
 vertice_grafo_t *avvia_ord_top_grafo(vertice_grafo_t *grafo_p);
@@ -58,10 +59,13 @@ int main(int argc, char **argv)
         exit(-1);
     }
     printf("Reading input file %s and loading data...\n", "graph.txt");
-    grafo_p = acquisisci_grafo(&n,INFILE);
+    acquisisci_grafo(&n,INFILE);
+    /*
     printf("... done.\n******************\n");
     printf("Graph with %d vertices\n",n);
+    */
     /* stampa liste primaria e secondaria */
+    /*
     for (vertice_p = grafo_p;(vertice_p!=NULL);vertice_p = vertice_p->vertice_succ_p){
         printf("Adjacency list of vertex %s:\n",vertice_p->nome);
         for (arco_p = vertice_p->lista_archi_p; (arco_p!= NULL); arco_p = arco_p->arco_succ_p)
@@ -71,10 +75,11 @@ int main(int argc, char **argv)
     
     printf("Traversal of the graph...\n");
     printf(".. and print tree of traversal\n");
+    */
     return(0);
 }
 
-vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
+void *acquisisci_grafo(int *nvg, FILE *fin){
     int              n,
                      nV,
                      i,
@@ -87,17 +92,20 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
     arco_grafo_t    *arco_p,
                     *nuovoa_p;
     elem_lista_t    *testa_p;
-    char             nom[3];
-    char             nome[3];
-    char             source[3];
-    char             destination[3];
-
+    char             nom[4];
+    int              number;
+    //char             nome[3];
+    //char             source[3];
+    //char             destination[3];
+    
+    /*
     grafo_p = NULL;
     arco_p = NULL;
     testa_p = NULL;
     fscanf(fin,"%d\n",&n);
     *nvg = n;
     printf("Nr. of nodes = %d\n",*nvg);
+    */
     
     /* costruiamo prima la lista dei vertici */
     //fscanf(fin, "%s\n", nom);
@@ -106,13 +114,18 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
     while(!feof(fin))
     {
         fscanf(fin, "%s\n", nom);
-        inserito = inserisci_in_lista_ordinata(&testa_p, nom);
-        
-        if(inserito == 1)
-            printf("Elemento inserito!\n");
-        else
-            printf("Elemento non inserito!\n");
+        //number = atoi(nom);
+        if(!isdigit(nom[0]))
+        {
+            inserito = inserisci_in_lista_ordinata(&testa_p, nom);
+            if(inserito == 1)
+                printf("Elemento inserito!\n");
+            else
+                printf("Elemento non inserito!\n");
+        }
     }
+    fclose(fin);
+    stampa_lista(testa_p);
     
     /* costruiamo prima la lista primaria, senza liste secondarie */
     /*
@@ -193,7 +206,7 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
     fclose(fin);
     */
 
-    return(grafo_p);
+    //return(grafo_p);
 }
 
 vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p,
