@@ -33,17 +33,19 @@ typedef struct arco_grafo
     struct arco_grafo    *arco_succ_p;
 } arco_grafo_t;
 
+/*
 typedef struct elem_lista {
     vertice_grafo_t *valore;
     struct elem_lista *succ_p;
 } elem_lista_t;
+*/
 
 
 /*
 * function declarations
 */
 
-arco_grafo_t *acquisisci_lista(vertice_grafo_t *grafo_p);
+//arco_grafo_t *acquisisci_lista(vertice_grafo_t *grafo_p);
 vertice_grafo_t *acquisisci_grafo(int *n, FILE *fp);
 vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p, int valore);
 
