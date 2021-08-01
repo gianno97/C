@@ -5,8 +5,8 @@
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="E:\Storage_E\C\C_workspace\Prop_ins_laurea\main.c" Name="FileName"/>
-      <int Value="9" Name="FirstVisibleLine"/>
-      <int Value="39" Name="CurrentLine"/>
+      <int Value="33" Name="FirstVisibleLine"/>
+      <int Value="50" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -14,20 +14,6 @@
       <wxString Value="E:\Storage_E\C\C_workspace\Prop_ins_laurea\graph.txt" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
       <int Value="25" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="E:\Storage_E\C\C_workspace\Parse_graph_from_file\parse_graph_from_file.c" Name="FileName"/>
-      <int Value="60" Name="FirstVisibleLine"/>
-      <int Value="33" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="E:\Storage_E\C\C_workspace\Parse_graph_from_file\graph.txt" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

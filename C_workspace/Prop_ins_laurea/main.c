@@ -42,8 +42,9 @@ int controlla_lista(vertice_grafo_t *testa_p,
 int main(int argc, char **argv)
 {
     int n;
-    vertice_grafo_t *grafo_p, *vertice_p;
-    arco_grafo_t *arco_p;
+    vertice_grafo_t *grafo_p, *vertice_p_ord_top;
+    //vertice_grafo_t *vertice_p;
+    //arco_grafo_t *arco_p;
     FILE *INFILE;
     
     if (!(INFILE = fopen("graph.txt","r"))) {
@@ -55,6 +56,7 @@ int main(int argc, char **argv)
     printf("... done.\n******************\n");
     printf("Graph with %d vertices\n",n);
     /* stampa liste primaria e secondaria */
+    /*
     for (vertice_p = grafo_p;(vertice_p!=NULL);vertice_p = vertice_p->vertice_succ_p){
         printf("Adjacency list of vertex %s:\n",vertice_p->nome);
         for (arco_p = vertice_p->lista_archi_p; (arco_p!= NULL); arco_p = arco_p->arco_succ_p)
@@ -63,6 +65,12 @@ int main(int argc, char **argv)
     }
     printf("Traversal of the graph...\n");
     printf(".. and print tree of traversal\n");
+    */
+    
+    printf("Ordinamento topologico:\n");
+    grafo_p = avvia_ord_top_grafo(grafo_p);
+    for (vertice_p_ord_top = grafo_p; (vertice_p_ord_top != NULL); vertice_p_ord_top = vertice_p_ord_top->vertice_succ_p)
+        printf("%s\n", vertice_p_ord_top->nome);
     return(0);
 }
 
@@ -106,22 +114,26 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
     fin_2 = fopen("graph.txt","r");
     fscanf(fin_2,"%d\n",&n);
     *nvg = n;
-    printf("Nr. of nodes = %d\n",*nvg);
+    //printf("Nr. of nodes = %d\n",*nvg);
     
     vertice_p = grafo_p;
     while (fscanf(fin_2, "%s%d", nome, &nV) != EOF) {
-        printf("%s %d\n", nome, nV);
+        //printf("%s %d\n", nome, nV);
         arco_p = NULL;
         for (i=0; i<nV; i++) {
             fscanf(fin_2, "%s%s", source, destination);
-            printf("src = %s, dest = %s\n", source, destination);
+            //printf("src = %s, dest = %s\n", source, destination);
             vertice_p = cerca_in_lista(grafo_p, source);
+            /*
             if (vertice_p!=NULL)
                 printf("found vertex %s\n",vertice_p->nome);
+            */
             nuovoa_p = malloc(sizeof(arco_grafo_t));
             nuovoa_p->vertice_adiac_p = cerca_in_lista(grafo_p, destination);
+            /*
             if (nuovoa_p->vertice_adiac_p != NULL)
                 printf("found vertex %s\n", nuovoa_p->vertice_adiac_p->nome);
+            */
             nuovoa_p->arco_succ_p = arco_p;
             arco_p = nuovoa_p;
             vertice_p->lista_archi_p = arco_p;
@@ -193,7 +205,8 @@ void ordina_top_grafo(vertice_grafo_t *vertice_p,
                              testa_p);
     vertice_p->colore = nero;
     nuovo_elem_p = (vertice_grafo_t *)malloc(sizeof(vertice_grafo_t));
-    nuovo_elem_p->valore = vertice_p->valore;
+    //nuovo_elem_p->valore = vertice_p->valore;
+    strcpy(nuovo_elem_p->nome, vertice_p->nome);
     nuovo_elem_p->lista_archi_p = vertice_p->lista_archi_p;
     nuovo_elem_p->vertice_succ_p = *testa_p;
     *testa_p = nuovo_elem_p;
