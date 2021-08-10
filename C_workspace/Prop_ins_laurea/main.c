@@ -9,15 +9,11 @@ typedef enum {bianco, grigio, nero} colore_t;
 
 typedef struct vertice_grafo
 {
-    int                   valore;
     char                  nome[10];
     struct vertice_grafo *vertice_succ_p;
     struct arco_grafo    *lista_archi_p;
     colore_t              colore;
-    int                   distanza,
-                          inizio,
-                          fine;
-    struct vertice_grafo *padre_p;
+    //struct vertice_grafo *padre_p;
 } vertice_grafo_t;
 
 typedef struct arco_grafo
@@ -30,42 +26,33 @@ typedef struct arco_grafo
 * function declarations
 */
 
-vertice_grafo_t *acquisisci_grafo(int *n, FILE *fp);
-vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p,
-                                char nome[10]);
-vertice_grafo_t *avvia_ord_top_grafo(vertice_grafo_t *grafo_p);
-void ordina_top_grafo(vertice_grafo_t *vertice_p,
-                      vertice_grafo_t **testa_p);
-int controlla_lista(vertice_grafo_t *testa_p,
-                    char             nome[10]);
+vertice_grafo_t *acquisisci_grafo(int *,
+                                  FILE *);
+vertice_grafo_t *cerca_in_lista(vertice_grafo_t *,
+                                char nome[]);
+vertice_grafo_t *avvia_ord_top_grafo(vertice_grafo_t *);
+void ordina_top_grafo(vertice_grafo_t *,
+                      vertice_grafo_t **);
+int controlla_lista(vertice_grafo_t *,
+                    char nome[]);
 
 int main(int argc, char **argv)
 {
-    int n;
-    vertice_grafo_t *grafo_p, *vertice_p_ord_top;
-    //vertice_grafo_t *vertice_p;
-    //arco_grafo_t *arco_p;
-    FILE *INFILE;
+    int              n;
+    vertice_grafo_t *grafo_p,
+                    *vertice_p_ord_top;
+    FILE            *INFILE;
     
-    if (!(INFILE = fopen("graph.txt","r"))) {
-        printf("ERROR: error opening input file %s\n", "graph.txt");
+    if (!(INFILE = fopen("ciao.txt", "r")))
+    {
+        printf("ERROR: error opening input file %s\n",
+               "ciao.txt");
         exit(-1);
     }
-    printf("Reading input file %s and loading data...\n", "graph.txt");
+    printf("Reading input file %s and loading data...\n", "prova.txt");
     grafo_p = acquisisci_grafo(&n,INFILE);
     printf("... done.\n******************\n");
     printf("Graph with %d vertices\n",n);
-    /* stampa liste primaria e secondaria */
-    /*
-    for (vertice_p = grafo_p;(vertice_p!=NULL);vertice_p = vertice_p->vertice_succ_p){
-        printf("Adjacency list of vertex %s:\n",vertice_p->nome);
-        for (arco_p = vertice_p->lista_archi_p; (arco_p!= NULL); arco_p = arco_p->arco_succ_p)
-            printf("%s ,",arco_p->vertice_adiac_p->nome);
-        printf("\n");
-    }
-    printf("Traversal of the graph...\n");
-    printf(".. and print tree of traversal\n");
-    */
     
     printf("Ordinamento topologico:\n");
     grafo_p = avvia_ord_top_grafo(grafo_p);
@@ -111,29 +98,18 @@ vertice_grafo_t *acquisisci_grafo(int *nvg, FILE *fin){
     }
     fclose(fin);
     
-    fin_2 = fopen("graph.txt","r");
+    fin_2 = fopen("prova.txt","r");
     fscanf(fin_2,"%d\n",&n);
     *nvg = n;
-    //printf("Nr. of nodes = %d\n",*nvg);
     
     vertice_p = grafo_p;
     while (fscanf(fin_2, "%s%d", nome, &nV) != EOF) {
-        //printf("%s %d\n", nome, nV);
         arco_p = NULL;
         for (i=0; i<nV; i++) {
             fscanf(fin_2, "%s%s", source, destination);
-            //printf("src = %s, dest = %s\n", source, destination);
             vertice_p = cerca_in_lista(grafo_p, source);
-            /*
-            if (vertice_p!=NULL)
-                printf("found vertex %s\n",vertice_p->nome);
-            */
             nuovoa_p = malloc(sizeof(arco_grafo_t));
             nuovoa_p->vertice_adiac_p = cerca_in_lista(grafo_p, destination);
-            /*
-            if (nuovoa_p->vertice_adiac_p != NULL)
-                printf("found vertex %s\n", nuovoa_p->vertice_adiac_p->nome);
-            */
             nuovoa_p->arco_succ_p = arco_p;
             arco_p = nuovoa_p;
             vertice_p->lista_archi_p = arco_p;
@@ -205,7 +181,6 @@ void ordina_top_grafo(vertice_grafo_t *vertice_p,
                              testa_p);
     vertice_p->colore = nero;
     nuovo_elem_p = (vertice_grafo_t *)malloc(sizeof(vertice_grafo_t));
-    //nuovo_elem_p->valore = vertice_p->valore;
     strcpy(nuovo_elem_p->nome, vertice_p->nome);
     nuovo_elem_p->lista_archi_p = vertice_p->lista_archi_p;
     nuovo_elem_p->vertice_succ_p = *testa_p;
