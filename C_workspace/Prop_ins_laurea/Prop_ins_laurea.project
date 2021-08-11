@@ -93,8 +93,8 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="grafo.txt"/>
     <File Name="prova.txt"/>
-    <File Name="graph.txt"/>
     <File Name="main.c"/>
   </VirtualDirectory>
 </CodeLite_Project>
