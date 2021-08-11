@@ -1,9 +1,20 @@
+/*********************************************************/
+/* programma per la gestione delle propedeuticità degli **/ 
+/* insegnamenti di un corso di laurea ********************/
+/*********************************************************/
+
+/*****************************/
+/* inclusione delle librerie */
+/*****************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
-/*data structures declarations*/
+/*************************************************/
+/* definizione delle variabili di tipo struttura */
+/*************************************************/
 
 typedef enum {bianco, grigio, nero} colore_t;
 
