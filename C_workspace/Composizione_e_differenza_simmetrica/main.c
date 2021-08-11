@@ -11,7 +11,7 @@
 #include <stdlib.h>
 
 /*************************************************/
-/* definizione delle variabili di tipo struttura */
+/* definizione della variabile di tipo struttura */
 /*************************************************/
 
 typedef struct elem_lista

@@ -13,10 +13,14 @@
 #include <ctype.h>
 
 /*************************************************/
-/* definizione delle variabili di tipo struttura */
+/* definizione della variabile enumerativa *******/
 /*************************************************/
 
 typedef enum {bianco, grigio, nero} colore_t;
+
+/*************************************************/
+/* definizione delle variabili di tipo struttura */
+/*************************************************/
 
 typedef struct vertice_grafo
 {
@@ -24,7 +28,6 @@ typedef struct vertice_grafo
     struct vertice_grafo *vertice_succ_p;
     struct arco_grafo    *lista_archi_p;
     colore_t              colore;
-    //struct vertice_grafo *padre_p;
 } vertice_grafo_t;
 
 typedef struct arco_grafo
@@ -33,9 +36,9 @@ typedef struct arco_grafo
     struct arco_grafo    *arco_succ_p;
 } arco_grafo_t;
 
-/*
-* function declarations
-*/
+/********************************/
+/* dichiarazione delle funzioni */
+/********************************/
 
 vertice_grafo_t *acquisisci_grafo(int *,
                                   FILE *);
@@ -47,6 +50,11 @@ void ordina_top_grafo(vertice_grafo_t *,
 int controlla_lista(vertice_grafo_t *,
                     char nome[]);
 
+/******************************/
+/* definizione delle funzioni */
+/******************************/
+
+/* definizione della funzione main */
 int main(int argc, char **argv)
 {
     int              n;
@@ -55,20 +63,20 @@ int main(int argc, char **argv)
     FILE            *INFILE;
     
     if (!(INFILE = fopen("ciao.txt", "r")))
-    {
         printf("ERROR: error opening input file %s\n",
                "ciao.txt");
-        exit(-1);
-    }
-    printf("Reading input file %s and loading data...\n", "prova.txt");
-    grafo_p = acquisisci_grafo(&n,INFILE);
-    printf("... done.\n******************\n");
-    printf("Graph with %d vertices\n",n);
+    else
+    {
+        printf("Reading input file %s and loading data...\n", "prova.txt");
+        grafo_p = acquisisci_grafo(&n,INFILE);
+        printf("... done.\n******************\n");
+        printf("Graph with %d vertices\n",n);
     
-    printf("Ordinamento topologico:\n");
-    grafo_p = avvia_ord_top_grafo(grafo_p);
-    for (vertice_p_ord_top = grafo_p; (vertice_p_ord_top != NULL); vertice_p_ord_top = vertice_p_ord_top->vertice_succ_p)
-        printf("%s\n", vertice_p_ord_top->nome);
+        printf("Ordinamento topologico:\n");
+        grafo_p = avvia_ord_top_grafo(grafo_p);
+        for (vertice_p_ord_top = grafo_p; (vertice_p_ord_top != NULL); vertice_p_ord_top = vertice_p_ord_top->vertice_succ_p)
+            printf("%s\n", vertice_p_ord_top->nome);
+    }
     return(0);
 }
 
