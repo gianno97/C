@@ -58,21 +58,26 @@ void stampa_ord_top(vertice_grafo_t *grafo_p);
 int main(void)
 {
     /* dichiarazione delle variabili locali alla funzione */
-    vertice_grafo_t *grafo_p;
-    FILE            *fiPtr;
+    vertice_grafo_t *grafo_p;   /* testa della lista primaria del grafo */
+    FILE            *fiPtr;     /* variabile puntatore a file */
     
+    /* controllare se il file può essere aperto in lettura */
     if (!(fiPtr = fopen("grafo.txt", "r")))
         printf("ERRORE: errore nell'apertura del file di input %s\n",
                "grafo.txt");
     else
     {
+        /* acquisire il grafo */
         grafo_p = acquisisci_grafo(fiPtr);
+        /* avviare l'ordinamento topologico sul grafo */
         grafo_p = avvia_ord_top_grafo(grafo_p);
+        /* stampare il grafo */
         stampa_ord_top(grafo_p);
     }
     return (0);
 }
 
+/* definizione della funzione per acquisire il grafo */
 vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
 {
     int              num_vert_grafo,
@@ -94,15 +99,20 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
     grafo_p = NULL;
     arco_p = NULL;
     
+    /* creazione della lista primaria dei vertici */
     while(!feof(fiPtr))
     {
         fscanf(fiPtr,
                "%s\n",
                str_ins);
+        /* controllare che ciò che è stato acquisito dal file non sia un numero */
         if(!isdigit(str_ins[0]))
         {
+            /* controllare che la stringa identificativa dell'insegnamento non sia */
+            /* già presente all'interno della lista primaria dei vertici */
             inserito = controlla_lista(grafo_p,
                                        str_ins);
+            /* inserire il nuovo insegnamento all'interno della lista primaria */
             if(inserito == 1)
             {
                 nuovov_p = (vertice_grafo_t *)malloc(sizeof(vertice_grafo_t));
@@ -114,12 +124,14 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
             }
         }
     }
+    /* riportare il puntatore del file all'inizio del file */
     rewind(fiPtr);
     fscanf(fiPtr,
            "%d\n",
            &num_vert_grafo);
     
     vertice_p = grafo_p;
+    /* creazione della lista di adiacenza del grafo */
     while (fscanf(fiPtr, "%s%d", str_ins, &num_archi_usc) != EOF) {
         arco_p = NULL;
         for (i = 0;
