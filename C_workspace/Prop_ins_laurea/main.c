@@ -58,8 +58,8 @@ void stampa_ord_top(vertice_grafo_t *grafo_p);
 int main(void)
 {
     /* dichiarazione delle variabili locali alla funzione */
-    vertice_grafo_t *grafo_p;   /* testa della lista primaria del grafo */
-    FILE            *fiPtr;     /* variabile puntatore a file */
+    vertice_grafo_t *grafo_p; /* testa della lista primaria del grafo */
+    FILE            *fiPtr;   /* variabile puntatore a file */
     
     /* controllare se il file può essere aperto in lettura */
     if (!(fiPtr = fopen("grafo.txt", "r")))
@@ -87,11 +87,11 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
     vertice_grafo_t *vertice_p;
     vertice_grafo_t *nuovov_p,
                     *grafo_p;
-    arco_grafo_t    *arco_p,
-                    *nuovoa_p;
-    char             str_ins[4];
-    char             origine[4];
-    char             destinazione[4];
+    arco_grafo_t    *arco_p,          /* variabile utilizzata per  */
+                    *nuovoa_p;        /* variabile utilizzata per allocare il nuovo arco */
+    char             str_ins[4];      /* stringa utilizzata per memorizzare la stringa dell'insegnamento */
+    char             origine[4];      /* stringa utilizzata per cercare il vertice di partenza */
+    char             destinazione[4]; /* stringa utilizzata per cercare il vertice di destinazione */ 
     
     printf("Acquisizione del file di testo %s contenente le indicazioni delle propedeuticita'.\n",
            "grafo.txt");
@@ -161,6 +161,8 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
     return(grafo_p);
 }
 
+/* definizione della funzione per controllare se un vertice è già presente */ 
+/* all'interno della lista primaria */
 int controlla_lista(vertice_grafo_t *testa_p,
                     char             str_ins[4])
 {
@@ -178,6 +180,7 @@ int controlla_lista(vertice_grafo_t *testa_p,
     return(inserito);
 }
 
+/* definizione della funzione per cercare un vertice all'interno della lista primaria */
 vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p,
                                 char             str_ins[4])
 {
@@ -190,6 +193,7 @@ vertice_grafo_t *cerca_in_lista(vertice_grafo_t *testa_p,
     return(elem_p);
 }
 
+/* definizione della funzione per lanciare l'ordinamento topologico del grafo */
 vertice_grafo_t *avvia_ord_top_grafo(vertice_grafo_t *grafo_p)
 {
     vertice_grafo_t *testa_p,
@@ -208,6 +212,7 @@ vertice_grafo_t *avvia_ord_top_grafo(vertice_grafo_t *grafo_p)
     return(testa_p);
 }
 
+/* definizione della funzione per ordinare il grafo in ordine topologico */
 void ordina_top_grafo(vertice_grafo_t  *vertice_p,
                       vertice_grafo_t **testa_p)
 {
@@ -230,6 +235,8 @@ void ordina_top_grafo(vertice_grafo_t  *vertice_p,
     *testa_p = nuovo_elem_p;
 }
 
+/* definizione della funzione per stampare a schermo la lista primaria dei vertici */ 
+/* ordinati topologicamente */
 void stampa_ord_top(vertice_grafo_t *grafo_p)
 {
     vertice_grafo_t *vertice_p_ord_top;
