@@ -80,14 +80,17 @@ int main(void)
 /* definizione della funzione per acquisire il grafo */
 vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
 {
-    int              num_vert_grafo,
-                     num_archi_usc,
-                     i,
-                     inserito;
-    vertice_grafo_t *vertice_p;
-    vertice_grafo_t *nuovov_p,
-                    *grafo_p;
-    arco_grafo_t    *arco_p,          /* variabile utilizzata per  */
+    int              num_vert_grafo,  /* variabile utilizzata per acquisire il numero di vertici del grafo */
+                     num_archi_usc,   /* variabile utilizzata per acquisire il numero di archi uscenti da un 
+                                         certo vertice durante la creazione della lista di adiacenza */
+                     i,               /* variabile utilizzata all'interno del ciclo for*/
+                     inserito;        /* variabile utilizzata per comprendere se un vertice è già presente o no
+                                         all'interno della lista primaria */
+    vertice_grafo_t *vertice_p;       /* variabile utilizzata per muoversi all'interno della lista primaria */
+                                      /* durante la creazione della lista di adiacenza */
+    vertice_grafo_t *nuovov_p,        /* variabile utilizzata per la creazione di un nuovo vertice */
+                    *grafo_p;         /* variabile utilizzata per identificare la testa della lista primaria di vertici */
+    arco_grafo_t    *arco_p,          /* variabile utilizzata per la creazione della lista di adiacenza */
                     *nuovoa_p;        /* variabile utilizzata per allocare il nuovo arco */
     char             str_ins[4];      /* stringa utilizzata per memorizzare la stringa dell'insegnamento */
     char             origine[4];      /* stringa utilizzata per cercare il vertice di partenza */
@@ -121,9 +124,11 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
                 nuovov_p->lista_archi_p = NULL;
                 nuovov_p->vertice_succ_p = grafo_p;
                 grafo_p = nuovov_p;
+                printf("%s\n", grafo_p->str_ins);
             }
         }
     }
+    stampa_ord_top(grafo_p);
     /* riportare il puntatore del file all'inizio del file */
     rewind(fiPtr);
     fscanf(fiPtr,
