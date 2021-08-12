@@ -5,29 +5,15 @@
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="E:\Storage_E\C\C_workspace\Prop_ins_laurea\main.c" Name="FileName"/>
-      <int Value="213" Name="FirstVisibleLine"/>
-      <int Value="242" Name="CurrentLine"/>
+      <int Value="128" Name="FirstVisibleLine"/>
+      <int Value="157" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="E:\Storage_E\C\C_workspace\Composizione_e_differenza_simmetrica\main.c" Name="FileName"/>
-      <int Value="96" Name="FirstVisibleLine"/>
-      <int Value="61" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="E:\Storage_E\C\C_workspace\stazioni\main.c" Name="FileName"/>
-      <int Value="186" Name="FirstVisibleLine"/>
-      <int Value="6" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="E:\Storage_E\C\C_workspace\stazioni\libreria.c" Name="FileName"/>
-      <int Value="188" Name="FirstVisibleLine"/>
-      <int Value="10" Name="CurrentLine"/>
+      <wxString Value="E:\Storage_E\C\C_workspace\Prop_ins_laurea\grafo.txt" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

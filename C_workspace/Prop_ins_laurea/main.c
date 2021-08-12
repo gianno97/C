@@ -84,6 +84,7 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
                      num_archi_usc,   /* variabile utilizzata per acquisire il numero di archi uscenti da un 
                                          certo vertice durante la creazione della lista di adiacenza */
                      i,               /* variabile utilizzata all'interno del ciclo for*/
+                     val_rit,         /* variabile utilizzata per non lasciare scoperto il valore di ritorno della fscanf */
                      inserito;        /* variabile utilizzata per comprendere se un vertice è già presente o no
                                          all'interno della lista primaria */
     vertice_grafo_t *vertice_p;       /* variabile utilizzata per muoversi all'interno della lista primaria */
@@ -105,11 +106,11 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
     /* creazione della lista primaria dei vertici */
     while(!feof(fiPtr))
     {
-        fscanf(fiPtr,
-               "%s\n",
-               str_ins);
+        val_rit = fscanf(fiPtr,
+                         "%s\n",
+                         str_ins);
         /* controllare che ciò che è stato acquisito dal file non sia un numero */
-        if(!isdigit(str_ins[0]))
+        if(!isdigit(str_ins[0]) && val_rit == 1)
         {
             /* controllare che la stringa identificativa dell'insegnamento non sia */
             /* già presente all'interno della lista primaria dei vertici */
@@ -124,16 +125,14 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
                 nuovov_p->lista_archi_p = NULL;
                 nuovov_p->vertice_succ_p = grafo_p;
                 grafo_p = nuovov_p;
-                printf("%s\n", grafo_p->str_ins);
             }
         }
     }
-    stampa_ord_top(grafo_p);
     /* riportare il puntatore del file all'inizio del file */
     rewind(fiPtr);
-    fscanf(fiPtr,
-           "%d\n",
-           &num_vert_grafo);
+    val_rit = fscanf(fiPtr,
+                     "%d\n",
+                     &num_vert_grafo);
     
     vertice_p = grafo_p;
     /* creazione della lista di adiacenza del grafo */
@@ -143,10 +142,10 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
              i < num_archi_usc;
              i++)
         {
-            fscanf(fiPtr,
-                   "%s%s",
-                   origine,
-                   destinazione);
+            val_rit = fscanf(fiPtr,
+                             "%s%s",
+                             origine,
+                             destinazione);
             vertice_p = cerca_in_lista(grafo_p,
                                        origine);
             nuovoa_p = malloc(sizeof(arco_grafo_t));
