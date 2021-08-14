@@ -84,9 +84,7 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
                      num_archi_usc,   /* variabile utilizzata per acquisire il numero di archi uscenti da un 
                                          certo vertice durante la creazione della lista di adiacenza */
                      i,               /* variabile utilizzata all'interno del ciclo for*/
-                     val_rit,         /* variabile utilizzata per controllare il valore di ritorno della fscanf */
-                     val_vert,        /* variabile utilizzata per controllare il risultato della fscanf per l'acquisizione
-                                         del numero dei vertici */
+                     val_rit,         /* variabile utilizzata per non lasciare scoperto il valore di ritorno delle fscanf */
                      inserito;        /* variabile utilizzata per comprendere se un vertice è già presente o no
                                          all'interno della lista primaria */
     vertice_grafo_t *vertice_p;       /* variabile utilizzata per muoversi all'interno della lista primaria */
@@ -132,7 +130,7 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
     }
     /* riportare il puntatore del file all'inizio del file */
     rewind(fiPtr);
-    val_vert = fscanf(fiPtr,
+    val_rit = fscanf(fiPtr,
                       "%d\n",
                       &num_vert_grafo);
     
@@ -162,9 +160,8 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
     fclose(fiPtr);
     
     printf("Dati inseriti.\n");
-    if(val_vert == 1)
-        printf("Grafo con %d vertici.\n",
-               num_vert_grafo);
+    printf("Grafo con %d vertici.\n",
+           num_vert_grafo);
     return(grafo_p);
 }
 
