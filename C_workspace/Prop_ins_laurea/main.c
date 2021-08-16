@@ -131,8 +131,8 @@ vertice_grafo_t *acquisisci_grafo(FILE *fiPtr)
     /* riportare il puntatore del file all'inizio del file */
     rewind(fiPtr);
     val_rit = fscanf(fiPtr,
-                      "%d\n",
-                      &num_vert_grafo);
+                     "%d\n",
+                     &num_vert_grafo);
     
     vertice_p = grafo_p;
     /* creazione della lista di adiacenza del grafo */
