@@ -34,6 +34,7 @@
     <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
     <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
     <Project Name="Stazioni" Path="Stazioni/Stazioni.project" Active="No"/>
+    <Project Name="From_char_to_int" Path="From_char_to_int/From_char_to_int.project" Active="No"/>
   </VirtualDirectory>
   <VirtualDirectory Name="Progetto_ppl">
     <Project Name="Composizione_e_differenza_simmetrica" Path="Composizione_e_differenza_simmetrica/Composizione_e_differenza_simmetrica.project" Active="No"/>
@@ -80,6 +81,7 @@
       <Project Name="Propedeuticità_insegnamenti_laurea" ConfigName="Debug"/>
       <Project Name="Prop_ins_laurea" ConfigName="Debug"/>
       <Project Name="Parse_graph_from_file" ConfigName="Debug"/>
+      <Project Name="From_char_to_int" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
@@ -118,6 +120,7 @@
       <Project Name="Propedeuticità_insegnamenti_laurea" ConfigName="Release"/>
       <Project Name="Prop_ins_laurea" ConfigName="Release"/>
       <Project Name="Parse_graph_from_file" ConfigName="Release"/>
+      <Project Name="From_char_to_int" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
